@@ -1,0 +1,115 @@
+@import "../../../../../theme/colors.scss";
+#cartSideBar {
+    width: 319.4px;
+    position: sticky;
+    top: 61px;
+    height: calc(var(--view-height) - 61px);
+    padding: 20px 27px;
+    font-size: 14px;
+    h4 {
+        font-size: 16px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #dfdfdf;
+        margin: 0;
+    }
+    .cartItemsCont {
+        max-height: calc(100% - 30.2px - 80.76px - 81.75px);
+        overflow-y: auto;
+    }
+    .eachCart {
+        display: flex;
+        align-items: flex-start;
+        padding: 25.4px 0;
+        gap: 24px;
+        border-bottom: 1px solid #f1f1f1;
+        .delete {
+            cursor: pointer;
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+        .eachCartInner {
+            display: flex;
+            flex: 1;
+            gap: 25px;
+            .prodName {
+                font-weight: 500;
+            }
+            .imgCont {
+                min-width: 64px;
+                width: 64px;
+                .prodImg {
+                    padding-top: 115.548539857932%;
+                }
+            }
+            .txtCont {
+                flex: 1;
+            }
+            .pvPrice {
+                display: flex;
+                align-items: center;
+                gap: 11px;
+            }
+            .qty {
+                display: flex;
+                border: 1px solid #dfdfdf;
+                align-items: center;
+                width: fit-content;
+                margin-top: 9.92px;
+                & > span {
+                    min-width: 30px;
+                    text-align: center;
+                    padding-bottom: 2px;
+                }
+                .ctrl {
+                    display: flex;
+                    flex-direction: column;
+                    span {
+                        cursor: pointer;
+                        height: 12px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 12px;
+                        width: 15px;
+                    }
+                }
+            }
+        }
+    }
+    .summary {
+        border-top: 1px dashed #DFDFDF;
+        padding-top: 13.77px;
+        .keyVal {
+            padding: 6px 0;
+            display: flex;
+            font-weight: 500;
+            justify-content: space-between;
+        }
+    }
+    button,::ng-deep button {
+        height: 57px;
+        width: 100%;
+        margin-top: 24.75px;
+        font-weight: bold;
+        border-radius: 4px;
+    }
+    .emptyCart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        height: 100%;
+        .iconCont {
+            margin-bottom: 20px;
+            svg {
+                width: 70px;
+                height: auto;
+            }
+        }
+        p {
+            max-width: 200px;
+        }
+    }
+}

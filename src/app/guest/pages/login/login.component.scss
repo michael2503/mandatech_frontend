@@ -1,0 +1,254 @@
+@import '../../../../theme/colors.scss';
+// .contact-form{
+//     .form-control{
+//         background-color: transparent;
+//         border-color: rgba(255,255,255,0.50);
+//         // background: none;
+//         color: #ffffff;
+//         font-size: 16px;
+//         height: 54px;
+//         font-weight: 400;
+//         padding: 11px 20px;
+//         border-radius: 3px;
+//     }
+//     .form-control:focus{
+//         border: 1px solid #e0e0e0;
+//         box-shadow: none;
+//     }
+//     textarea{
+//         height: 150px !important;
+//     }
+// }
+// .fa-whatsapp{
+//     width: 50px;
+//     height: 50px;
+//     background: green;
+//     border-radius: 50%;
+//     color: #fff;
+//     font-size: 35px;
+//     padding-top: 6px;
+// }
+
+
+//new css
+.form-bg{
+    background: url('../../../../assets/images/img-1.jpg'), linear-gradient(to right, #6b92dd 50%, #68c1e1 100%);
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+}
+.form-horizontal{
+    background: rgba(241,246,252,0.9);
+    padding: 40px 50px;
+    border-radius: 5px;
+    margin: 120px 0px;
+}
+.form-horizontal .heading{
+    font-size: 24px;
+    font-weight: bold;
+    color: #4f4f4f;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+.form-horizontal .form-group{
+    margin: 0 0 6px 0;
+    position: relative;
+}
+.form-horizontal .form-group:last-child{ margin: 0; }
+.form-horizontal .form-control{
+    height: 45px;
+    background: #fff;
+    border: 1px solid #d8d8d8;
+    box-shadow: none;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #7f8291;
+    transition: all 0.3s ease 0s;
+    border-radius: 0px;
+}
+.form-horizontal .form-control[type=email]{ margin-bottom: 5px; }
+.form-horizontal .form-control[type=password]{ padding: 0 75px 0 20px; }
+.form-horizontal .form-control:focus{
+    box-shadow: none;
+    outline: 0 none;
+}
+.form-horizontal .form-group label{
+    color: #7f8291;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+}
+.form-horizontal .show-hide{
+    position: absolute;
+    top: 49.5%;
+    right: 10px;
+}
+.form-horizontal .show-hide span{
+    padding: 5px 12px;
+    float: right;
+    background: #f5efbb;
+    font-size: 14px;
+    font-weight: bold;
+    color: #746f31;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.form-horizontal .main-checkbox{
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background: #0896d8;
+    float: left;
+    margin: 5px 0 0 0;
+    border: 1px solid #0896d8;
+    position: relative;
+}
+.form-horizontal .main-checkbox label{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+.form-horizontal .main-checkbox label:after{
+    content: "";
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    border: 3px solid #fff;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    opacity: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.form-horizontal .main-checkbox input[type=checkbox]{ visibility: hidden; }
+.form-horizontal .main-checkbox input[type=checkbox]:checked + label:after{ opacity: 1; }
+.form-horizontal .text{
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    color: #8b8b8b;
+    margin-left: 7px;
+    line-height: 20px;
+    padding-top: 5px;
+    text-transform: capitalize;
+}
+.form-horizontal .btn{
+    width: 100%;
+    background: #0896d8;
+    padding: 12px 20px;
+    border: none;
+    box-shadow: 0 3px 0 #0075ab;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin: 10px 0 0 0;
+}
+.form-horizontal .btn:focus{
+    background: #0896d8;
+    color: #fff;
+    outline: none;
+    box-shadow: none;
+}
+.form-horizontal .forgot-pass{
+    width: auto;
+    float: right;
+    background: transparent;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0896d8;
+    line-height: 20px;
+    text-transform: capitalize;
+    padding: 5px 0 0 0;
+    margin-top: 0;
+    box-shadow: none;
+    transition: all 0.3s ease 0s;
+}
+.form-horizontal .forgot-pass:hover,
+.form-horizontal .forgot-pass:focus{
+    background: transparent;
+}
+.form-horizontal .social{
+    display: block;
+    list-style: none;
+    padding: 30px 0 0 0;
+    margin: 50px 0 0 0;
+    position: relative;
+}
+.form-horizontal .social:before{
+    content: "";
+    width: 100%;
+    border-top: 2px solid #d5d8de;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.form-horizontal .social:after{
+    content: "or";
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #c7ccd2;
+    text-align: center;
+    text-transform: uppercase;
+    background: #e1e9f7;
+    margin: 0 auto;
+    position: absolute;
+    top: -15px;
+    left: 0;
+    right: 0;
+}
+.form-horizontal .social li{
+    // display: inline-block;
+    // width: 49%;
+    // float: left;
+    // margin-right: 2%;
+}
+.form-horizontal .social li:last-child{ margin-right: 0; }
+.form-horizontal .social li a{
+    // display: block;
+    // padding: 8px 20px;
+    // font-size: 18px;
+    // color: #fff;
+    // letter-spacing: 1px;
+    // line-height: 25px;
+    // text-transform: uppercase;
+    // border-radius: 6px;
+}
+.form-horizontal .social li a i{
+    // font-size: 35px;
+    // line-height: 0;
+    // opacity: 0.5;
+    // margin-right: 8px;
+    // position: relative;
+    // top: 11px;
+}
+// .form-horizontal .social li:first-child a{ background: #3163a2; }
+// .form-horizontal .social li:last-child a{ background: #00aaf5; }
+@media only screen and (max-width: 479px){
+    .form-horizontal{ padding: 40px 20px; }
+    .form-horizontal .social li a{
+        padding: 8px 5px;
+        font-size: 14px;
+    }
+    .form-horizontal .social li a i{ font-size: 30px; }
+}
+.errDisp{
+    color: red;
+}

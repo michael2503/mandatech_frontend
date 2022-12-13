@@ -1,0 +1,57 @@
+<app-user-layout>
+    <app-layout [stage]="4">
+        <form>
+            <h2>Confirm Your Details</h2>
+            <div class="eachInfo">
+                <h5 class="infoTitle">Personal Details</h5>
+                <div class="infoBody">
+                    <div class="keyVal">
+                        <span>First Name</span>
+                        <span>{{auth?.first_name}}</span>
+                    </div>
+                    <div class="keyVal">
+                        <span>Last Name</span>
+                        <span>{{auth?.last_name}}</span>
+                    </div>
+                    <div class="keyVal">
+                        <span>Phone Number</span>
+                        <span>{{auth?.phone}}</span>
+                    </div>
+                    <div class="keyVal">
+                        <span>Address</span>
+                        <span>{{auth?.address}}</span>
+                    </div>
+                    <div class="keyVal">
+                        <span>Date of Birth</span>
+                        <span>{{auth?.dob | date}}</span>
+                    </div>
+                    <div class="keyVal">
+                        <span>Gender</span>
+                        <span>{{auth?.gender}}</span>
+                    </div>
+                    <a routerLink="/user/business/register/personal-info/edit" class="primCol">Edit</a>
+                </div>
+            </div>
+            <div class="eachInfo">
+                <h5 class="infoTitle">Payment Details</h5>
+                <div class="infoBody">
+                    <div class="keyVal">
+                        <span>Account Name</span>
+                        <span>{{account?.account_name}}</span>
+                    </div>
+                    <div class="keyVal">
+                        <span>Last Name</span>
+                        <span>{{account?.account_number}}</span>
+                    </div>
+                    <div class="keyVal">
+                        <span>Phone Number</span>
+                        <span>{{account?.bank}}</span>
+                    </div>
+                    <a routerLink="/user/business/register/payment-info" class="primCol">Edit</a>
+                </div>
+            </div>
+            <a *ngIf="!confirming" routerLink="/user/business/register/activate" class="primBtn">CONFIRM</a>
+            <app-loading-btn *ngIf="confirming" clss="primBtn"></app-loading-btn>
+        </form>
+    </app-layout>
+</app-user-layout>

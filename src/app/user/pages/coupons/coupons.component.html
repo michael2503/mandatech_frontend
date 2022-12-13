@@ -1,0 +1,120 @@
+<app-user-header></app-user-header>
+
+
+<div class="theSideMenu" id="theSideMenu">
+    <app-user-sidemenu [mainpage]="'coupon'" [page]="'coupon'"></app-user-sidemenu>
+</div>
+
+
+<div id="theMainPage" class="theMainPage">
+    <div class="container">
+
+        <div class="breadcrum mb-4">
+            <h4>Coupons</h4>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="title pull-left">All Coupons</h4>
+                                <!-- <a href="#" class="btn btn-sm btn-primary pull-right"><i class="fa fa-plus"></i> Add New</a> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Amount</th>
+                                    <th>Date Used</th>
+                                    <th>Status</th>
+                                    <th>Date Created</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="coupons?.length > 0">
+                                <tr>
+                                    <td colspan="5">
+                                        <form class="search-form" [formGroup]="formSearch" (ngSubmit)="submit()">
+                                            <div class="input-group">
+                                              <input type="text" class="form-control" placeholder="Search by coupon code" style="height: 45px;" formControlName="keywords">
+                                              <div class="input-group-append">
+                                                <button *ngIf="!isSearching" class="btn btn-success" type="submit">Go</button>
+                                                <button *ngIf="isSearching" disabled class="btn btn-success" type="button"><i class="fa fa-spinner fa-spin"></i></button>
+                                                <button  class="btn btn-danger" (click)="cancelSearch()" type="button">Cancel</button>
+                                              </div>
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr *ngFor="let coupon of coupons">
+                                    <td>{{ coupon?.coupon }}</td>
+                                    <td>₦{{ coupon?.amount | number }}</td>
+                                    <td>
+                                        {{ coupon?.date_used | date }}
+                                    </td>
+                                    <td>
+                                        <span *ngIf="coupon?.status == 'Active'" class="badge badge-success">Active</span>
+                                        <span *ngIf="coupon?.status == 'Used'" class="badge badge-danger">Used</span>
+                                    </td>
+                                    <td>
+                                        {{ coupon?.created_at | date }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody *ngIf="coupons?.length < 1">
+                                <tr>
+                                    <td class="text-center mb-4" colspan="5">No Coupon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-6">showing
+                                <b>{{ coupons?.length }}</b>
+                                out of
+                                <b>{{ couponsCount }}</b>
+                                entries
+                            </div>
+                            <div class="col-sm-6 col-xs-6">
+                                <ul class="pagination hidden-xs pull-right">
+                                    <button *ngIf="couponsCount > 0 && !isLoadMore" (click)="loadMore()" [disabled]="couponsCount <= coupons.length" class="btn btn-success">Load more</button>
+
+                                    <button *ngIf="isLoadMore" disabled class="btn btn-success">Loading <i class="fa fa-spinner fa-spin"></i></button>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <ol class="justName">
+            <li class="firstLine"><a href="#" class="fa fa-home"></a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Library</a></li>
+            <li><a href="#">Web</a></li>
+            <li class="active">Data</li>
+        </ol>
+
+
+        <div class="justName">
+            <a href="#" class="firstLine"><i class="fa fa-home"></i></a>
+            <a href="#">Gallery</a>
+            <a href="#">Library</a>
+            <a href="#">Web</a>
+        </div> -->
+
+    </div>
+</div>
+
+

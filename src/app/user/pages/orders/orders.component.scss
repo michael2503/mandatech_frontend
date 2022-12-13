@@ -1,0 +1,69 @@
+@import '../../../../theme/colors.scss';
+@import '../coupons/coupons.component.scss';
+
+.activeTab {
+    background: $primary;
+    border-radius: 5px;
+    a{
+      color: #fff !important;
+    }
+}
+
+.tabLink {
+    padding: 12px 0px;
+    font-weight: 550;
+    font-size: 15px;
+    a{
+      color: #555;
+      padding: 12px 20px 13px !important;
+    }
+}
+.sortWrap{
+    border: 1px solid #ccc;
+    background: #fff;
+    margin-top: 30px;
+    padding: 5px 5px;
+    border-radius: 10px;
+}
+@media only screen and (max-width: 520px){
+    .mobileView{
+      display: block !important;
+    }
+}
+
+.eachOrder{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    .proImg{
+        border: 2px solid #ccc;
+        padding: 2px;
+        border-radius: 5px;
+        img{
+            object-fit: contain;
+            width: 100%;
+            height: 113px;
+        }
+    }
+    .proInfoWrapepr{
+        padding-left: 0px;
+        .proInfo{
+            .pInfo{
+                margin-bottom: 2px;
+                font-size: 14px;
+                font-weight: 550;
+            }
+        }
+        @media only screen and (max-width: 575px){
+            padding-left: 15px;
+            padding-top: 10px;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 450px){
+    .mobileView{
+        display: block !important;
+    }
+}

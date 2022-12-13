@@ -1,0 +1,519 @@
+@import '../../../../theme/colors.scss';
+#bannerSect {
+    padding: 118.19px 0;
+    position: relative;
+    overflow: hidden;
+    background: rgba(37, 44, 48, 0.5);
+    img,
+     ::ng-deep img {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    h1 {
+        font-size: 45px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        max-width: 383.72px;
+    }
+    p {
+        margin-bottom: 30px;
+        max-width: 395.19px;
+    }
+    .btnCont {
+        .primBtnOutline {
+            height: 54.97px;
+            padding: 0 29.2px;
+            max-width: 179.41px;
+            border-color: $txtColor;
+            color: $txtColor !important;
+            font-size: 18px;
+            i {
+                margin-left: 23.29px;
+            }
+        }
+    }
+}
+
+#fourQualities {
+    transform: translateY(-20px);
+    padding: 0;
+    @media (min-width: 1400px) {
+        transform: translateY(-10px);
+    }
+    .row {
+        margin: 0 !important;
+        gap: 0 !important;
+        [class*="col-"] {
+            padding: 0;
+            &:nth-child(3),
+            &:nth-child(2) {
+                .eachQual {
+                    background: $greyBg;
+                    color: $txtColor;
+                    .qualHead {
+                        border-bottom-color: #00321C40;
+                        .iconCont {
+                            border-color: $txtColor;
+                             ::ng-deep svg {
+                                path {
+                                    fill: $txtColor;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &:nth-child(4) {
+                .eachQual {
+                    background: $primary;
+                    color: #fff;
+                    .qualHead {
+                        border-bottom-color: #ffffff40;
+                        .iconCont {
+                            border-color: #fff;
+                             ::ng-deep svg {
+                                path {
+                                    stroke: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            @media (min-width: 992px),
+            (max-width: 575px) {
+                &:nth-child(even) {
+                    .eachQual {
+                        background: $greyBg;
+                        color: $txtColor;
+                        .qualHead {
+                            border-bottom-color: #00321C40;
+                            .iconCont {
+                                border-color: $txtColor;
+                                 ::ng-deep svg {
+                                    path {
+                                        stroke: $txtColor;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &:nth-child(2) {
+                    .eachQual {
+                        .qualHead {
+                            .iconCont {
+                                 ::ng-deep svg {
+                                    path {
+                                        fill: $txtColor;
+                                        stroke: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &:nth-child(odd) {
+                    .eachQual {
+                        background: $primary;
+                        color: #fff;
+                        .qualHead {
+                            border-bottom-color: #ffffff40;
+                            .iconCont {
+                                border-color: #fff;
+                                 ::ng-deep svg {
+                                    path {
+                                        stroke: #fff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .eachQual {
+            padding: 31.3px 28.98px;
+            background: $primary;
+            color: #fff;
+            height: 100%;
+            .qualHead {
+                display: flex;
+                align-items: center;
+                padding-bottom: 17.11px;
+                border-bottom: 1px solid #ffffff40;
+                margin-bottom: 12.96px;
+                .iconCont {
+                    border-radius: 50%;
+                    width: 24.92px;
+                    height: 24.92px;
+                    border: 1px solid #fff;
+                    margin-right: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                h5 {
+                    margin: 0;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+#aboutUs {
+    padding: 100px 0 70px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: 50% 266px;
+    .content {
+        max-width: 470px;
+    }
+}
+
+.controlCont {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    .prev,
+    .next {
+        bottom: 0;
+        position: static;
+        top: unset;
+        height: 40px;
+        width: 40px;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        transform: translateY(0);
+        left: 50%;
+        text-decoration: none !important;
+        text-shadow: none;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        color: #fff;
+        font-weight: bold;
+    }
+}
+.flexCont {
+    margin-bottom: 30px;
+}
+.carouselItem {
+    margin-right: 35px !important;
+}
+
+
+#producedBest {
+    background-color: #08660F;
+    color: #fff;
+    position: relative;
+    padding: 86px 0;
+    .row {
+        margin: 0 -38px;
+        &>div {
+            padding: 0 38px;
+        }
+    }
+     ::ng-deep .carouselParent {
+        padding: 0 72.57px;
+    }
+    [class^="carouselCtrl"] {
+        width: 52.52px;
+        height: 52.52px;
+        color: #fff;
+        border: 1px solid #fff;
+        font-size: 26px;
+        margin: 0;
+        background: transparent;
+    }
+    img,
+     ::ng-deep img {
+        width: 100%;
+    }
+    // .txtPart {
+    //     // padding-left: 75px;
+    // }
+}
+
+#startYourDream {
+    padding: 151.28px 0 118.27px;
+    position: relative;
+    .row {
+        margin: 0 -37px;
+        row-gap: 30px;
+        [class*="col-"] {
+            padding: 0 37px;
+        }
+    }
+    img,
+     ::ng-deep img {
+        left: 0;
+        bottom: 0;
+        position: absolute;
+    }
+    .btnCont {
+        margin-top: 30px;
+        .primBtnOutline {
+            width: fit-content;
+            padding: 0 51.3px;
+            height: 55px;
+        }
+    }
+}
+
+#testimonial {
+    padding: 134px 0 108px;
+}
+
+#becomeDistributor {
+    background: #08660F;
+    padding: 69.23px;
+    color: #fff;
+    @media (max-width: 650px) {
+        padding: 50px 0px;
+    }
+    .txtPart {
+        max-width: 378.61px;
+        i {
+            margin-bottom: 12px;
+        }
+    }
+    .btnCont {
+        margin-top: 24.81px;
+        .primBtnOutlineWhite {
+            height: 55px;
+            padding: 0 54.3px;
+            width: fit-content;
+        }
+    }
+    .slicedImg {
+        .smallImg {
+            .imgSizer {
+                padding-top: 127.3167777104785% !important;
+            }
+        }
+    }
+}
+
+#blog {
+    padding: 123px 0;
+    .row {
+        margin: 0 -23px;
+        row-gap: 30px;
+        [class*="col-"] {
+            padding: 0 23px;
+        }
+        @media (max-width: 1200px) {
+            margin: 0 -15px;
+            [class*="col-"] {
+                padding: 0 15px;
+            }
+        }
+    }
+    .focusBlog {
+        position: relative;
+        height: 100%;
+        .imgCont {
+            position: relative;
+            padding-top: 87.82532452257222%;
+            height: 100%;
+            img,
+             ::ng-deep img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .blogTxt {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: #048c0ed9;
+            color: #fff;
+            padding: 29.79px 31.91px;
+            width: 70.35777677979512%;
+            h5 {
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .otherBlogs {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 46px;
+        @media (max-width: 1200px) {
+            gap: 30px;
+        }
+        .eachBlog {
+            flex: 1;
+            display: flex;
+            gap: 37px;
+            @media (max-width: 1200px) {
+                gap: 30px;
+            }
+            .imgCont {
+                height: 100%;
+                min-width: 48%;
+                img,
+                 ::ng-deep img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .blogTxt {
+                .dateCont {
+                    margin-bottom: 15px;
+                    .innerInfo {
+                        display: flex;
+                        align-items: center;
+                        svg {
+                            margin-right: 8.5px;
+                        }
+                    }
+                }
+                h5 {
+                    font-weight: 600;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}
+
+#partners {
+    padding: 74px 0;
+    .parTitle {
+        font-size: 25px;
+        margin-right: 100px;
+        margin-bottom: 0;
+    }
+    .carouselItem {
+        margin-right: 57px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            max-width: 100%;
+            max-height: 46px;
+        }
+    }
+    .partnersCont {
+        max-width: calc(100% - 181.93px);
+    }
+}
+
+
+
+
+.testimonialSect {
+    .controls {
+        padding-bottom: 80.2px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+        gap: 18.55px;
+        label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #fff;
+            color: #fff;
+            font-size: 26px;
+            width: 62.6px;
+            min-width: 62.6px;
+            height: 62.6px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        @media (max-width: 991px) {
+            justify-content: center;
+        }
+    }
+    .eachTesti {
+        // display: flex;
+        // gap: 48px;
+        .imgCont {
+            min-width: 301px;
+            @media (max-width: 1000px) {
+                min-width: 250px;
+            }
+            @media (max-width: 700px) {
+                min-width: 20%;
+            }
+            // .prodImg {
+            //     padding-top: 111.67109634551495%;
+            // }
+        }
+        @media (max-width: 1000px) {
+            gap: 30px;
+        }
+        @media (max-width: 750px) {
+            gap: 10px;
+        }
+    }
+}
+
+
+
+
+// testimony start
+@import '../../../../theme/colors.scss';
+.testiQuote {
+    background: $greyBg !important;
+}
+
+#videos {
+    .vidCont {
+        position: relative;
+        padding-top: 58.77904768481751%;
+        background: #C4C4C4;
+        .playCtrl {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+    }
+    .carouselItem {
+        margin-right: 43.8px;
+    }
+    .next,
+    .prev {
+        position: static;
+        display: flex !important;
+        width: 33.75px;
+        height: 33.75px;
+        border: 1px solid $primary;
+        text-shadow: none;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        color: $primary;
+        font-size: 16px;
+    }
+    .controlCont {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 54.9px;
+    }
+}

@@ -1,0 +1,259 @@
+<app-user-layout>
+    <div
+        class="titleSearchSect d-flex align-items-center justify-content-between"
+    >
+        <div class="headTile">Structure for binary</div>
+        <form [formGroup]="form" (ngSubmit)="search()" class="searchCont">
+            <input
+                type="text"
+                formControlName="username"
+                (input)="trackInp()"
+                placeholder="eg. Johanez"
+                class="form-control"
+            />
+            <button class="primBtn">Search</button>
+        </form>
+    </div>
+    <div *ngIf="!noResult" class="treeCont" #treeCont>
+        <div
+            *ngFor="let pageTree of superArr; let p = index; trackBy: trackPage"
+            class="eachPageTree"
+        >
+            <div
+                *ngFor="
+                    let level of pageTree.downlines;
+                    let i = index;
+                    trackBy: trackLevel
+                "
+                class="eachUserLevel"
+                [class.moreDetails]="p != 0 && i == 0"
+                [style.gridTemplateColumns]="
+                    'repeat(' +
+                    level.length +
+                    ',' +
+                    ' ' +
+                    100 / level.length +
+                    '%)'
+                "
+            >
+                <div
+                    *ngFor="
+                        let user of level;
+                        let j = index;
+                        trackBy: trackUser
+                    "
+                    class="eachUserCont"
+                    [class.addUser]="!user.username && user.placement"
+                >
+                    <ng-container *ngIf="user.username">
+                        <div
+                            class="vertLine"
+                            [class.d-none]="
+                                !user.placement || (p == 0 && i == 0)
+                            "
+                        ></div>
+                        <div
+                            *ngIf="
+                                superArr.length > p + 1 &&
+                                user.username == superArr[p + 1].username
+                            "
+                            class="vertLine"
+                            style="height: calc(100% + 24px)"
+                            [class.d-none]="
+                                !user.placement || (p == 0 && i == 0)
+                            "
+                        ></div>
+                        <div
+                            *ngIf="
+                                !(
+                                    superArr.length > p + 1 &&
+                                    user.username == superArr[p + 1].username
+                                )
+                            "
+                            class="vertLine"
+                            [class.d-none]="
+                                !user.placement || (p == 0 && i == 0)
+                            "
+                        ></div>
+                        <div
+                            *ngIf="p != 0 && i == 0"
+                            [style.left]="pageTree.parInd < 4 ? 'unset' : '50%'"
+                            [style.right]="
+                                pageTree.parInd < 4 ? '50%' : 'unset'
+                            "
+                            class="horLine"
+                            [class.d-none]="!user.placement"
+                            [style.width]="
+                                'calc(' +
+                                calcHW(pageTree.parInd) +
+                                '% + ' +
+                                (pageTree.parInd < 4 ? '0px' : '1px') +
+                                ')'
+                            "
+                        ></div>
+                        <div
+                            *ngIf="!(p != 0 && i == 0)"
+                            class="horLine"
+                            [class.d-none]="
+                                !user.placement || (p == 0 && i == 0)
+                            "
+                        ></div>
+                        <div
+                            class="moreCont"
+                            [class.d-none]="
+                                i != 3 ||
+                                (superArr.length > p + 1 &&
+                                    user.username == superArr[p + 1].username)
+                            "
+                            (click)="
+                                i == 0
+                                    ? removeDownlines(user)
+                                    : moreDownlines(user, j)
+                            "
+                        >
+                            <svg
+                                width="17"
+                                height="17"
+                                viewBox="0 0 17 17"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M12.4733 0.292969H4.59832V7.57422L0.6604 7.57422L8.53582 16.8555L16.4112 7.57422L12.4733 7.57422V0.292969Z"
+                                    fill="#00321C"
+                                />
+                            </svg>
+                        </div>
+                        <div
+                            class="eachUserInfo"
+                            [class.d-none]="
+                                superArr.length > p + 1 &&
+                                user.username == superArr[p + 1].username
+                            "
+                        >
+                            <div class="eachUserInfoInner">
+                                <div class="imgCont">
+                                    <cl-image
+                                        appAltImageFormat
+                                        public-id="{{
+                                            user?.photo
+                                                | publicId
+                                                    : 'https://res.cloudinary.com/natures-extracts/image/upload/v1652953084/profile-default_m19n1m.png'
+                                        }}"
+                                        format="avif"
+                                    >
+                                        <cl-transformation
+                                            width="69"
+                                            height="69"
+                                            crop="fill"
+                                            radius="max"
+                                        ></cl-transformation>
+                                    </cl-image>
+                                    <div class="fullDetail">
+                                        <div class="fullDetailInnerPar">
+                                            <div class="fullDetailInner">
+                                                <div class="topPart">
+                                                    <div class="imgCont">
+                                                        <cl-image
+                                                            appAltImageFormat
+                                                            public-id="{{
+                                                                user?.photo
+                                                                    | publicId
+                                                                        : 'https://res.cloudinary.com/natures-extracts/image/upload/v1652953084/profile-default_m19n1m.png'
+                                                            }}"
+                                                            format="avif"
+                                                        >
+                                                            <cl-transformation
+                                                                width="34"
+                                                                height="34"
+                                                                crop="fill"
+                                                                radius="max"
+                                                            ></cl-transformation>
+                                                        </cl-image>
+                                                    </div>
+                                                    <div class="username">
+                                                        {{ user?.username }}
+                                                    </div>
+                                                    <div class="userFullName">
+                                                        {{ user?.first_name }}
+                                                        {{ user?.last_name }}
+                                                    </div>
+                                                </div>
+                                                <div class="bodyPart">
+                                                    <div class="eachBodyInfo">
+                                                        <div class="key">
+                                                            <span
+                                                                >Join Date</span
+                                                            >
+                                                            <span>:</span>
+                                                        </div>
+                                                        <div class="value">
+                                                            {{
+                                                                user?.created_at
+                                                                    | date
+                                                                        : "dd/MM/YYYY"
+                                                            }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="eachBodyInfo">
+                                                        <div class="key">
+                                                            <span>Package</span>
+                                                            <span>:</span>
+                                                        </div>
+                                                        <div class="value">
+                                                            {{ user?.name }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="eachBodyInfo">
+                                                        <div class="key">
+                                                            <span>PV</span>
+                                                            <span>:</span>
+                                                        </div>
+                                                        <div class="value">
+                                                            {{ user?.pv }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="username">{{ user?.username }}</div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="!user.username && user.placement">
+                        <div class="vertLine"></div>
+                        <div class="vertLine"></div>
+                        <div class="horLine"></div>
+                        <div class="addHere" (click)="addUser(user)">
+                            <div class="addImgCont">
+                                <cl-image
+                                    appAltImageFormat
+                                    public-id="{{
+                                        'https://res.cloudinary.com/natures-extracts/image/upload/v1653924189/add_zv0jkc.png'
+                                            | publicId
+                                    }}"
+                                    format="avif"
+                                >
+                                    <cl-transformation
+                                        width="45"
+                                        height="45"
+                                        crop="fill"
+                                        radius="max"
+                                    ></cl-transformation>
+                                </cl-image>
+                            </div>
+                            <span>ADD HERE</span>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="noResult" id="noResult">
+        You have no downline by the username {{ username.value }}
+    </div>
+</app-user-layout>

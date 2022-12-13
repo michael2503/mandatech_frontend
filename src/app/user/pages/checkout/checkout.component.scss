@@ -1,0 +1,199 @@
+@import "../../../../theme/colors.scss";
+// #dashboardBody {
+//     display: flex;
+//     gap: 15px;
+//     flex-direction: column;
+//     margin-top: 15px;
+//     .box {
+//         border-radius: 10px;
+//         border: 1px solid #dfdfdf;
+//         background: #fff;
+//     }
+//     .topGridCont {
+//         display: flex;
+//         gap: 15px;
+//         .gridContInner {
+//             display: flex;
+//             gap: 15px;
+//             flex: 1;
+//             div {
+//                 height: 150px;
+//                 flex: 1;
+//                 background: #fff;
+//                 border-radius: 10px;
+//                 border: 1px solid #dfdfdf;
+//                 box-shadow: 0px 8px 10px #0000000a;
+//             }
+//         }
+//         .ctrlCont {
+//             display: flex;
+//             gap: 10px;
+//             align-items: center;
+//             span {
+//                 width: 37.59px;
+//                 height: 37.59px;
+//                 border-radius: 50%;
+//                 border: 1px solid $primary;
+//                 display: flex;
+//                 align-items: center;
+//                 justify-content: center;
+//                 min-width: 37.59px;
+//             }
+//         }
+//     }
+//     .middleSect {
+//         display: flex;
+//         gap: 15px;
+//         & > div {
+//             min-height: 248px;
+//             flex: 1;
+//         }
+//     }
+//     .bottomSect {
+//         min-height: 300px;
+//     }
+// }
+
+.blueCard{
+    .card-header{
+        background: #406fe6;
+        color: #fff;
+        font-size: 14px;
+        padding: 15px;
+    }
+}
+
+input:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #ccc;
+}
+
+.orderSumm{
+    .d-flex{
+        padding: 20px 15px;
+        font-size: 15px;
+        border-bottom: 1px solid #ccc;
+    }
+}
+
+
+
+.accDark{
+    border: none !important;
+    .card-header{
+        background-color: #000;
+        a{
+            padding: 15px 20px;
+        }
+    }
+}
+.payDot{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #fff;
+    margin-right: 10px;
+}
+.activeDot{
+    background-color: #406fe6 !important;
+}
+
+.eachAddress{
+    background: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    position: relative;
+    p{
+        font-size: 15px;
+    }
+    .selectedAddress{
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
+}
+
+.activeBlue{
+    border-color: $primary;
+}
+
+
+
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: $primary;
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
+}
+
+.checkmark {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 5;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    margin: auto;
+    box-shadow: inset 0px 0px 0px $primary;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards
+}
+
+
+@keyframes noticeAnime {
+    0% {
+      top: 0px;
+    }
+    20% {
+        top: 30px;
+    }
+    40% {
+        top: 60px;
+    }
+    60% {
+        top: 90px;
+    }
+    80% {
+        top: 120px;
+    }
+    100% {
+        top: 150px;
+    }
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0
+    }
+}
+
+@keyframes scale {
+    0%,
+    100% {
+        transform: none
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1)
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px $primary
+    }
+}

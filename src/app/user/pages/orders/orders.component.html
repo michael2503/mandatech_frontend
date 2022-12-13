@@ -1,0 +1,101 @@
+<app-page-loader *ngIf="pageLoader"></app-page-loader>
+
+<app-user-header></app-user-header>
+
+
+<div class="theSideMenu" id="theSideMenu">
+    <app-user-sidemenu [mainpage]="'order'" [page]="'order'"></app-user-sidemenu>
+</div>
+
+
+<div *ngIf="!pageLoader" id="theMainPage" class="theMainPage">
+    <div class="container">
+        <div class="breadcrum mt-2">
+            <h4>Orders</h4>
+        </div>
+
+
+        <div class="sortWrap">
+            <div class="d-flex justify-content-between mobileView">
+                <div class="pointer tabLink" [class.activeTab]="status == 'all'"><a routerLink="/user/order-manager/all">All</a></div>
+                <div class="pointer tabLink" [class.activeTab]="status == 'delivered'"><a routerLink="/user/order-manager/delivered">Delivered</a></div>
+                <div class="pointer tabLink" [class.activeTab]="status == 'pending'"><a routerLink="/user/order-manager/pending">Pending</a></div>
+                <div class="pointer tabLink" [class.activeTab]="status == 'cancelled'"><a routerLink="/user/order-manager/cancelled">Cancelled</a></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 col-md-12 mt-5 mb-5">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="title pull-left">All Orders</h4>
+                                <!-- <a href="#" class="btn btn-sm btn-primary pull-right"><i class="fa fa-plus"></i> Add New</a> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card cardShadow">
+                        <div class="card-body">
+                            <div *ngIf="orders?.length > 0">
+                                <div *ngFor="let order of orders" class="eachOrder">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-4">
+                                            <div class="proImg">
+                                                <img src="{{ order?.prodInfo.featured_img }}" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-8 col-md-8 col-sm-8 proInfoWrapepr">
+                                            <div class="proInfo">
+                                                <p>{{ order?.prodInfo.product_name }}</p>
+                                                <p class="pInfo">Order Number: {{ order?.order_number }}</p>
+                                                <p class="pInfo">Order On: {{ order?.created_at | date }}
+                                                    <span *ngIf="order?.status == 'Pending'" class="badge badge-info ml-2">Pending</span>
+                                                    <span *ngIf="order?.status == 'Delivered'" class="badge badge-success ml-2">Delivered</span>
+                                                    <span *ngIf="order?.status == 'Cancelled'" class="badge badge-danger ml-2">Cancelled</span>
+                                                    <span *ngIf="order?.status == 'Returned'" class="badge badge-dark ml-2">Returned</span>
+                                                    <span *ngIf="order?.status == 'Shipped'" class="badge badge-warning ml-2">Shipped</span>
+                                                </p>
+                                                <div class="d-flex justify-content-between mt-3">
+                                                    <p class="pInfo">Total: ₦{{ order?.total | number }}</p>
+                                                    <h4><a routerLink="/user/order-manager/details/{{ order?.order_number }}">Order Details</a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="orders?.length < 1">
+                                <p *ngIf="status == 'all'" class="text-center">No Order</p>
+                                <p *ngIf="status != 'all'" class="text-center">{{ status | titlecase }} No Order</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-footer mt-2">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-6">showing
+                                <b>{{ orders?.length }}</b>
+                                out of
+                                <b>{{ orderCount }}</b>
+                                entries
+                            </div>
+                            <div class="col-sm-6 col-xs-6">
+                                <ul class="pagination hidden-xs pull-right">
+                                    <button *ngIf="orderCount > 0 && !isLoadMore" (click)="loadMore()" [disabled]="orderCount <= orders.length" class="btn btn-success">Load more</button>
+
+                                    <button *ngIf="isLoadMore" disabled class="btn btn-success">Loading <i class="fa fa-spinner fa-spin"></i></button>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

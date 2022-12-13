@@ -1,0 +1,41 @@
+<div id="rightSideInfo" class="thinScBar">
+    <div class="userInfo">
+        <div class="userImg">
+            <cl-image appAltImageFormat public-id="{{auth?.photo | publicId:'https://res.cloudinary.com/natures-extracts/image/upload/v1652953084/profile-default_m19n1m.png'}}" format="avif">
+                <cl-transformation width="99" height="99" crop="fill" radius="max"></cl-transformation>
+            </cl-image>
+        </div>
+        <div class="name">{{auth?.first_name}} {{auth?.last_name}}</div>
+        <div class="keyVal">
+            <span>Username:</span>
+            <span>{{auth?.username}}</span>
+        </div>
+        <div class="keyVal">
+            <span>Package::</span>
+            <span>{{auth?.package}}</span>
+        </div>
+        <a routerLink="/user/account/profile" class="primBtnOutline">View Profile</a>
+    </div>
+    <div id="newMembers">
+        <h5>New Members</h5>
+        <div class="memberBody">
+            <div *ngFor="let u of newMembers; trackBy:trackMember" class="eachMember">
+                <div class="userImg">
+                    <cl-image appAltImageFormat public-id="{{u?.photo | publicId:'https://res.cloudinary.com/natures-extracts/image/upload/v1652953084/profile-default_m19n1m.png'}}" format="avif">
+                        <cl-transformation width="34" height="34" crop="fill" radius="max"></cl-transformation>
+                    </cl-image>
+                </div>
+                <div class="txtCont">
+                    <div class="info">
+                        <span>{{u?.first_name}} {{u?.last_name}}</span>
+                        <span>{{u?.package}}</span>
+                    </div>
+                    <div class="info">
+                        <span class="primCol">{{u?.username}}</span>
+                        <span>{{u?.created_at | date}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

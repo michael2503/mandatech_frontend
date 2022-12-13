@@ -1,0 +1,43 @@
+<a class="eachProd" [class.related]="related" routerLink="/products/{{product?.pid}}/{{product?.name}}">
+    <div class="prodImg">
+        <cl-image appAltImageFormat public-id="{{product?.featured_img | publicId}}" format="avif">
+            <cl-transformation width="300" crop="scale"></cl-transformation>
+        </cl-image>
+    </div>
+    <div class="txtPart">
+        <div class="nameRate d-flex align-items-center justify-content-between">
+            <b>{{product?.name}}</b>
+            <div class="rateCont d-flex align-items-center">
+                <svg *ngFor="let r of numArr(product?.star_rate)" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M5.93753 0.259277L7.25126 4.51059H11.5026L8.06319 7.13804L9.37691 11.3893L5.93753 8.76189L2.49815 11.3893L3.81188 7.13804L0.372498 4.51059H4.62381L5.93753 0.259277Z"
+            fill="#F8853A" />
+        </svg>
+                <svg *ngFor="let r of numArr(5 - product?.star_rate)" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6.37204 0.259277L7.68577 4.51059H11.9371L8.4977 7.13804L9.81142 11.3893L6.37204 8.76189L2.93266 11.3893L4.24639 7.13804L0.807007 4.51059H5.05831L6.37204 0.259277Z"
+            fill="#E6E6E6" />
+        </svg>
+            </div>
+        </div>
+        <div class="rateCont align-items-center">
+            <svg *ngFor="let r of numArr(product?.star_rate)" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M5.93753 0.259277L7.25126 4.51059H11.5026L8.06319 7.13804L9.37691 11.3893L5.93753 8.76189L2.49815 11.3893L3.81188 7.13804L0.372498 4.51059H4.62381L5.93753 0.259277Z"
+          fill="#F8853A" />
+      </svg>
+            <svg *ngFor="let r of numArr(5 - product?.star_rate)" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M6.37204 0.259277L7.68577 4.51059H11.9371L8.4977 7.13804L9.81142 11.3893L6.37204 8.76189L2.93266 11.3893L4.24639 7.13804L0.807007 4.51059H5.05831L6.37204 0.259277Z"
+          fill="#E6E6E6" />
+      </svg>
+        </div>
+        <p>{{product?.overview}}</p>
+        <div class="amntAddBtn d-flex justify-content-between align-items-center">
+            <b class="amnt" [class.primCol]="related"><span class="cur">{{curr}}</span>{{product?.sales_price | number}}</b>
+            <button *ngIf="!adding" [class.primBtnOutline]="!related" [class.primBtn]="related" (click)="addToCart($event)">Add to cart</button>
+            <app-loading-btn *ngIf="adding == product?.pid" clss="{{related ? 'primBtn' : 'primBtnOutline'}}">
+            </app-loading-btn>
+        </div>
+    </div>
+</a>

@@ -1,0 +1,92 @@
+<app-header></app-header>
+<main>
+    <section id="testimonials" class="testimonialSect">
+        <div class="bodyCont">
+            <div class="titleSect noPara">
+                <h1>Testimonial</h1>
+                <i>Learn something intresting</i>
+                <h3>Word’s from our customers</h3>
+            </div>
+            <div class="bodySect">
+                <div class="row">
+                    <div class="col-md-10">
+                        <app-banner-carousel>
+                            <div class="flexCont">
+                                <div *ngFor="let testi of testimonials;" class="carouselItem">
+                                    <div class="eachTesti">
+                                        <div class="imgCont">
+                                            <div class="prodImg">
+                                                <img src="{{testi?.prod_image}}" alt="{{testi?.occupation}}">
+                                            </div>
+                                        </div>
+                                        <div class="testiTxt">
+                                            <div class="testiQuote">
+                                                <svg width="37" height="32" viewBox="0 0 37 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M0.940943 23.3928C0.940943 28.1259 4.77759 31.9625 9.51054 31.9625C14.2436 31.9625 18.0802 28.1259 18.0802 23.3928C18.0802 18.6598 14.2436 14.8232 9.51054 14.8232C8.53784 14.8232 7.60674 14.9928 6.73509 15.2916C8.66362 4.23101 17.2888 -2.90183 9.29328 2.96864C0.427491 9.47833 0.931447 23.1309 0.941368 23.3811C0.941368 23.385 0.940943 23.3885 0.940943 23.3928Z"
+                            fill="#00321C" />
+                          <path
+                            d="M19.794 23.3928C19.794 28.1259 23.6306 31.9625 28.3637 31.9625C33.0967 31.9625 36.9333 28.1259 36.9333 23.3928C36.9333 18.6598 33.0966 14.8232 28.3636 14.8232C27.3908 14.8232 26.4598 14.9928 25.5881 15.2916C27.5167 4.23101 36.1418 -2.90183 28.1463 2.96864C19.2805 9.47833 19.7844 23.1309 19.7944 23.3811C19.7944 23.385 19.794 23.3885 19.794 23.3928Z"
+                            fill="#00321C" />
+                        </svg>
+                                                <p class="m-0">{{testi?.testimony}}</p>
+                                            </div>
+                                            <div class="userInfo d-flex">
+                                                <div class="userImg">
+                                                    <img src="{{testi?.userInfo?.photo}}" alt="{{testi?.userInfo?.first_name}}">
+                                                </div>
+                                                <div class="userTxt">
+                                                    <h6 class="primCol">{{testi?.userInfo?.first_name}} {{testi?.userInfo?.last_name}}
+                                                    </h6>
+                                                    <div>{{testi?.userInfo?.occupation}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input id="testiPrev" hidden class="carouselCtrlPrev">
+                            <input id="testiNext" hidden class="carouselCtrlNext">
+                        </app-banner-carousel>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="controls">
+                            <label for="testiPrev"><i class="fa fa-angle-left"></i></label>
+                            <label for="testiNext"><i class="fa fa-angle-right"></i></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="videos" class="greyBg">
+        <div class="bodyCont">
+            <div class="titleSect noPara">
+                <i>Live testimonies</i>
+                <h3>Watch us online</h3>
+            </div>
+            <div class="bodySect">
+                <app-flex-slider [slideResizeConfig]="vidResizeConfig">
+                    <div class="flexCont">
+                        <div *ngFor="let vid of videos" class="carouselItem">
+                            <div class="vidCont">
+                                <span class="playCtrl">
+                  <svg width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M20.4076 37.7046L35.6576 26.2671L20.4076 14.8296V37.7046ZM25.4909 0.850464C11.4482 0.850464 0.0742188 12.2244 0.0742188 26.2671C0.0742188 40.3098 11.4482 51.6838 25.4909 51.6838C39.5336 51.6838 50.9076 40.3098 50.9076 26.2671C50.9076 12.2244 39.5336 0.850464 25.4909 0.850464ZM25.4909 46.6005C14.2821 46.6005 5.15755 37.4759 5.15755 26.2671C5.15755 15.0584 14.2821 5.9338 25.4909 5.9338C36.6996 5.9338 45.8242 15.0584 45.8242 26.2671C45.8242 37.4759 36.6996 46.6005 25.4909 46.6005Z"
+                      fill="white" />
+                  </svg>
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="controlCont">
+                        <span class="prev"><i class="fa fa-angle-left"></i></span>
+                        <span class="next"><i class="fa fa-angle-right"></i></span>
+                    </div>
+                </app-flex-slider>
+            </div>
+        </div>
+    </section>
+</main>
+<app-footer></app-footer>

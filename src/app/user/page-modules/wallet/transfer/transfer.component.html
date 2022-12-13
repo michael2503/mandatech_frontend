@@ -1,0 +1,58 @@
+<app-user-layout>
+    <app-form-layout>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="text-center balLab">Balance</div>
+            <h4 class="primCol text-center">
+                <span [innerHTML]="curr"></span>{{ balance | number }}
+            </h4>
+            <div class="formGroup">
+                <label for="">Enter Username</label>
+                <input
+                    type="text"
+                    formControlName="username"
+                    [class.error]="
+                        f('username')?.touched && f('username')?.invalid || (userErr && prevUser == f('username')?.value)
+                    "
+                    class="form-control"
+                />
+                <div
+                    *ngIf="f('username')?.touched && f('username')?.invalid"
+                    class="errDisp"
+                >
+                    *This field is required!
+                </div>
+                <div *ngIf="userErr && prevUser == f('username')?.value" class="errDisp">*{{userErr}}</div>
+            </div>
+            <div class="formGroup">
+                <label for="">Enter Amount</label>
+                <input
+                    type="text"
+                    formControlName="amount"
+                    placeholder="0.00"
+                    [class.error]="
+                        (f('amount')?.touched && f('amount')?.invalid) ||
+                        +f('amount')?.value > balance
+                    "
+                    class="form-control"
+                />
+                <div
+                    *ngIf="f('amount')?.touched && f('amount')?.invalid"
+                    class="errDisp"
+                >
+                    *This field is required!
+                </div>
+                <div
+                    *ngIf="f('amount')?.valid && +f('amount')?.value > balance"
+                    class="errDisp"
+                >
+                    *Insufficient fund!
+                </div>
+            </div>
+            <button *ngIf="!submitting" [disabled]="form.invalid || +f('amount')?.value > balance" class="primBtn">TRANSFER NOW</button>
+            <app-loading-btn
+                *ngIf="submitting"
+                clss="primBtn"
+            ></app-loading-btn>
+        </form>
+    </app-form-layout>
+</app-user-layout>

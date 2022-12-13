@@ -1,0 +1,124 @@
+<app-user-layout>
+  <app-layout [stage]="5">
+    <form [formGroup]="form" (ngSubmit)="firstSubmit()">
+      <h2>Payment</h2>
+      <p class="primCol">
+        Registration fee: <span [innerHTML]="currSym"></span
+        >{{ regFee | number }}
+      </p>
+      <div class="paymentMethCont">
+        <app-each-pay-method>
+          <input
+            type="radio"
+            (change)="payMChng()"
+            name="payment_method"
+            formControlName="payment_method"
+            value="wallet"
+            id="wallet"
+          />
+          <label for="wallet">
+            <div class="headPart">
+              <div class="cusRadio"></div>
+              <span>Transaction Wallet</span>
+            </div>
+            <div class="bodyPart">Balance: {{ balance | number }}</div>
+          </label>
+        </app-each-pay-method>
+        <app-each-pay-method>
+          <input
+            type="radio"
+            (change)="payMChng()"
+            name="payment_method"
+            formControlName="payment_method"
+            value="voucher"
+            id="voucher"
+          />
+          <label for="voucher">
+            <div class="headPart">
+              <div class="cusRadio"></div>
+              <span>Voucher Code</span>
+            </div>
+            <div class="bodyPart">
+              <div class="formGroup mb-0">
+                <input
+                  type="text"
+                  class="form-control"
+                  [class.error]="
+                    (f('voucher_code')?.touched &&
+                      f('voucher_code')?.invalid) ||
+                    (voucherErr && prevVoucher == f('voucher_code')?.value)
+                  "
+                  placeholder="Enter voucher code"
+                  formControlName="voucher_code"
+                />
+                <div
+                  *ngIf="
+                    f('voucher_code')?.touched && f('voucher_code')?.invalid
+                  "
+                  class="errDisp"
+                >
+                  *This field is required!
+                </div>
+                <div
+                  *ngIf="voucherErr && prevVoucher == f('voucher_code')?.value"
+                  class="errDisp"
+                >
+                  *{{ voucherErr }}
+                </div>
+              </div>
+            </div>
+          </label>
+        </app-each-pay-method>
+        <app-each-pay-method>
+          <input
+            type="radio"
+            (change)="payMChng()"
+            name="payment_method"
+            formControlName="payment_method"
+            value="paystack"
+            id="paystack"
+          />
+          <label for="paystack">
+            <div class="headPart">
+              <div class="cusRadio"></div>
+              <span>
+                <img
+                  src="assets/images/paystack2.png"
+                  style="height: 19px"
+                  alt="paystack"
+                />
+                <img
+                  src="assets/images/cards2.png"
+                  style="height: 30px"
+                  alt="cards"
+                />
+              </span>
+            </div>
+          </label>
+        </app-each-pay-method>
+      </div>
+      <button
+        *ngIf="!submitting && f('payment_method')?.value != 'paystack'"
+        [disabled]="!validForm"
+        class="primBtn"
+      >
+        CONTINUE
+      </button>
+      <angular4-paystack
+        *ngIf="f('payment_method')?.value == 'paystack'"
+        [key]="paystackKey"
+        [email]="auth.email"
+        [amount]="paystackAmnt"
+        [ref]="paystackRef"
+        [channels]="['card', 'bank']"
+        [currency]="currCode"
+        [class]="'primBtn' + (submitting ? ' d-none' : '')"
+        (onClose)="paymentCancel()"
+        (callback)="paymentDone($event)"
+        >PAY NOW
+      </angular4-paystack>
+      <app-loading-btn *ngIf="submitting" clss="primBtn"></app-loading-btn>
+      <button class="primBtnOutline" (click)="back()">BACK</button>
+    </form>
+  </app-layout>
+</app-user-layout>

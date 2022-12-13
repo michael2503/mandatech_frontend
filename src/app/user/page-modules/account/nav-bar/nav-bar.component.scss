@@ -1,0 +1,19 @@
+@import "../../../../../theme/colors.scss";
+.navs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    border-bottom: 1px solid #dfdfdf;
+    margin-bottom: 30px;
+    color: #00321c;
+    margin-top: 40px;
+    & > a {
+        padding-bottom: 15px;
+        cursor: pointer;
+        color: $txtColor;
+    }
+    .activeTab {
+        border-bottom: 2px solid $primary;
+    }
+}

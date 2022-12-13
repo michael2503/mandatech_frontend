@@ -1,0 +1,156 @@
+<app-user-layout pageTitle="New Registration">
+    <app-layout [stage]="1">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <h2>Personal Information</h2>
+            <div #userG class="formGroup">
+                <label for="">Username*</label>
+                <input
+                    formControlName="username"
+                    type="text"
+                    placeholder="Create a unique username"
+                    [class.error]="
+                        (f('username')?.touched && f('username')?.invalid) ||
+                        (userErr && prevUser == f('username')?.value)
+                    "
+                    class="form-control"
+                />
+                <div
+                    *ngIf="f('username')?.touched && f('username')?.invalid"
+                    class="errDisp"
+                >
+                    *This field is required!
+                </div>
+                <div
+                    *ngIf="userErr && prevUser == f('username')?.value"
+                    class="errDisp"
+                >
+                    *{{ userErr }}
+                </div>
+            </div>
+            <div class="formGroup">
+                <label for="">Country*</label>
+                <select
+                    name="country"
+                    [class.error]="
+                        f('country')?.touched && f('country')?.invalid
+                    "
+                    formControlName="country"
+                    class="form-control"
+                >
+                    <option value="">Choose country</option>
+                    <option
+                        *ngFor="let ctry of countries"
+                        value="{{ ctry?.name }}"
+                    >
+                        {{ ctry?.name }}
+                    </option>
+                </select>
+                <div
+                    *ngIf="f('country')?.touched && f('country')?.invalid"
+                    class="errDisp"
+                >
+                    *This field is required!
+                </div>
+            </div>
+            <div #sponsG class="formGroup">
+                <label for="">Sponsor Username*</label>
+                <input
+                    formControlName="referral"
+                    type="text"
+                    placeholder="Enter sponsor username"
+                    [class.error]="
+                        (f('referral')?.touched && f('referral')?.invalid) ||
+                        (refErr && prevRef == f('referral')?.value)
+                    "
+                    class="form-control"
+                />
+                <div
+                    *ngIf="f('referral')?.touched && f('referral')?.invalid"
+                    class="errDisp"
+                >
+                    *This field is required!
+                </div>
+                <div
+                    *ngIf="refErr && prevRef == f('referral')?.value"
+                    class="errDisp"
+                >
+                    *{{ refErr }}
+                </div>
+            </div>
+            <div #placG class="formGroup">
+                <label for="">Placement Username*</label>
+                <input
+                    formControlName="placement"
+                    type="text"
+                    placeholder="Enter sponsor username"
+                    [readonly]="hasPlacement"
+                    [class.error]="
+                        (f('placement')?.touched && f('placement')?.invalid) ||
+                        (placErr && prevPlac == f('placement')?.value)
+                    "
+                    class="form-control"
+                />
+                <div
+                    *ngIf="f('placement')?.touched && f('placement')?.invalid"
+                    class="errDisp"
+                >
+                    *This field is required!
+                </div>
+                <div
+                    *ngIf="placErr && prevPlac == f('placement')?.value"
+                    class="errDisp"
+                >
+                    *{{ placErr }}
+                </div>
+            </div>
+            <div class="formGroup">
+                <label for="">Binary Position*</label>
+                <select
+                    name="first_member"
+                    formControlName="first_member"
+                    class="form-control"
+                >
+                    <option value="">Select</option>
+                    <option value="Left">Left</option>
+                    <option value="Right">Right</option>
+                </select>
+                <div
+                    *ngIf="
+                        f('first_member')?.touched && f('first_member')?.invalid
+                    "
+                    class="errDisp"
+                >
+                    *This field is required!
+                </div>
+            </div>
+            <div class="formGroup">
+                <label for="">Sponsored User Placement*</label>
+                <select formControlName="sponsor_side" class="form-control">
+                    <option value="">Select</option>
+                    <option value="rightward">Far Right</option>
+                    <option value="leftward">Far Left</option>
+                    <option value="automatic">Automatic</option>
+                </select>
+                <div
+                    *ngIf="
+                        f('sponsor_side')?.touched && f('sponsor_side')?.invalid
+                    "
+                    class="errDisp"
+                >
+                    *This field is required!
+                </div>
+            </div>
+            <button
+                *ngIf="!submitting"
+                [disabled]="form.invalid"
+                class="primBtn"
+            >
+                NEXT
+            </button>
+            <app-loading-btn
+                *ngIf="submitting"
+                clss="primBtn"
+            ></app-loading-btn>
+        </form>
+    </app-layout>
+</app-user-layout>

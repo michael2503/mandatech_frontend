@@ -1,0 +1,219 @@
+<app-home-header [activePage]="'product'"></app-home-header>
+
+<app-page-loader *ngIf="isLoading"></app-page-loader>
+
+
+<div *ngIf="isAddingCart" class="coverUp">
+    <div class="d-flex justify-content-center">
+        <span class="fa fa-spin fa-spinner"></span>
+    </div>
+</div>
+
+<main *ngIf="!isLoading" id="main-content" class="body-container-wrapper">
+    <div class="container-fluid body-container body-container--project">
+        <div class="row-fluid-wrapper">
+            <div class="row-fluid">
+                <div class="span12 widget-span widget-type-cell " data-widget-type="cell" data-x="0" data-w="12">
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-1 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                <div id="hs_cos_wrapper_dnd_area-module-1" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                    <section class="page-banner">
+                                        <div class="image-layer" style="background-image: url(/assets/images/banner/banner-bg-1.webp);"></div>
+                                        <div class="auto-container">
+                                            <div class="breadcrumb-box">
+                                                <div class="auto-container">
+                                                    <ul class="bread-crumb clearfix">
+                                                        <li>
+                                                            <a routerLink="/">
+                                                                Home
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a routerLink="/products">
+                                                                Our Products
+                                                            </a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h1>Our Products</h1>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+
+
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-2 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-3 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624790688694" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="dedicated-projects default-theme">
+                                                    <div class="auto-container">
+                                                        <div class="masonry-gallery">
+                                                            <div class="masonry-container  clearfix">
+
+                                                                <div class="row">
+                                                                    <div class="col-xl-3 col-lg-3">
+                                                                        <div class="eachFilter">
+                                                                            <div class="eachSortSect">
+                                                                                <h4>Category</h4>
+                                                                                <div class="sortBody">
+                                                                                    <div *ngFor="let cat of categories; let i = index; trackBy:trackCat" class="eachCheck">
+                                                                                        <input hidden [checked]="isselected(cat?.slug)" (change)="categoryChange($event.target)" type="checkbox" value="{{cat?.slug}}" id="{{cat?.slug}}{{i}}">
+                                                                                        <label for="{{cat?.slug}}{{i}}">
+                                                                                            <div class="cusCheck"><i class="fa fa-check"></i></div>
+                                                                                            <span>{{cat?.category}}</span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            <div class="eachSortSect">
+                                                                                <h4>Filter by price</h4>
+                                                                                <div class="sortBody priceFilt">
+                                                                                    <h6>Choose price</h6>
+                                                                                    <div class="cusRangeCont">
+                                                                                        <div class="greyLine">
+                                                                                            <div
+                                                                                                class="minLine"
+                                                                                                [style.width.%]="(minPrice * 100) / heighestP"
+                                                                                            >
+                                                                                                <div
+                                                                                                    class="minCircle"
+                                                                                                    (mousedown)="priceChngStart($event, 'min')"
+                                                                                                >
+                                                                                                    <div class="cusToolTip">
+                                                                                                        <span>{{ minPrice | number }}</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="maxLine"
+                                                                                                [style.width.%]="(maxPrice * 100) / heighestP"
+                                                                                            >
+                                                                                                <div
+                                                                                                    class="maxCircle"
+                                                                                                    (mousedown)="priceChngStart($event, 'max')"
+                                                                                                >
+                                                                                                    <div class="cusToolTip">
+                                                                                                        <span>{{ maxPrice | number }}</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="priceRange">
+                                                                                        Price: <span>$</span
+                                                                                        >{{ minPrice | number }} —
+                                                                                        <span>$</span
+                                                                                        >{{ maxPrice | number }}
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-xl-9 col-lg-9">
+                                                                        <div class="prodListCont">
+                                                                            <h1>Product</h1>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div *ngFor="let product of products" class="col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-4">
+                                                                                <div class="product-grid">
+                                                                                    <div class="product-image">
+                                                                                        <a routerLink="/products/{{ product?.id }}/{{ product?.name_slug }}" class="image">
+                                                                                            <img src="{{ product?.feature_img }}">
+                                                                                        </a>
+                                                                                        <ul class="product-links">
+                                                                                          <li><a routerLink="/products/{{ product?.id }}/{{ product?.name_slug }}"><i class="fa fa-pencil"></i></a></li>
+                                                                                          <li *ngIf="!auth">
+                                                                                            <a (click)="addToCarts(product?.id)"><i class="fa fa-shopping-cart"></i></a>
+                                                                                          </li>
+                                                                                          <li *ngIf="auth">
+                                                                                            <a (click)="addToCartsAuth(product?.id)"><i class="fa fa-shopping-cart"></i></a>
+                                                                                          </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="product-content">
+                                                                                        <div class="justify-content-between" style="display: flex;">
+                                                                                          <span class="product-category"><a routerLink="/products/{{ product?.id }}/{{ product?.name_slug }}">{{ product?.category | urlToString }}</a></span>
+                                                                                        </div>
+                                                                                        <h3 class="title"><a routerLink="/products/{{ product?.id }}/{{ product?.name_slug }}">{{ product?.name }}</a></h3>
+                                                                                        <div class="price">₦{{ product?.sales_price | number }}</div>
+                                                                                        <a class="add-to-cart">{{ product?.quantity - product?.sold }}</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+                </div>
+                <!--end widget-span -->
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<app-footer *ngIf="!isLoading"></app-footer>
+
+
+
+<div *ngIf="showNotice">
+    <div class="adminNoteWrap">
+      <div *ngIf="justMssg">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+        </svg>
+
+        <p class="pt-3"> {{theMessage}} </p>
+        <div class="d-flex justify-content-center"><button class="btn btn-sm btn-primary" (click)="closeMyNotice()">Close</button></div>
+      </div>
+
+      <div *ngIf="deleteModal">
+        <div class="d-flex justify-content-center"><i class="fa fa-times delIcon"></i></div>
+        <p class="text-center">{{theMessage}}</p>
+        <div class="text-center mt-4 mb-2">
+            <button class="btn btn-primary btn-sm" (click)="closeMyNotice()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

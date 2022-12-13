@@ -1,0 +1,279 @@
+<app-home-header [activePage]="'services'"></app-home-header>
+
+<app-page-loader *ngIf="isLoading"></app-page-loader>
+
+<main *ngIf="!isLoading" id="main-content" class="body-container-wrapper">
+    <div class="container-fluid body-container body-container--services">
+        <div class="row-fluid-wrapper">
+            <div class="row-fluid">
+                <div class="span12 widget-span widget-type-cell " data-widget-type="cell" data-x="0" data-w="12">
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-1 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                <div id="hs_cos_wrapper_dnd_area-module-1" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                    <section class="page-banner">
+                                        <div class="image-layer" style="background-image: url(/assets/images/banner/banner-bg-2.jpg);"></div>
+                                        <div class="auto-container">
+                                            <div class="breadcrumb-box">
+                                                <div class="auto-container">
+                                                    <ul class="bread-crumb clearfix">
+
+                                                        <li>
+                                                            <a routerLink="/">
+                                                                Home
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a routerLink="/services">
+                                                                Our Services
+                                                            </a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h1>Services</h1>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-2 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-3 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624792315363" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="services-section-four default-theme">
+                                                    <div class="auto-container">
+                                                        <div class="upper-content">
+                                                            <div class="sec-title centered">
+                                                                <h2>A smarter way of solving the challenges</h2>
+                                                                <div class="subtitle">And For Controling Your Energy Production Worldwide</div>
+                                                                <div class="bottom-dots clearfix">
+                                                                    <span class="dot line-dot"></span>
+                                                                    <span class="dot"></span>
+                                                                    <span class="dot"></span>
+                                                                    <span class="dot"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-4 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-5 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624793358363" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="services-section-one">
+                                                    <div class="pattern-image-left paroller" data-paroller-factor="-0.4" data-paroller-factor-lg="-0.4" data-paroller-factor-md="-0.2" data-paroller-factor-sm="-0.2" data-paroller-type="foreground" data-paroller-direction="vertical">
+                                                        <img src="/assets/images/banner/pattern-image-1.webp" alt="pattern-image-1" loading="lazy" style="max-width: 100%; height: auto;">
+                                                    </div>
+                                                    <div class="pattern-image-right paroller" data-paroller-factor="-0.3" data-paroller-factor-lg="-0.3" data-paroller-factor-md="0.2" data-paroller-factor-sm="0.2" data-paroller-type="foreground" data-paroller-direction="vertical">
+                                                        <img src="/assets/images/banner/pattern-image-2.png" alt="pattern-image-2" loading="lazy" style="max-width: 100%; height: auto;">
+                                                    </div>
+                                                    <div class="auto-container">
+                                                        <div class="services">
+
+                                                            <div *ngFor="let service of services" class="service-block">
+                                                                <div class="row clearfix">
+                                                                    <div class="image-column col-lg-5 col-md-6 col-sm-12">
+                                                                        <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                            <div class="image">
+                                                                                <img src="{{ service?.banner }}" alt="featured-image-3" loading="lazy" style="max-width: 100%; height: auto;">
+                                                                            </div>
+                                                                            <div class="icon-box"><span class="flaticon-power-7"></span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="text-column col-lg-7 col-md-6 col-sm-12">
+                                                                        <div class="inner clearfix">
+                                                                            <div class="content wow fadeInRight" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                                <div class="title">
+                                                                                    <h2><span>{{ service?.title }}</span></h2>
+                                                                                    <div class="sub-text">{{ service?.sub_title }}</div>
+                                                                                </div>
+                                                                                <div class="text" [innerHTML]="service?.content | summary: 250"></div>
+                                                                                <div class="link-box">
+                                                                                    <a href="/services/{{ service?.id }}/{{ service?.title | cleanUrl }}">
+                                                                                        <span class="txt">Get Started</span><span class="icon flaticon-arrows-11"></span>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-6 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-7 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624793563855" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="enquiry-section">
+                                                    <div class="image-layer" style="background-image: url(/assets/images/banner/banner-bg-2.jpg);"></div>
+                                                    <div class="auto-container">
+                                                        <div class="sec-title light-title centered wow fadeInDown" data-wow-delay="0ms" data-wow-duration="1000ms">
+                                                            <div class="upper-text">who are Mandatech <span class="icon flaticon-flash"></span></div>
+                                                            <h2>Get Free Consultation</h2>
+                                                            <div class="subtitle">For Controling Your Energy Production</div>
+                                                            <div class="bottom-dots clearfix">
+                                                                <span class="dot line-dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="content-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                            <div class="default-form contact-form">
+                                                                <span id="hs_cos_wrapper_widget_1624793563855_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_form" data-hs-cos-general-type="widget" data-hs-cos-type="form">
+                                                                    <h3 id="hs_cos_wrapper_form_81358901_title" class="hs_cos_wrapper form-title" data-hs-cos-general-type="widget_field" data-hs-cos-type="text"></h3>
+
+                                                                    <div id="hs_form_target_form_81358901"></div>
+                                                                </span>
+                                                            </div>
+                                                            <div class="lower-text">
+                                                                <div class="sub-title">
+                                                                    <span class="txt">Or if you need quick assistance</span>
+                                                                </div>
+                                                                <div class="info">Call Us 24/7 For Customer Support At <span class="icon"></span>
+                                                                    <a href="?hsLang=en">
+                                                                        {{ webSet?.biz_phone }}
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-8 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-9 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624794951764" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="testimonial-section-three alternate">
+                                                    <div class="auto-container">
+                                                        <div class="sec-title centered">
+                                                            <div class="subtitle">For Controling Your Energy Production</div>
+                                                            <h2>Our Sponsors</h2>
+                                                            <div class="bottom-dots clearfix">
+                                                                <span class="dot line-dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="sponsors-outer">
+                                                        <div class="auto-container">
+                                                            <div class="sponsors-carousel strnix-carousel owl-theme owl-carousel" data-options="{&quot;loop&quot;: true, &quot;margin&quot;: 40, &quot;autoheight&quot;:true, &quot;lazyload&quot;:true, &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 6000, &quot;smartSpeed&quot;: 300, &quot;responsive&quot;:{ &quot;0&quot; :{ &quot;items&quot;: &quot;1&quot; }, &quot;600&quot; :{ &quot;items&quot; : &quot;2&quot; }, &quot;768&quot; :{ &quot;items&quot; : &quot;3&quot; } , &quot;800&quot;:{ &quot;items&quot; : &quot;3&quot; }, &quot;1024&quot;:{ &quot;items&quot; : &quot;4&quot; }, &quot;1200&quot;:{ &quot;items&quot; : &quot;5&quot; }}}">
+
+                                                                <div *ngFor="let client of clients" class="slide-item">
+                                                                    <figure class="image-box">
+                                                                        <a href="">
+                                                                            <img src="{{ client?.logo }}" alt="1-a-1" loading="" width="180" height="100">
+                                                                        </a>
+                                                                    </figure>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+                </div>
+                <!--end widget-span -->
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+<app-footer *ngIf="!isLoading"></app-footer>

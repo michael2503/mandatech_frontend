@@ -1,0 +1,60 @@
+.fadeSliderPar {
+    position: relative;
+     ::ng-deep .next,
+     ::ng-deep .prev {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        color: #e25416;
+        font-weight: bold;
+    }
+     ::ng-deep .slideItemCont {
+        position: relative;
+    }
+     ::ng-deep .slideItem {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        visibility: hidden;
+        opacity: 0;
+        transition: .3s ease;
+        &.slideActive {
+            visibility: visible;
+            opacity: 1;
+            position: relative;
+            z-index: 2;
+        }
+    }
+     ::ng-deep .indicators {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 300;
+        .indicatorItem {
+            height: 9px;
+            width: 9px;
+            min-width: 9px;
+            border-radius: 50%;
+            margin: 0 2.5px;
+            background: #fff;
+            cursor: pointer;
+            &.indiActive {
+                background: #e25416;
+            }
+        }
+    }
+}

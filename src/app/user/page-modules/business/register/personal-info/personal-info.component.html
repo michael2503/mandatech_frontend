@@ -1,0 +1,89 @@
+<app-user-layout>
+    <app-layout [stage]="2">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <h2>Personal Information</h2>
+            <div class="formGroup">
+                <label for="">First Name*</label>
+                <input formControlName="first_name" type="text" placeholder="Enter first name" [class.error]="f('first_name')?.touched && f('first_name')?.invalid" class="form-control" />
+                <div *ngIf="f('first_name')?.touched && f('first_name')?.invalid" class="errDisp">
+                    *This field is required!
+                </div>
+            </div>
+            <div class="formGroup">
+                <label for="">Last Name*</label>
+                <input formControlName="last_name" type="text" placeholder="Enter last name" [class.error]="f('last_name')?.touched && f('last_name')?.invalid" class="form-control" />
+                <div *ngIf="f('last_name')?.touched && f('last_name')?.invalid" class="errDisp">
+                    *This field is required!
+                </div>
+            </div>
+            <div class="formGroup">
+                <label for="">Email Address*</label>
+                <input formControlName="email" type="text" placeholder="Enter email address" [class.error]="f('email').touched && f('email').invalid" class="form-control">
+                <div *ngIf="f('email').touched && f('email').invalid" class="errDisp">
+                    <span *ngIf="f('email')?.errors['required']">*This field is required!</span>
+                    <span *ngIf="f('email')?.errors['pattern']">*Enter a valid email!</span>
+                </div>
+            </div>
+            <div class="formGroup">
+                <label for="">Phone Number*</label>
+                <div class="inputCont phone" #inpC [class.error]="f('phone')?.touched && f('phone')?.invalid">
+                    <div class="ctryCode">
+                        {{ ctryCode }}
+                    </div>
+                    <input formControlName="phone" (focus)="inpC.classList.add('focused')" (blur)="inpC.classList.remove('focused')" type="number" [class.error]="f('phone')?.touched && f('phone')?.invalid" class="form-control" />
+                </div>
+                <div *ngIf="f('phone')?.touched && f('phone')?.invalid" class="errDisp">
+                    *This field is required!
+                </div>
+            </div>
+            <div class="formGroup">
+                <label for="">Address*</label>
+                <input formControlName="address" type="text" placeholder="Enter address" [class.error]="f('address')?.touched && f('address')?.invalid" class="form-control" />
+                <div *ngIf="f('address')?.touched && f('address')?.invalid" class="errDisp">
+                    *This field is required!
+                </div>
+            </div>
+            <div class="formGroup">
+                <label for="">Date of Birth*</label>
+                <input formControlName="dob" type="date" placeholder="Enter Date of Birth" [class.error]="f('dob')?.touched && f('dob')?.invalid" class="form-control" />
+                <div *ngIf="f('dob')?.touched && f('dob')?.invalid" class="errDisp">
+                    <div *ngIf="f('dob')?.errors['required']">*This field is required!</div>
+                    <div *ngIf="f('dob')?.errors['future']">*You cannot be born in the future</div>
+                </div>
+            </div>
+            <div class="formGroup">
+                <label for="">Gender*</label>
+                <select name="gender" formControlName="gender" class="form-control">
+                  <option value="">Select</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+                <div *ngIf="f('gender')?.touched && f('gender')?.invalid" class="errDisp">
+                    *This field is required!
+                </div>
+            </div>
+            <div class="formGroup">
+                <label for="">Password*</label>
+                <div class="inputCont">
+                    <input type="password" formControlName="password" #pwd [class.error]="f('password').touched && f('password').invalid" placeholder="Enter password" class="form-control">
+                    <span [appPassToggle]="pwd" class="fa fa-eye-slash"></span>
+                </div>
+                <div *ngIf="f('password').touched && f('password').invalid" class="errDisp">*This field is required!
+                </div>
+            </div>
+            <div class="formGroup mb-3">
+                <label for="">Confirm Password*</label>
+                <div class="inputCont">
+                    <input type="password" formControlName="confirm_password" #cpwd [class.error]="f('confirm_password').touched && (f('confirm_password').invalid || passMismatch)" placeholder="Confirm password" class="form-control">
+                    <span [appPassToggle]="cpwd" class="fa fa-eye-slash"></span>
+                </div>
+                <div *ngIf="f('confirm_password').touched" class="errDisp">
+                    <div *ngIf="f('confirm_password').invalid">*This field is required!</div>
+                    <div *ngIf="f('confirm_password')?.valid && passMismatch">*Password mismatch error</div>
+                </div>
+            </div>
+            <button *ngIf="!submitting" [disabled]="form.invalid || passMismatch" class="primBtn">NEXT</button>
+            <app-loading-btn *ngIf="submitting" clss="primBtn"></app-loading-btn>
+        </form>
+    </app-layout>
+</app-user-layout>

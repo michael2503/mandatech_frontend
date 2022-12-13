@@ -1,0 +1,21 @@
+@import '../../../../theme/colors.scss';
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 55px;
+     ::ng-deep a {
+        text-decoration: none;
+        padding: 2px 9px;
+        color: #cccccc;
+        &:first-child {
+            margin-right: 7px;
+        }
+        &:last-child {
+            margin-left: 7px;
+        }
+        &.activePage {
+            background: $primary;
+        }
+    }
+}

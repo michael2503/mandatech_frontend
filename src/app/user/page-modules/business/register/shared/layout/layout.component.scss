@@ -1,0 +1,26 @@
+.registerLayout {
+    max-width: 570px;
+    margin: auto;
+    padding: 60px 0;
+    ::ng-deep .stageCont {
+        div.eachStage,
+        div.stageLine {
+            background: #dfdfdf;
+        }
+    }
+    ::ng-deep .formCont {
+        h2 {
+            font-size: 20px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        [class*="Btn"] {
+            height: 60px;
+            width: 100%;
+            border-radius: 5px;
+            &.primBtnOutline {
+                margin-top: 20px;
+            }
+        }
+    }
+}

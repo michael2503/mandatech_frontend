@@ -1,0 +1,160 @@
+<app-user-layout>
+    <div class="columns">
+        <div class="eachCol">
+            <div>
+                <p>Total Voucher</p>
+                <h5>
+                    {{ vouchInfo?.totalVoucher | number }}
+                </h5>
+            </div>
+            <div class="iconCont">
+                <img src="assets/images/voucherIcon.svg" alt="voucher" />
+            </div>
+        </div>
+        <div class="eachCol">
+            <div>
+                <p>Used Voucher</p>
+                <h5>
+                    {{ vouchInfo?.usedVoucher | number }}
+                </h5>
+            </div>
+            <div class="iconCont">
+                <img src="assets/images/voucherIcon.svg" alt="voucher" />
+            </div>
+        </div>
+        <div class="eachCol">
+            <div>
+                <p>Available Voucher</p>
+                <h5>
+                    {{ vouchInfo?.availVoucher | number }}
+                </h5>
+            </div>
+            <div class="iconCont">
+                <img src="assets/images/voucherIcon.svg" alt="voucher" />
+            </div>
+        </div>
+    </div>
+    <button class="primBtn round" [openModal]="voucherModal">
+        <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M8.14194 15.3605C4.12731 15.3605 0.872803 12.106 0.872803 8.09141C0.872803 4.07677 4.12731 0.822266 8.14194 0.822266C12.1566 0.822266 15.4111 4.07677 15.4111 8.09141C15.4067 12.1042 12.1548 15.3561 8.14194 15.3605ZM2.32663 8.21643C2.36103 11.4158 4.9734 13.9863 8.17286 13.9692C11.3723 13.952 13.9569 11.3534 13.9569 8.15392C13.9569 4.95441 11.3723 2.35589 8.17286 2.33861C4.9734 2.32149 2.36103 4.89208 2.32663 8.09141V8.21643ZM8.86886 11.726H7.41503V8.81832H4.50737V7.36449H7.41503V4.45684H8.86886V7.36449H11.7765V8.81832H8.86886V11.726Z"
+                fill="white"
+            />
+        </svg>
+        <span>Generate New Voucher</span>
+    </button>
+    <app-tab-table-view>
+        <div class="tabHead">
+            <span class="eachTab activeTab">Vouchers</span>
+        </div>
+        <div class="tabBody">
+            <div class="cusTable">
+                <div class="tableHead">
+                    <div>Date</div>
+                    <div>Voucher Code</div>
+                    <div>Status</div>
+                    <div>Date Used</div>
+                </div>
+                <div class="tableBody">
+                    <div *ngFor="let vouch of vouchers" class="tableRow">
+                        <div>{{ vouch?.created_at | date }}</div>
+                        <div>{{ vouch?.code }}</div>
+                        <!-- <div>{{ vouch?.status }}</div> -->
+                        <div>{{ vouch?.status }}</div>
+                        <div>
+                            {{ vouch?.date_used | date }}
+                        </div>
+                    </div>
+                    <div *ngIf="!count" class="emptyRes">
+                        No vouchers found!
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="count" class="paginationCont">
+                <div class="leftSide">{{ begin }}-{{ end }} of {{ count }}</div>
+                <div class="rightSide">
+                    <span class="ctrl" (click)="morePage(-1)"
+                        ><i class="fa fa-angle-left"></i
+                    ></span>
+                    <span class="ctrl" (click)="morePage(1)"
+                        ><i class="fa fa-angle-right"></i
+                    ></span>
+                </div>
+            </div>
+        </div>
+    </app-tab-table-view>
+    <div id="modals">
+        <app-modal
+            #voucherModal
+            [closeModal]="closeModal"
+            (onClose)="onClose()"
+        >
+            <div class="modalContent">
+                <span class="closeBtn"></span>
+                <div class="modalBody">
+                    <form [formGroup]="form" (ngSubmit)="submit()">
+                        <div class="categoryTab">
+                            <div class="eachTab">
+                                <input
+                                    type="radio"
+                                    formControlName="category"
+                                    hidden
+                                    name="category"
+                                    id="registration"
+                                    value="Registration"
+                                />
+                                <label for="registration">Registration</label>
+                            </div>
+                            <div class="eachTab">
+                                <input
+                                    type="radio"
+                                    formControlName="category"
+                                    hidden
+                                    name="category"
+                                    id="others"
+                                    value="Others"
+                                />
+                                <label for="">Others</label>
+                            </div>
+                        </div>
+                        <div class="formGroup">
+                            <label for="">Enter Amount</label>
+                            <input
+                                type="number"
+                                [class.error]="
+                                    f('amount').touched && f('amount').invalid || balance < regFee
+                                "
+                                [readonly]="f('category')?.value == 'Registration'"
+                                formControlName="amount"
+                                placeholder="0.00"
+                                class="form-control"
+                            />
+                            <div
+                                *ngIf="
+                                    f('amount').touched && f('amount').invalid
+                                "
+                                class="errDisp"
+                            >
+                                *This field is required
+                            </div>
+                            <div *ngIf="balance < regFee" class="errDisp">*Insufficient fund</div>
+                        </div>
+                        <button *ngIf="!submitting" [disabled]="form.invalid || balance < regFee">
+                            GENERATE
+                        </button>
+                        <app-loading-btn
+                            *ngIf="submitting"
+                            clss="primBtn"
+                        ></app-loading-btn>
+                    </form>
+                </div>
+            </div>
+        </app-modal>
+    </div>
+</app-user-layout>

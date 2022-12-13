@@ -1,0 +1,48 @@
+<app-user-layout>
+    <div id="settingsPar">
+        <app-nav-bar></app-nav-bar>
+        <div class="formCont">
+            <h5 class="accTitle">Account Details</h5>
+            <div class="bodyPart">
+                <div *ngFor="let bank of banks" class="eachInfo d-flex justify-content-between align-items-center">
+                    <div class="left">
+                        <div>{{ bank?.account_name }}</div>
+                        <div>{{ bank?.account_number }} - {{ bank?.bank }}</div>
+                    </div>
+                    <button class="primBtnOutline" [openModal]="editBank" (click)="setEdit(bank)">Change</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modals">
+        <app-modal #editBank [closeModal]="closeModal">
+            <div class="modalContent" id="editBank">
+                <span class="closeBtn"></span>
+                <div class="modalBody">
+                    <app-form-layout>
+                        <h2>Payment Information</h2>
+                        <form [formGroup]="form" (ngSubmit)="submit()">
+                            <div class="formGroup">
+                                <label for="">Account Name</label>
+                                <input type="text" formControlName="account_name" placeholder="Enter account name" [class.error]="f('account_name')?.touched && f('account_name')?.invalid" class="form-control">
+                                <div *ngIf="f('account_name')?.touched && f('account_name')?.invalid" class="errDisp">*This field is required!</div>
+                            </div>
+                            <div class="formGroup">
+                                <label for="">Account Number</label>
+                                <input type="text" appAllowNum formControlName="account_number" [class.error]="f('account_number')?.touched && f('account_number')?.invalid" placeholder="Enter account number" class="form-control">
+                                <div *ngIf="f('account_number')?.touched && f('account_number')?.invalid" class="errDisp">*This field is required!</div>
+                            </div>
+                            <div class="formGroup">
+                                <label for="">Bank Name</label>
+                                <input type="text" formControlName="bank" placeholder="Enter bank name" [class.error]="f('bank')?.touched && f('bank')?.invalid" class="form-control">
+                                <div *ngIf="f('bank')?.touched && f('bank')?.invalid" class="errDisp">*This field is required!</div>
+                            </div>
+                            <button *ngIf="!submitting" [disabled]="form.invalid" class="primBtn">SAVE</button>
+                            <app-loading-btn *ngIf="submitting" clss="primBtn"></app-loading-btn>
+                        </form>
+                    </app-form-layout>
+                </div>
+            </div>
+        </app-modal>
+    </div>
+</app-user-layout>

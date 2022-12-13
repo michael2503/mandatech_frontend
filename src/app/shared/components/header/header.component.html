@@ -1,0 +1,137 @@
+<div class="topMostHead primBg text-white">
+    <div class="bodyCont d-flex align-items-center justify-content-between">
+        <span>Welcome to Natures Extract</span>
+        <div class="rightPart">
+            <a href="tel:+2347017975327" class="info">
+                <i class="fa fa-phone"></i>
+                <span>(+234) 701 797 5327</span>
+            </a>
+            <a href="mailto:info@mynaturesextracts.com" class="info">
+                <i class="fa fa-envelope-o"></i>
+                <span>info@mynaturesextracts.com</span>
+            </a>
+        </div>
+    </div>
+</div>
+<header>
+    <div class="bodyCont">
+        <nav [class.noSearch]="!searchBar">
+            <a routerLink="/" class="logoCont">
+                <img src="assets/images/logo.svg" alt="Natures Extract">
+            </a>
+            <div class="menuCont cusDropdown" [class.isDrop]="searchBar">
+                <div appDropdown class="clickable primBtn">
+                    <div class="bars">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <span>Menu</span>
+                </div>
+                <div class="dropped">
+                    <a routerLink="/">Home</a>
+                    <a routerLink="/about">About</a>
+                    <a routerLink="/products">Shop</a>
+                    <a routerLink="/distributor">Become a Distributor</a>
+                    <hr class="mobile">
+                    <ng-container *ngIf="!auth || !+auth?.activation">
+                        <a routerLink="/login" class="mobile">Login</a>
+                        <a routerLink="/login" class="mobile">Join Us</a>
+                    </ng-container>
+                    <a *ngIf="+auth?.activation" routerLink="/user/dashboard" class="mobile">Dashboard</a>
+                </div>
+            </div>
+            <div class="searchCont">
+                <form [formGroup]="searchForm">
+                    <input type="text" placeholder="Search product..." class="form-control">
+                    <button>
+            <i class="icons icon-magnifier"></i>
+          </button>
+                </form>
+            </div>
+            <div class="cartAuthCont d-flex">
+                <a href="javascript:void(0)" class="cartCont cusDropdown">
+                    <div appDropdown class="clickable">
+                        <div class="iconCont">
+                            <svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M25.0046 3.14063C24.7586 2.88424 24.4044 2.73672 24.031 2.73672H6.23463L5.98351 1.37398C5.88048 0.809683 5.34346 0.395241 4.71372 0.395241H1.81614C1.10397 0.395241 0.52832 0.918562 0.52832 1.56598C0.52832 2.2134 1.10397 2.73672 1.81614 2.73672H3.62294L6.01828 15.8069C6.02858 15.8596 6.0582 15.9029 6.07623 15.9521C6.09684 16.0141 6.11358 16.0726 6.14577 16.1288C6.18698 16.2061 6.24236 16.2717 6.30031 16.3384C6.34023 16.3841 6.37629 16.4297 6.42265 16.4695C6.49735 16.5327 6.58363 16.5772 6.6712 16.6217C6.72014 16.6463 6.76264 16.6791 6.81544 16.6978C6.96482 16.7528 7.12194 16.7856 7.28807 16.7856C7.28935 16.7856 21.4553 16.7856 21.4553 16.7856C22.1675 16.7856 22.7431 16.2623 22.7431 15.6149C22.7431 14.9675 22.1675 14.4441 21.4553 14.4441H8.38013L8.16636 13.2734H22.7431C23.3845 13.2734 23.9279 12.8449 24.0181 12.2689L25.3059 4.07371C25.3587 3.73654 25.2479 3.39585 25.0046 3.14063ZM22.5461 5.07821L22.1791 7.41969H17.5919V5.07821H22.5461ZM16.3041 5.07821V7.41969H12.4406V5.07821H16.3041ZM16.3041 8.59043V10.9319H12.4406V8.59043H16.3041ZM11.1528 5.07821V7.41969H7.28935C7.2211 7.41969 7.15929 7.43725 7.09876 7.45481L6.66348 5.07821H11.1528ZM7.30738 8.59043H11.1528V10.9319H7.73623L7.30738 8.59043ZM17.5919 10.9319V8.59043H21.9936L21.6266 10.9319H17.5919Z"
+                  fill="#00321C" />
+                <path
+                  d="M9.22127 21.4686C10.2881 21.4686 11.153 20.6823 11.153 19.7125C11.153 18.7426 10.2881 17.9564 9.22127 17.9564C8.15441 17.9564 7.28955 18.7426 7.28955 19.7125C7.28955 20.6823 8.15441 21.4686 9.22127 21.4686Z"
+                  fill="#00321C" />
+                <path
+                  d="M20.8111 21.4686C21.878 21.4686 22.7428 20.6823 22.7428 19.7125C22.7428 18.7426 21.878 17.9564 20.8111 17.9564C19.7443 17.9564 18.8794 18.7426 18.8794 19.7125C18.8794 20.6823 19.7443 21.4686 20.8111 21.4686Z"
+                  fill="#00321C" />
+              </svg>
+                            <div class="count">{{cartCount}}</div>
+                        </div>
+                        <span>Cart</span>
+                    </div>
+                    <div class="dropped">
+                        <ng-container *ngIf="cartItems?.length">
+                            <div class="cartItemCont thinScBar">
+                                <a *ngFor="let cart of cartItems; trackBy:trackCart" routerLink="/products/{{cart?.pid}}/{{cart?.prodInfo?.name}}" class="eachItem">
+                                    <div class="imgCont">
+                                        <div class="prodImg">
+                                            <!-- <img src="{{cart?.prodInfo?.featured_img}}" alt="{{cart?.prodInfo?.featured_img}}"> -->
+                                            <cl-image appAltImageFormat public-id="{{cart?.prodInfo?.featured_img | publicId}}" format="avif">
+                                                <cl-transformation width="60" crop="scale"></cl-transformation>
+                                            </cl-image>
+                                        </div>
+                                    </div>
+                                    <div class="txtCont">
+                                        <p class="name">{{cart?.prodInfo?.name}}</p>
+                                        <div class="quantPrice">{{cart?.quantity}} * <span class="curr" innerHTML="{{cur}}"></span>{{cart?.prodInfo?.sales_price | number}}</div>
+                                    </div>
+                                    <span class="deleteItem" (click)="deleting == cart?.pid ? null : deleteCart($event, cart)">
+                    <svg *ngIf="deleting != cart?.pid" width="11" height="12" viewBox="0 0 11 12" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M9.55383 0.732803L5.36133 4.9253L1.16883 0.732803L0.111328 1.7903L4.30383 5.9828L0.111328 10.1753L1.16883 11.2328L5.36133 7.0403L9.55383 11.2328L10.6113 10.1753L6.41883 5.9828L10.6113 1.7903L9.55383 0.732803Z"
+                        fill="#00321C" />
+                    </svg>
+                    <i *ngIf="deleting == cart?.pid" class="fa fa-spin fa-spinner"></i>
+                  </span>
+                                </a>
+                            </div>
+                            <div class="totalPriceBtnCont">
+                                <div class="subTotal d-flex align-items-center justify-content-between">
+                                    <span>Sub Total</span>
+                                    <span class="primCol">₦{{total | number}}</span>
+                                </div>
+                                <div class="btnCont">
+                                    <a routerLink="/user/checkout" class="primBtn">Checkout</a>
+                                    <a routerLink="/products/shopping-cart" class="primBtnOutline">View Cart</a>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <div *ngIf="!cartItems?.length" class="emptyCart">
+                            Your cart is empty
+                        </div>
+                    </div>
+                </a>
+                <div *ngIf="!auth || !+auth?.activation" class="authCont d-flex align-items-center">
+                    <a routerLink="/login">Login</a>
+                    <a routerLink="/register" class="primBtn">Join Us</a>
+                </div>
+                <div *ngIf="+auth?.activation" class="authCont d-flex align-items-center">
+                    <a routerLink="/user/dashboard" class="primBtn">Dashboard</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="cartAlertPar">
+    <div class="bodyCont">
+        <div *ngFor="let alert of cartAlerts; let i = index; trackBy:trackAlert" [class.remove]="!existCount(alert?.count)" class="eachAlert">
+            <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M8.66292 17.3285C4.06055 17.3285 0.32959 13.5976 0.32959 8.9952C0.32959 4.39283 4.06055 0.661865 8.66292 0.661865C13.2653 0.661865 16.9963 4.39283 16.9963 8.9952C16.9912 13.5955 13.2632 17.3235 8.66292 17.3285ZM8.64959 15.6619H8.66292C12.3435 15.6582 15.3248 12.6725 15.3229 8.99187C15.3211 5.31127 12.3369 2.32854 8.65626 2.32854C4.97566 2.32854 1.99143 5.31127 1.98959 8.99187C1.98775 12.6725 4.969 15.6582 8.64959 15.6619ZM6.99626 13.1619L3.66292 9.82853L4.83792 8.65353L6.99626 10.8035L12.4879 5.31187L13.6629 6.4952L6.99626 13.1619Z"
+          fill="white" />
+      </svg>
+            <span>"{{alert?.name}}" has been added to your cart.</span>
+            <a routerLink="/products/shopping-cart" class="primBtnOutlineWhite">VIEW CART</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,114 @@
+@import "../../../../../theme/colors.scss";
+#userPage {
+    display: flex;
+    min-height: var(--view-height);
+    font-size: 14px;
+    #largeRight {
+        flex: 1;
+        width: 10px;
+    }
+    #largeBottom {
+        display: flex;
+        min-height: calc(var(--view-height) - 61px);
+        main {
+            flex: 1;
+            background: #fafafa;
+            padding: 51.6px 39.28px 51.6px;
+            .titleSection {
+                padding-bottom: 15px;
+                border-bottom: 1px solid #dfdfdf;
+                h1 {
+                    font-size: 20px;
+                    font-weight: 500;
+                    margin-bottom: 0;
+                }
+                .primBtnOutline {
+                    border-radius: 100px;
+                    height: 43.5px;
+                    gap: 10px;
+                    padding: 0 18.36px;
+                }
+            }
+        }
+    }
+    ::ng-deep .formGroup {
+        margin-bottom: 30px;
+        label {
+            margin-bottom: 14px;
+        }
+        input,
+        select {
+            height: 60px;
+            border: 1px solid #8692a6;
+            padding: 0 23px;
+            &:not([readonly]):focus {
+                border-color: $primary;
+                // box-shadow: 0px 4px 10px 3px #0000001c;
+                box-shadow: none;
+            }
+            &.error {
+                border-color: red;
+            }
+            &[readonly] {
+                background: #fafafa;
+                cursor: not-allowed;
+            }
+        }
+        .inputCont {
+            position: relative;
+            [class*="fa-eye"] {
+                position: absolute;
+                top: 50%;
+                cursor: pointer;
+                right: 23px;
+                transform: translateY(-50%);
+            }
+            &.phone {
+                display: flex;
+                border: 1px solid #8692a6;
+                border-radius: 5px;
+                align-items: center;
+                &.focused {
+                    border-color: $primary;
+                    background: #fff;
+                    // box-shadow: 0px 4px 10px 3px #0000001c;
+                }
+                &.error {
+                    border-color: red;
+                }
+                .ctryCode {
+                    padding: 2px 23px;
+                    padding-right: 26.05px;
+                    border-right: 1px solid #b4b4b4;
+                }
+                input {
+                    border: none !important;
+                    box-shadow: none !important;
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .errDisp {
+            font-size: 14px;
+            margin-top: 5px;
+            color: red;
+        }
+    }
+    ::ng-deep #modals {
+        position: absolute;
+        .modalContent {
+            max-width: 450px !important;
+            button,
+            ::ng-deep button {
+                height: 60px;
+                width: 100%;
+                filter: none;
+                margin: 46px 0 17px;
+                font-size: 16px;
+            }
+        }
+    }
+}

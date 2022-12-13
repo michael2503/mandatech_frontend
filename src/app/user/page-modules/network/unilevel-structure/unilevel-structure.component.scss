@@ -1,0 +1,18 @@
+@import "../direct-referrals/direct-referrals.component.scss";
+#unilevelCont {
+    ::ng-deep .cusAcc {
+        // border-bottom: 1px solid #dfdfdf;
+        margin-bottom: 10px;
+    }
+    .accHead {
+        height: 56px;
+        border-bottom: 1px solid #dfdfdf;
+        border-top: 1px solid #dfdfdf;
+        padding: 10px;
+        background-color: $primary;
+        color: #fff;
+    }
+    .tableViewCont {
+        padding: 10px;
+    }
+}

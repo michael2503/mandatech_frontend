@@ -1,0 +1,239 @@
+<app-home-header [activePage]="'contact'"></app-home-header>
+
+<app-page-loader *ngIf="isLoading"></app-page-loader>
+
+
+<div *ngIf="isAddingCart" class="coverUp">
+    <div class="d-flex justify-content-center">
+        <span class="fa fa-spin fa-spinner"></span>
+    </div>
+</div>
+
+<main *ngIf="!isLoading" id="main-content" class="body-container-wrapper">
+    <div class="container-fluid body-container body-container--contact">
+        <div class="row-fluid-wrapper">
+            <div class="row-fluid">
+                <div class="span12 widget-span widget-type-cell " data-widget-type="cell" data-x="0" data-w="12">
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-1 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                <div id="hs_cos_wrapper_dnd_area-module-1" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                    <section class="page-banner">
+                                        <div class="image-layer" style="background-image: url(/assets/images/banner/banner-bg-1.webp);"></div>
+                                        <div class="auto-container">
+                                            <div class="breadcrumb-box">
+                                                <div class="auto-container">
+                                                    <ul class="bread-crumb clearfix">
+
+                                                        <li>
+                                                            <a routerLink="/">Home</a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a routerLink="/products">Poducts</a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h1>Shopping Carts</h1>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-2 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-3 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624795245921" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="contact-section contact-page">
+                                                    <div class="auto-container">
+                                                        <div class="info-blocks">
+                                                            <div class="row clearfix">
+
+                                                                <div class="info-block col-lg-8 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                    <div class="inner">
+
+                                                                        <div class="table-responsive">
+                                                                            <table class="table">
+                                                                                <thead class="thead-dark tHead">
+                                                                                  <tr>
+                                                                                    <th class="text-left">Item Detial</th>
+                                                                                    <th class="text-left">Quantity</th>
+                                                                                    <th class="text-left">Item Price</th>
+                                                                                    <th class="text-left">Action</th>
+                                                                                  </tr>
+                                                                                </thead>
+                                                                                <tbody *ngIf="carts?.length > 0">
+                                                                                  <tr *ngFor="let cart of carts; let i = index" class="eachCart">
+                                                                                    <td>
+                                                                                        <div class="firstCol d-flex justify-content-start">
+                                                                                            <div class="proImg">
+                                                                                                <img src="{{ cart?.feature_img }}" alt="">
+                                                                                            </div>
+                                                                                            <div class="proInfo">
+                                                                                                <p class="title">{{ cart?.name }}</p>
+                                                                                                <p class="subTtitle text-muted">Category: {{ cart?.category }}</p>
+                                                                                                <p class="subTtitle text-muted">SKU: {{ cart?.sku }}</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="text-left">
+                                                                                        <div class="desInc" *ngIf="!auth">
+                                                                                            <span (click)="addMinus(cart?.id, 'minus')" class="pointer">-</span>
+                                                                                            <span>{{ cart?.qty }}</span>
+                                                                                            <span (click)="addMinus(cart?.id, 'add')" class="pointer">+</span>
+                                                                                        </div>
+                                                                                        <div class="desInc" *ngIf="auth">
+                                                                                            <span (click)="addMinusAuth(cart?.id, 'minus')" class="pointer">-</span>
+                                                                                            <span>{{ cart?.qty }}</span>
+                                                                                            <span (click)="addMinusAuth(cart?.id, 'add')" class="pointer">+</span>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="text-left">
+                                                                                        <div class="price">
+                                                                                            <p class="amount">₦{{ cart?.qty * cart?.sales_price | number }}</p>
+                                                                                            <p class="amtDesc">₦{{ cart?.sales_price | number }} x {{ cart?.qty }} items</p>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <button *ngIf="!auth" (click)="deleteEachCart('warning', i)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                                                                        <button *ngIf="auth" (click)="deleteEachCartAuth('warning', cart?.id)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                                                                    </td>
+                                                                                  </tr>
+                                                                                </tbody>
+
+                                                                                <tbody *ngIf="carts?.length < 1">
+                                                                                    <tr>
+                                                                                        <td colspan="4" class="text-center">
+                                                                                            <div class="mb-4">
+                                                                                                No Carts
+                                                                                            </div>
+                                                                                            <a routerLink="/products" class="btn btn-success rounded-0">Start Shopping</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="info-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                    <div class="inner">
+                                                                        <div class="card">
+                                                                            <div class="text-left card-header">
+                                                                                Order Summary
+                                                                            </div>
+                                                                            <div class="card-body p-0 orderSumm">
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <div>Sub Total</div>
+                                                                                    <div>₦{{ totalCartAmt | number }}</div>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <div>Shipping Fee</div>
+                                                                                    <div>₦0</div>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <div><b>Total</b></div>
+                                                                                    <div><b>₦{{ totalCartAmt | number }}</b></div>
+                                                                                </div>
+
+                                                                                <div class="mt-5 mb-4 text-center">
+                                                                                    <a (click)="goToVheckout()" *ngIf="carts?.length > 0" class="btn btn-primary rounded-0">Proceed to Checkout</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+
+
+                    <!--end row-wrapper -->
+
+                </div>
+                <!--end widget-span -->
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+
+<app-footer *ngIf="!isLoading"></app-footer>
+
+
+
+<div *ngIf="showNotice">
+    <div class="adminNoteWrap">
+      <div *ngIf="justMssg">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+        </svg>
+
+        <p class="pt-3"> {{theMessage}} </p>
+        <div class="d-flex justify-content-center"><button class="btn btn-sm btn-primary" (click)="closeMyNotice()">Close</button></div>
+      </div>
+
+      <div *ngIf="deleteModal">
+        <div class="d-flex justify-content-center"><i class="fa fa-times delIcon"></i></div>
+        <p class="text-center">{{theMessage}}</p>
+        <div class="text-center mt-4 mb-2">
+            <button class="btn btn-primary btn-sm" (click)="closeMyNotice()">Close</button>
+        </div>
+      </div>
+
+      <div *ngIf="removeCart">
+        <div class="d-flex justify-content-center"><i class="fa fa-times delIcon"></i></div>
+        <p class="text-center">{{theMessage}}</p>
+        <div class="text-center mt-4 mb-2">
+            <button class="btn btn-success btn-sm mr-5" (click)="deleteEachCart('', returnID)">YES</button>
+            <button class="btn btn-primary btn-sm" (click)="closeMyNotice()">NO</button>
+        </div>
+      </div>
+      <div *ngIf="removeCartAuth">
+        <div class="d-flex justify-content-center"><i class="fa fa-times delIcon"></i></div>
+        <p class="text-center">{{theMessage}}</p>
+        <div class="text-center mt-4 mb-2">
+            <button class="btn btn-success btn-sm mr-5" (click)="deleteEachCartAuth('', returnCartID)">YES</button>
+            <button class="btn btn-primary btn-sm" (click)="closeMyNotice()">NO</button>
+        </div>
+      </div>
+    </div>
+  </div>

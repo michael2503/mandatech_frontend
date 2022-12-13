@@ -1,0 +1,507 @@
+<app-home-header [activePage]="'product'"></app-home-header>
+
+<app-page-loader *ngIf="isLoading"></app-page-loader>
+
+<div *ngIf="isAddingCart" class="coverUp">
+    <div class="d-flex justify-content-center">
+        <span class="fa fa-spin fa-spinner"></span>
+    </div>
+</div>
+
+
+<main *ngIf="!isLoading" id="main-content" class="body-container-wrapper">
+    <div class="container-fluid body-container body-container--project">
+        <div class="row-fluid-wrapper">
+            <div class="row-fluid">
+                <div class="span12 widget-span widget-type-cell " data-widget-type="cell" data-x="0" data-w="12">
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-1 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                <div id="hs_cos_wrapper_dnd_area-module-1" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                    <section class="page-banner">
+                                        <div class="image-layer" style="background-image: url(/assets/images/banner/banner-bg-1.webp);"></div>
+                                        <div class="auto-container">
+                                            <div class="breadcrumb-box">
+                                                <div class="auto-container">
+                                                    <ul class="bread-crumb clearfix">
+                                                        <li>
+                                                            <a routerLink="/">
+                                                                Home
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a routerLink="/products">
+                                                                Our Products
+                                                            </a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h1>Our Products</h1>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+
+
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-2 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-3 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624790688694" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="dedicated-projects default-theme">
+                                                    <div class="auto-container">
+                                                        <div class="masonry-gallery">
+                                                            <div class="masonry-container clearfix">
+
+
+
+
+                                                                <div class="prodDetailsCont">
+
+                                                                    <div class="prodSummary greyBg">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-4" style="background: #ccc;">
+                                                                                <div class="prodImgCont">
+                                                                                    <div *ngFor="let img of images">
+                                                                                        <!-- <img src="/assets/images/products/pro1.png" alt="{{product?.name}}"> -->
+                                                                                    </div>
+
+
+                                                                                    <app-fade-slider *ngIf="images?.length">
+                                                                                        <div class="slideItemCont">
+                                                                                            <div
+                                                                                                *ngFor="
+                                                                                                    let img of images;
+                                                                                                    let i = index
+                                                                                                "
+                                                                                                class="slideItem"
+                                                                                            >
+                                                                                                <div class="prodImg">
+                                                                                                    <img src="{{img?.original_url}}" alt="{{product?.name}}">
+                                                                                                    <!-- <cl-image
+                                                                                                        appAltImageFormat
+                                                                                                        public-id="{{
+                                                                                                            img?.original_url
+                                                                                                                | publicId
+                                                                                                        }}"
+                                                                                                        format="avif"
+                                                                                                    >
+                                                                                                        <cl-transformation
+                                                                                                            width="390"
+                                                                                                            crop="scale"
+                                                                                                        ></cl-transformation>
+                                                                                                    </cl-image> -->
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="indicators mt-4">
+                                                                                            <app-flex-slider
+                                                                                                [autoSlide]="false"
+                                                                                                [slideResizeConfig]="
+                                                                                                    imgResizeConfig
+                                                                                                "
+                                                                                            >
+                                                                                                    <div class="flexCont">
+                                                                                                        <div
+                                                                                                            *ngFor="
+                                                                                                                let img of images;
+                                                                                                                let i = index
+                                                                                                            "
+                                                                                                            class="carouselItem indicatorItem"
+                                                                                                        >
+                                                                                                            <div class="prodImg">
+                                                                                                                <img src="{{img?.original_url}}" alt="{{product?.name}}">
+                                                                                                                <!-- <cl-image
+                                                                                                                    appAltImageFormat
+                                                                                                                    public-id="{{
+                                                                                                                        img?.original_url
+                                                                                                                            | publicId
+                                                                                                                    }}"
+                                                                                                                    format="avif"
+                                                                                                                >
+                                                                                                                    <cl-transformation
+                                                                                                                        width="90"
+                                                                                                                        crop="scale"
+                                                                                                                    ></cl-transformation>
+                                                                                                                </cl-image> -->
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="prev">
+                                                                                                        <i
+                                                                                                            class="fa fa-angle-left"
+                                                                                                        ></i>
+                                                                                                    </div>
+                                                                                                    <div class="next">
+                                                                                                        <i
+                                                                                                            class="fa fa-angle-right"
+                                                                                                        ></i>
+                                                                                                    </div>
+                                                                                            </app-flex-slider>
+                                                                                        </div>
+                                                                                        <a
+                                                                                            href="javascript:void(0)"
+                                                                                            class="prev"
+                                                                                        ></a>
+                                                                                        <a
+                                                                                            href="javascript:void(0)"
+                                                                                            class="next"
+                                                                                        ></a>
+                                                                                    </app-fade-slider>
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-8">
+                                                                                <div class="prodTxt">
+                                                                                    <h1>{{product?.name}}</h1>
+
+                                                                                    <div class="starRate">
+                                                                                        <div *ngIf="product?.add == 1">
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="mr-3"> ({{ product?.starCount }})</span>
+                                                                                        </div>
+                                                                                        <div *ngIf="product?.add == 2">
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="mr-3"> ({{ product?.starCount }})</span>
+                                                                                        </div>
+                                                                                        <div *ngIf="product?.add == 3">
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="mr-3"> ({{ product?.starCount }})</span>
+                                                                                        </div>
+                                                                                        <div *ngIf="product?.add == 4">
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="mr-3"> ({{ product?.starCount }})</span>
+                                                                                        </div>
+                                                                                        <div *ngIf="product?.add == 5">
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="fa fa-star"></span>
+                                                                                            <span class="mr-3"> ({{ product?.starCount }})</span>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="price primCol">
+                                                                                        <small class="mr-3">
+                                                                                            <del>{{curr}}{{product?.old_price | number}}</del>
+                                                                                        </small>  {{curr}}{{product?.sales_price | number}}
+                                                                                    </div>
+
+                                                                                    <p>
+                                                                                        <small>Status:
+                                                                                            <b [class.text-success]="stock == 'In Stock'" [class.text-danger]="stock == 'Out of Stock'">{{ stock }}</b>
+                                                                                        </small>
+                                                                                    </p>
+
+                                                                                    <p>{{ product?.overview }}</p>
+
+                                                                                    <p>
+                                                                                        <small>Available Quantity:
+                                                                                            <b>{{ product?.quantity - product?.sold }}</b>
+                                                                                        </small>
+                                                                                    </p>
+
+                                                                                    <!-- <div class="variationCont">
+                                                                                        <div class="eachVariation">
+                                                                                            <div class="variName">Pack size</div>
+                                                                                            <div class="variVal">{{product?.size}}</div>
+                                                                                        </div>
+                                                                                    </div> -->
+
+                                                                                    <div class="quantBtnCont d-flex">
+                                                                                        <!-- <div class="quant">
+                                                                                            <span class="quantCtrl" [class.disabled]="quantity == 1" (mousedown)="qtyCtrl(-1)">
+                                                                                                <svg width="11" height="2" viewBox="0 0 11 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <path d="M0.704102 1.41668V0.0833435H10.0374V1.41668H0.704102Z" fill="#048C0E" />
+                                                                                                </svg>
+                                                                                            </span>
+                                                                                            <span class="qntTxt">{{quantity}}</span>
+                                                                                            <span class="quantCtrl" [class.disabled]="quantity == availQty" (mousedown)="qtyCtrl(1)">
+                                                                                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                                <path
+                                                                                                    d="M6.03744 5.41668V9.41668H4.7041V5.41668H0.704102V4.08334H4.7041V0.0833435H6.03744V4.08334H10.0374V5.41668H6.03744Z"
+                                                                                                    fill="#048C0E" />
+                                                                                                </svg>
+                                                                                            </span>
+                                                                                        </div> -->
+
+                                                                                        <div class="btnCont d-flex">
+                                                                                            <div class="links-box">
+                                                                                                <a *ngIf="!auth" (click)="addToCarts()" class="theme-btn btn-style-one">
+                                                                                                    <div class="btn-title">
+                                                                                                        <span class="btn-txt">Add to Cart</span>
+                                                                                                        <span class="btn-icon">
+                                                                                                            <span class="icon flaticon-arrows-11"></span>
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                </a>
+                                                                                                <a *ngIf="auth" (click)="addToCartsAuth(product?.id)" class="theme-btn btn-style-one">
+                                                                                                    <div class="btn-title">
+                                                                                                        <span class="btn-txt">Add to Cart</span>
+                                                                                                        <span class="btn-icon">
+                                                                                                            <span class="icon flaticon-arrows-11"></span>
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                </a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="skuCat">
+                                                                                        <p>SKU: {{ product?.sku }}</p>
+                                                                                        <p class="capitalized">Category: {{ product?.category | urlToString }}</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div class="row">
+                                                                        <div class="col-xl-7 mb-4">
+                                                                            <div class="tabPane">
+                                                                                <div class="tabHead">
+                                                                                    <a class="eachTab" [class.tabActive]="activeTab == 'description'" (click)="activeTab = 'description'">Description</a>
+                                                                                    <a class="eachTab" [class.tabActive]="activeTab == 'reviews'" (click)="activeTab = 'reviews'">Reviews</a>
+                                                                                </div>
+                                                                                <div class="tabBody">
+                                                                                    <div *ngIf="activeTab == 'description'" id="description">
+                                                                                        <p style="font-size: 15px;" [innerHTML]="product?.description"></p>
+                                                                                    </div>
+
+
+
+
+                                                                                    <div *ngIf="activeTab == 'reviews'" id="reviews">
+
+                                                                                        <div class="reviewsBody">
+                                                                                            <div class="eachReviewGr">
+                                                                                                <div *ngFor="let review of reviews" class="eachReview">
+                                                                                                    <div class="userInfoRate">
+                                                                                                        <div class="imgCont">
+                                                                                                            <div class="nameImg">{{ review?.two_letter }}</div>
+                                                                                                        </div>
+                                                                                                        <div class="txtPart">
+                                                                                                            <p>{{ review?.first_name | titlecase }} {{ review?.last_name | titlecase }}</p>
+                                                                                                            <div class="rateCont">
+                                                                                                                <div *ngIf="review.star_rate == 1">
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                </div>
+                                                                                                                <div *ngIf="review.star_rate == 2">
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                </div>
+                                                                                                                <div *ngIf="review.star_rate == 3">
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                </div>
+                                                                                                                <div *ngIf="review.star_rate == 4">
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                </div>
+                                                                                                                <div *ngIf="review.star_rate == 5">
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                    <span class="fa fa-star"></span>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="reviewTxt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur quasi magnam, iusto doloremque delectus incidunt quas repellendus, distinctio amet neque omnis,</div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="reviewForm">
+                                                                                            <p><small>Your email address will not be published. All fields are required *</small></p>
+                                                                                            <form [formGroup]="form" (ngSubmit)="submit()">
+                                                                                                <div style="display: flex; margin-bottom: 30px; width: 100%;">
+                                                                                                    <p class="mb-1 mr-3"><small>Rate product</small></p>
+
+                                                                                                    <div class="star_rating" style="margin-top: 4px">
+                                                                                                        <input type="checkbox" id="star5" name="Star_Rating_of_5_stars" class="star" value="5">
+                                                                                                        <label for="star5" class="star" (click)="getStarRate(5)" title="5 stars"></label>
+
+                                                                                                        <input type="checkbox" id="star4" name="Star_Rating_of_4_stars" class="star" value="4">
+                                                                                                        <label for="star4" class="star" (click)="getStarRate(4)" title="4 stars"></label>
+
+                                                                                                        <input type="checkbox" id="star3" name="Star_Rating_of_4_stars" class="star" value="3">
+                                                                                                        <label for="star3" class="star" (click)="getStarRate(3)" title="3 stars"></label>
+
+                                                                                                        <input type="checkbox" id="star2" name="Star_Rating_of_4_stars" class="star" value="2">
+                                                                                                        <label for="star2" class="star" (click)="getStarRate(2)" title="2 stars"></label>
+
+                                                                                                        <input type="checkbox" id="star1" name="Star_Rating_of_4_stars" class="star" value="1">
+                                                                                                        <label for="star1" class="star" (click)="getStarRate(1)" title="1 stars"></label>
+                                                                                                    </div>
+                                                                                                </div>
+
+
+
+
+
+                                                                                                <div class="row">
+                                                                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                                                                                        <div class="form-group">
+                                                                                                            <label for="">Firts Name</label>
+                                                                                                            <input type="name" class="form-control" formControlName="first_name">
+                                                                                                            <div *ngIf="n('first_name').touched && n('first_name').invalid" class="errDisp">*This field is required!
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                                                                                        <div class="form-group">
+                                                                                                            <label for="">Last Name</label>
+                                                                                                            <input type="name" class="form-control" formControlName="last_name">
+                                                                                                            <div *ngIf="n('last_name').touched && n('last_name').invalid" class="errDisp">*This field is required!
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="row">
+                                                                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                                                                                        <div class="form-group">
+                                                                                                            <label for="">Your Comment</label>
+                                                                                                            <textarea class="form-control" formControlName="comment" rows="5"></textarea>
+                                                                                                            <div *ngIf="n('comment').touched && n('comment').invalid" class="errDisp">*This field is required!
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+
+                                                                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                                                                                        <div class="form-group mt-2">
+                                                                                                            <label for="">Email</label>
+                                                                                                            <input type="email" class="form-control" formControlName="email">
+                                                                                                            <div *ngIf="n('email').touched && n('email').invalid" class="errDisp">*This field is required!
+                                                                                                            </div>
+                                                                                                        </div>
+
+                                                                                                        <div class="mt-4">
+                                                                                                            <button *ngIf="!isPosting" class="btn btn-success">Submit</button>
+                                                                                                            <button *ngIf="isPosting" class="btn btn-success"><i class="fa fa-spin fa-spinner"></i> Submitting...</button>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </form>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                        <div class="col-xl-5">
+                                                                            <div class="sameProduct">
+                                                                                <div class="prodListCont">
+                                                                                    <h1>Same Product</h1>
+                                                                                </div>
+
+
+                                                                                <div class="row">
+                                                                                    <div *ngFor="let sameP of samePro" class="col-xl-6 col-lg-4 col-md-4 col-sm-6 mb-4">
+                                                                                        <div class="product-grid">
+                                                                                            <div class="product-image">
+                                                                                                <a routerLink="/products/{{ sameP?.id }}/{{ sameP?.name_slug }}" class="image">
+                                                                                                    <img src="{{ sameP?.feature_img }}">
+                                                                                                </a>
+                                                                                                <ul class="product-links">
+                                                                                                  <li><a routerLink="/products/{{ sameP?.id }}/{{ sameP?.name_slug }}"><i class="fa fa-pencil"></i></a></li>
+                                                                                                  <li><a (click)="addToCartsSamePro(sameP?.id)"><i class="fa fa-shopping-cart"></i></a></li>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                            <div class="product-content">
+                                                                                                <div class="justify-content-between" style="display: flex;">
+                                                                                                  <span class="product-category"><a routerLink="/products/{{ sameP?.id }}/{{ sameP?.name_slug }}">{{ sameP?.category | urlToString }}</a></span>
+                                                                                                </div>
+                                                                                                <h3 class="title"><a routerLink="/products/{{ sameP?.id }}/{{ sameP?.name_slug }}">{{ sameP?.name }}</a></h3>
+                                                                                                <div class="price">₦{{ sameP?.sales_price | number }}</div>
+                                                                                                <a class="add-to-cart">{{ sameP?.quantity - sameP?.sold }}</a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                </div>
+
+
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+                </div>
+                <!--end widget-span -->
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<app-footer *ngIf="!isLoading"></app-footer>
+
+
+<div *ngIf="showNotice">
+    <div class="adminNoteWrap">
+      <div *ngIf="justMssg">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+        </svg>
+
+        <p class="pt-3"> {{theMessage}} </p>
+        <div class="d-flex justify-content-center"><button class="btn btn-sm btn-primary" (click)="closeMyNotice()">Close</button></div>
+      </div>
+
+      <div *ngIf="deleteModal">
+        <div class="d-flex justify-content-center"><i class="fa fa-times delIcon"></i></div>
+        <p class="text-center">{{theMessage}}</p>
+        <div class="text-center mt-4 mb-2">
+            <button class="btn btn-primary btn-sm" (click)="closeMyNotice()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

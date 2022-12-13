@@ -1,0 +1,66 @@
+@import "../../../../../theme/colors.scss";
+.eachMethod {
+  & > ::ng-deep input {
+    display: none;
+  }
+  ::ng-deep label {
+    display: block;
+    border: 1px solid #8692a6;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    .headPart {
+      display: flex;
+      align-items: center;
+      height: 60px;
+      padding: 0 23px;
+      cursor: pointer;
+      gap: 20px;
+      .cusRadio {
+        width: 14px;
+        height: 14px;
+        min-width: 14px;
+        border-radius: 50%;
+        border: 1px solid #a1a1a1;
+      }
+      span {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+    .bodyPart {
+      padding: 0 23px 23px;
+      display: none;
+      input {
+        height: 55px;
+      }
+    }
+  }
+  ::ng-deep input:checked + label {
+    background: #fff;
+    border-color: $primary;
+    .headPart {
+      .cusRadio {
+        border-width: 5px;
+        border-color: $primary;
+      }
+    }
+    .bodyPart {
+      display: block;
+    }
+  }
+  ::ng-deep .eachBankInfo {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f4f4f4;
+    margin-bottom: 5px;
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    .keyVal {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

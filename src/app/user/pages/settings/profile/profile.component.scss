@@ -1,0 +1,18 @@
+@import '../../coupons/coupons.component.scss';
+
+input{
+    height: 45px;
+}
+
+input:focus{
+    box-shadow: none;
+    border-color: #ccc;
+    outline: none;
+}
+.errDisp{
+    color: red;
+}
+label{
+    font-size: 14px;
+    margin-top: 20px;
+}

@@ -1,0 +1,31 @@
+<app-user-layout>
+    <app-layout [stage]="3">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <h2>Payment Information</h2>
+            <div class="formGroup">
+                <label for="">Account Name*</label>
+                <input formControlName="account_name" type="text" placeholder="Enter account name" [class.error]="f('account_name')?.touched && f('account_name')?.invalid" class="form-control" />
+                <div *ngIf="f('account_name')?.touched && f('account_name')?.invalid" class="errDisp">
+                    *This field is required!
+                </div>
+            </div>
+            <div class="formGroup">
+                <label for="">Bank Account Number*</label>
+                <input appAllowNum formControlName="account_number" type="text" placeholder="Enter accountr number" [class.error]="f('account_number')?.touched && f('account_number')?.invalid" class="form-control" />
+                <div *ngIf="f('account_number')?.touched && f('account_number')?.invalid" class="errDisp">
+                    *This field is required!
+                </div>
+            </div>
+            <div class="formGroup">
+                <label for="">Bank Name*</label>
+                <input formControlName="bank" type="text" placeholder="Enter bank name" [class.error]="f('bank')?.touched && f('bank')?.invalid" class="form-control" />
+                <div *ngIf="f('bank')?.touched && f('bank')?.invalid" class="errDisp">
+                    *This field is required!
+                </div>
+            </div>
+            <button *ngIf="!submitting" [disabled]="form.invalid" class="primBtn">NEXT</button>
+            <app-loading-btn *ngIf="submitting" clss="primBtn"></app-loading-btn>
+            <button class="primBtnOutline" (click)="back()">BACK</button>
+        </form>
+    </app-layout>
+</app-user-layout>

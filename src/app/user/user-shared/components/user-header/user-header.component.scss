@@ -1,0 +1,57 @@
+header {
+    height: 61px;
+    border-bottom: 1px solid #DFDFDF;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 15px;
+    background-color: #fff;
+    z-index: 2000;
+    width: 100%;
+    &>div {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+.cusDropdown {
+    position: relative;
+    .clickable {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        // overflow: visible;
+        .count {
+            position: absolute;
+            background: #E23E57;
+            color: #fff;
+            border-radius: 50%;
+            font-size: 12px;
+            font-family: calibri;
+            top: 2px;
+            right: 2px;
+            width: 15px;
+            height: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &:hover {
+            background: #00000017;
+        }
+    }
+    .dropped {
+        position: absolute;
+        top: 100%;
+        right: 0;
+    }
+}
+

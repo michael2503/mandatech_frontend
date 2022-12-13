@@ -1,0 +1,6 @@
+<div class="stageCont">
+    <div class="stageLine">
+        <div class="currStage" [style.width.%]="stage * 100 / (totalStage - 1)"></div>
+    </div>
+    <div *ngFor="let st of stages; let i = index;" class="eachStage" [class.filled]="i + 1 <= stage"></div>
+</div>

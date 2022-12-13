@@ -1,0 +1,150 @@
+<app-user-layout>
+    <div id="settingsPar">
+        <app-nav-bar></app-nav-bar>
+        <div class="formCont">
+            <form [formGroup]="form" (ngSubmit)="submit()">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="formGroup">
+                            <label for="">First Name</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                formControlName="first_name"
+                                name=""
+                                id=""
+                                placeholder="Mike"
+                            />
+                        </div>
+                        <div class="formGroup">
+                            <label for="">Last Name</label>
+                            <input
+                                type="text"
+                                formControlName="last_name"
+                                class="form-control"
+                                name=""
+                                id=""
+                                placeholder="Jordan"
+                            />
+                        </div>
+                        <div class="formGroup">
+                            <label for="">Username</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                formControlName="username"
+                                name=""
+                                id=""
+                                placeholder="Mikky123"
+                            />
+                        </div>
+                        <div class="formGroup">
+                            <label for="">Email Address</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                formControlName="email"
+                                name=""
+                                id=""
+                                placeholder="example@yahoo.com"
+                            />
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-flex flex-column">
+                        <div class="formGroup flex-grow-1">
+                            <div class="imgWrapper">
+                                <div class="imgCont">
+                                    <img
+                                        [src]="
+                                            f('photo')?.value ||
+                                                'https://res.cloudinary.com/natures-extracts/image/upload/v1652953084/profile-default_m19n1m.png'
+                                                | safeUrl
+                                        "
+                                        alt="{{ f('username')?.value }}"
+                                    />
+                                    <input
+                                        type="file"
+                                        (change)="onSelect($event)"
+                                        hidden
+                                        id="photo"
+                                    />
+                                    <label for="photo">
+                                        <svg
+                                            width="17"
+                                            height="14"
+                                            viewBox="0 0 17 14"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                clip-rule="evenodd"
+                                                d="M8.60051 3.90625C6.37056 3.90625 4.56348 5.71333 4.56348 7.94329C4.56348 10.1727 6.37056 11.9803 8.60051 11.9803C10.83 11.9803 12.6376 10.1727 12.6376 7.94329C12.6376 5.71383 10.83 3.90625 8.60051 3.90625ZM10.8991 9.91387C9.81112 11.1835 7.90009 11.3304 6.63044 10.2419C5.36029 9.15389 5.21394 7.24236 6.30243 5.97321C7.38991 4.70306 9.30144 4.55672 10.5711 5.6452C11.8402 6.73268 11.9871 8.64472 10.8991 9.91387Z"
+                                                fill="white"
+                                            />
+                                            <path
+                                                fill-rule="evenodd"
+                                                clip-rule="evenodd"
+                                                d="M8.60055 5.92578C7.48582 5.92578 6.58254 6.82957 6.58203 7.9438V7.9448C6.58203 8.08358 6.69507 8.19712 6.83435 8.19712C6.97362 8.19712 7.08666 8.08358 7.08666 7.9448V7.9438C7.08717 7.10813 7.76438 6.43041 8.60055 6.43041C8.73983 6.43041 8.85286 6.31737 8.85286 6.1781C8.85286 6.03882 8.73983 5.92578 8.60055 5.92578Z"
+                                                fill="white"
+                                            />
+                                            <path
+                                                fill-rule="evenodd"
+                                                clip-rule="evenodd"
+                                                d="M15.4089 3.42397L13.2218 3.05912L12.529 1.32623C12.2974 0.748426 11.7453 0.375 11.1236 0.375H6.07729C5.45559 0.375 4.90352 0.748426 4.67139 1.32673L3.97904 3.05912L1.79248 3.42397C1.05875 3.54559 0.526367 4.17335 0.526367 4.91667V12.4861C0.526367 13.3208 1.2056 14 2.04026 14H15.1606C15.9953 14 16.6745 13.3208 16.6745 12.4861V4.91667C16.6745 4.17335 16.1421 3.54559 15.4089 3.42397ZM15.6653 12.4861C15.6653 12.7652 15.4397 12.9907 15.1606 12.9907H2.04026C1.7612 12.9907 1.53563 12.7652 1.53563 12.4861V4.91667C1.53563 4.6699 1.71427 4.45947 1.9575 4.4191L4.7047 3.9614L5.60849 1.70167C5.6857 1.51042 5.8709 1.38426 6.07729 1.38426H11.1236C11.3295 1.38426 11.5147 1.50991 11.5919 1.70167L12.4957 3.9614L15.2434 4.4191C15.4866 4.45947 15.6653 4.6699 15.6653 4.91667V12.4861Z"
+                                                fill="white"
+                                            />
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="formGroup">
+                            <label for="">Phone Number</label>
+                            <div class="inputCont phone" #inpC>
+                                <div class="ctryCode">
+                                    {{ f("country").value | phoneCode }}
+                                </div>
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    formControlName="phone"
+                                    (focus)="inpC.classList.add('focused')"
+                                    (blur)="inpC.classList.remove('focused')"
+                                    id=""
+                                    placeholder="080123456789"
+                                />
+                            </div>
+                        </div>
+                        <div class="formGroup">
+                            <label for="">Country</label>
+                            <select
+                                formControlName="country"
+                                class="form-control"
+                            >
+                                <option value="">Select</option>
+                                <option
+                                    *ngFor="let ctry of countries"
+                                    value="{{ ctry?.name }}"
+                                >
+                                    {{ ctry?.name }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    *ngIf="!submitting"
+                    [disabled]="form.invalid"
+                    class="primBtn"
+                >
+                    SAVE CHANGES
+                </button>
+                <app-loading-btn
+                    *ngIf="submitting"
+                    clss="primBtn"
+                ></app-loading-btn>
+            </form>
+        </div>
+    </div>
+</app-user-layout>

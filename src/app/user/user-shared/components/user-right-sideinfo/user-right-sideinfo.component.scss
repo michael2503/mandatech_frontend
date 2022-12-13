@@ -1,0 +1,89 @@
+@import '../../../../../theme/colors.scss';
+#rightSideInfo {
+    width: 292px;
+    background: #fff;
+    border-left: 1px solid #dfdfdf;
+    padding: 0 23.5px;
+    height: calc(var(--view-height) - 61px);
+    overflow-y: auto;
+    font-size: 14px;
+    .userInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 0;
+        font-size: 14px;
+        border-bottom: 1px solid #dfdfdf;
+        .userImg {
+            width: 99px;
+            height: 99px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .name {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .keyVal {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+            span {
+                text-transform: capitalize;
+            }
+            span:first-child {
+                opacity: .5;
+            }
+        }
+        .primBtnOutline {
+            margin-top: 20px;
+            height: 32.87px;
+            padding: 0 17.24px;
+        }
+    }
+    #newMembers {
+        padding-top: 50px;
+        h5 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 13px;
+        }
+        .eachMember {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 0;
+            border-bottom: 1px solid #dfdfdf;
+            .userImg {
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+            .txtCont {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                .info {
+                    display: flex;
+                    justify-content: space-between;
+                    span {
+                        line-height: 1.2;
+                        text-transform: capitalize;
+                    }
+                    span:last-child {
+                        min-width: 80px;
+                    }
+                    &:last-child {
+                        font-size: 12px;
+                        span:last-child {
+                            opacity: .5;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

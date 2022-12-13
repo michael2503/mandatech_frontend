@@ -1,0 +1,12 @@
+::ng-deep .formCont {
+    margin-top: 70px !important;
+    .products {
+        .gridCont {
+            padding: 10px;
+            border: 1px solid #dfdfdf;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+<div id="userPage">
+    <app-user-sidemenu></app-user-sidemenu>
+    <div id="largeRight">
+        <app-user-header></app-user-header>
+        <div id="largeBottom">
+            <main>
+                <div
+                    class="titleSection d-flex align-items-center justify-content-between"
+                >
+                    <h1>{{ pageTitle }}</h1>
+                    <a
+                        routerLink="/user/business/register"
+                        class="primBtnOutline"
+                    >
+                        <svg
+                            width="15"
+                            height="15"
+                            viewBox="0 0 15 15"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <circle
+                                cx="7.15625"
+                                cy="7.33203"
+                                r="6.5"
+                                stroke="#048C0E"
+                            />
+                            <path
+                                d="M7.90625 10.332H6.40625V8.08203H4.15625V6.58203H6.40625V4.33203H7.90625V6.58203H10.1562V8.08203H7.90625V10.332Z"
+                                fill="#048C0E"
+                            />
+                        </svg>
+                        <span>Register new member</span>
+                    </a>
+                </div>
+                <ng-content></ng-content>
+            </main>
+            <app-user-right-sideinfo
+                *ngIf="sidebar == 'dashboard'"
+            ></app-user-right-sideinfo>
+            <app-user-side-cart *ngIf="sidebar == 'cart'" [form]="form"></app-user-side-cart>
+        </div>
+    </div>
+    <ng-content select="#modals"></ng-content>
+</div>

@@ -1,0 +1,42 @@
+@import '../../../../theme/colors.scss';
+.testiQuote {
+    background: $greyBg !important;
+}
+
+#videos {
+    .vidCont {
+        position: relative;
+        padding-top: 58.77904768481751%;
+        background: #C4C4C4;
+        .playCtrl {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+    }
+    .carouselItem {
+        margin-right: 43.8px;
+    }
+    .next,
+    .prev {
+        position: static;
+        display: flex !important;
+        width: 33.75px;
+        height: 33.75px;
+        border: 1px solid $primary;
+        text-shadow: none;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        color: $primary;
+        font-size: 16px;
+    }
+    .controlCont {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 54.9px;
+    }
+}

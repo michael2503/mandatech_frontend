@@ -1,0 +1,236 @@
+
+<app-user-header></app-user-header>
+
+<app-page-loader *ngIf="isLoading"></app-page-loader>
+
+
+<div class="theSideMenu" id="theSideMenu">
+    <app-user-sidemenu></app-user-sidemenu>
+</div>
+
+
+<div *ngIf="!isLoading" id="theMainPage" class="theMainPage">
+    <div class="">
+
+        <div id="userPage">
+            <div id="largeRight">
+
+                <div id="largeBottom">
+
+                    <main>
+
+                        <div class="container">
+                            <div class="breadcrum" style="margin-top: 20px;">
+                                <h4>Checkout</h4>
+                            </div>
+
+                            <form [formGroup]="form" (ngSubmit)="submit()">
+
+                                <div class="row">
+                                    <div class="col-xl-8 mt-4">
+                                        <div class="card cardShadow blueCard">
+                                            <div class="card-header">Delivery Address</div>
+                                            <div class="card-body">
+
+                                                <p class="mb-4">Select Delivery Address</p>
+
+                                                <div *ngIf="addresses?.length > 0">
+                                                    <div *ngFor="let address of addresses" class="eachAddress" [class.activeBlue]="selectedAdd == address?.id">
+                                                        <div (click)="selectAddress(address?.id)">
+                                                            <div *ngIf="selectedAdd == address?.id" class="selectedAddress">
+                                                                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                                                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                                                                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                                                </svg>
+                                                            </div>
+
+                                                            <p class="mb-2">Phone: {{ address?.phone }}</p>
+                                                            <p class="mb-0">{{ address?.address }}, {{ address?.city }}, {{ address?.state }}, {{ address?.country }}</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mb-4 mt-5 text-center">
+                                                        <a routerLink="/user/address" class="btn btn-primary btn-sm">Add New Address</a>
+                                                    </div>
+                                                </div>
+
+                                                <div *ngIf="addresses?.length < 1">
+                                                    <p class="mt-3 mb-3 text-center">No address</p>
+                                                    <a routerLink="/user/address" class="btn btn-primary btn-sm">Add Address</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card cardShadow blueCard mt-4">
+                                            <div class="card-header">Payment Method</div>
+                                            <div class="card-body">
+                                                <div class="eachMethod">
+                                                    <app-group-accordion [listener]="accOpenListiner">
+                                                        <app-cus-accordion (onOpenEv)="accOpenListiner.next(0)">
+                                                            <div class="card accDark">
+                                                                <div class="card-header p-0">
+                                                                    <a
+                                                                        href="javascript:void(0)"
+                                                                        class="accHead stroke"
+                                                                        [class.cusCollapsed]="activePageModule != 'bankTransfer'"
+                                                                        [class.activeLink]="activePageModule == 'bankTransfer'"
+                                                                        (click)="selectMethod('Bank')"
+                                                                    >
+                                                                        <span class="text-white"><span class="payDot" [class.activeDot]="activeMethod == 'Bank'"></span> Bank Transfer</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accBody" [class.cusShow]="activePageModule == 'bankTransfer'">
+                                                                <div class="submenuCont p-3">
+                                                                    <p>Make payment to any of these bank account and upload prove of payment</p>
+                                                                    <div class="card card-footer mb-2" *ngFor="let bank of banks">
+                                                                        <p class="mb-1">Account Name: {{ bank?.account_name | titlecase }}</p>
+                                                                        <p class="mb-1">Account Number: {{ bank?.account_number }}</p>
+                                                                        <p class="mb-1">Bank Name: {{ bank?.bank | titlecase }}</p>
+                                                                    </div>
+
+                                                                    <div class="form-group mt-4">
+                                                                        <label>Upload Prove of Payment</label>
+                                                                        <div class="adminUpload">
+
+                                                                          <div class="uploadWrapper text-center" style="position: relative;">
+                                                                              <div *ngIf="uploadedBanners" class="deleteImg" (click)="removeUploadBanner()">
+                                                                                  <i class="fa fa-trash"></i>
+                                                                              </div>
+                                                                              <label *ngIf="removeLabelBanner" class="uploadLabel" for="faviconUpld">
+                                                                                  <i class="fa fa-upload uploadIcon"></i>
+                                                                                  <p>Click here to upload file</p>
+                                                                              </label>
+
+                                                                              <input hidden formControlName="image">
+                                                                              <input type="file" hidden id="faviconUpld" class="form-control mb-0" (change)="onloadFile($event)">
+
+                                                                              <div *ngIf="uploadingProgress > 0" class="progress uploadProgress">
+                                                                                  <span class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                                                                  Uploading...{{ uploadingProgress }}%
+                                                                                  </span>
+                                                                              </div>
+
+                                                                              <img *ngIf="uploadedBanners" src="{{uploadedBanners}}" class="uploaded">
+                                                                          </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </app-cus-accordion>
+
+
+                                                        <app-cus-accordion (onOpenEv)="accOpenListiner.next(1)">
+                                                            <div class="card accDark mt-4">
+                                                                <div class="card-header p-0">
+                                                                    <a
+                                                                        href="javascript:void(0)"
+                                                                        class="accHead stroke"
+                                                                        [class.cusCollapsed]="activePageModule != 'onDelivery'"
+                                                                        [class.activeLink]="activePageModule == 'onDelivery'"
+                                                                        (click)="selectMethod('Delivery')"
+                                                                    >
+                                                                        <span><span class="payDot" [class.activeDot]="activeMethod == 'Delivery'"></span> Pay on Delivery</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div
+                                                                class="accBody"
+                                                                [class.cusShow]="activePageModule == 'onDelivery'"
+                                                            >
+                                                                <div class="submenuCont p-3">
+                                                                    <p>Payment for this transaction will be made on delivery the product to you or when coming to pick it up.</p>
+                                                                </div>
+                                                            </div>
+                                                        </app-cus-accordion>
+                                                    </app-group-accordion>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="col-xl-4">
+                                        <div class="card cardShadow blueCard mt-4 mb-4">
+                                            <div class="card-header">Coupon</div>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <input type="text" required class="form-control" (keyup)="getValue($event)" placeholder="Enter coupon code" style="height: 45px;">
+                                                    <div class="input-group-append">
+                                                      <button *ngIf="!isSearching" (click)="submitCoupon()" class="btn btn-success" type="button">GO</button>
+                                                      <button *ngIf="isSearching" disabled class="btn btn-success" type="button"><i class="fa fa-spinner fa-spin"></i></button>
+                                                      <button (click)="removeCoupon()" class="btn btn-danger" type="button"><i class="fa fa-trash"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card cardShadow blueCard">
+                                            <div class="card-header">Order Summary</div>
+                                            <div class="card-body p-0 orderSumm">
+                                                <div class="d-flex justify-content-between">
+                                                    <div>Sub Total</div>
+                                                    <div>₦{{ totalCartAmt | number }}</div>
+                                                </div>
+                                                <div class="d-flex justify-content-between">
+                                                    <div>Shipping Fee</div>
+                                                    <div>₦0</div>
+                                                </div>
+                                                <div *ngIf="coupon" class="d-flex justify-content-between">
+                                                    <div>Coupon</div>
+                                                    <div>₦{{ coupon?.amount | number }}</div>
+                                                </div>
+                                                <div class="d-flex justify-content-between">
+                                                    <div><b>Total</b></div>
+                                                    <div *ngIf="!coupon"><b>₦{{ totalCartAmt | number }}</b></div>
+                                                    <div *ngIf="coupon"><b>₦{{ totalCartAmt - coupon?.amount | number }}</b></div>
+                                                </div>
+
+                                                <div class="mt-5 mb-4 text-center">
+                                                    <button [disabled]="!form?.valid" *ngIf="carts?.length > 0 && !isSubmitting" class="btn btn-primary rounded-0">Complete Order</button>
+                                                    <button disabled *ngIf="isSubmitting" class="btn btn-primary rounded-0"><i class="fa fa-spinner fa-spin"></i> Complete Order</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div *ngIf="showNotice">
+    <div class="adminNoteWrap">
+      <div *ngIf="justMssg">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+        </svg>
+
+        <p class="pt-3"> {{theMessage}} </p>
+        <div class="d-flex justify-content-center"><button class="btn btn-sm btn-primary" (click)="closeMyNotice()">Close</button></div>
+      </div>
+
+      <div *ngIf="deleteModal">
+        <div class="d-flex justify-content-center"><i class="fa fa-times delIcon"></i></div>
+        <p class="text-center">{{theMessage}}</p>
+        <div class="text-center mt-4 mb-2">
+            <button class="btn btn-primary btn-sm" (click)="closeMyNotice()">Close</button>
+        </div>
+      </div>
+    </div>
+</div>

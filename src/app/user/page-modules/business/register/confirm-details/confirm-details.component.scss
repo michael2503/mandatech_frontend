@@ -1,0 +1,27 @@
+@import '../../../../../../theme/colors.scss';
+.eachInfo {
+    margin-bottom: 30px;
+    h5 {
+        font-weight: 600;
+        font-size: 16px;
+        padding-bottom: 12.04px;
+        border-bottom: 1px solid #DFDFDF;
+        margin-bottom: 25px;
+    }
+    .infoBody {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .keyVal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            span:last-child {
+                color: $primary;
+            }
+        }
+        .primCol {
+            font-style: italic;
+        }
+    }
+}

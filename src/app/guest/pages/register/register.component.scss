@@ -1,0 +1,26 @@
+@import '../login/login.component.scss';
+.formCont {
+    margin: auto;
+    max-width: 600px;
+    h1 {
+        font-size: 25px;
+        font-weight: 600;
+        margin-bottom: 57px;
+        text-align: center;
+    }
+    form {
+        max-width: unset;
+        background: $greyBg;
+        padding: 51px 73px 65px;
+    }
+    .formGroup {
+        input,
+        select {
+            background: transparent;
+            &:focus {
+                background: #fff;
+                box-shadow: none;
+            }
+        }
+    }
+}

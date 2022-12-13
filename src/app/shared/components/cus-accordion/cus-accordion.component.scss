@@ -1,0 +1,18 @@
+.cusAcc {
+     ::ng-deep .accHead {
+        // padding-bottom: 10px;
+        font-size: 17px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+     ::ng-deep .accBody {
+        overflow: hidden;
+        height: 0px;
+        transition: 0.3s ease;
+    }
+     ::ng-deep .accBody.cusShow {
+        height: auto;
+    }
+}

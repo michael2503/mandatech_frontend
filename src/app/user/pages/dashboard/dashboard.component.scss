@@ -1,0 +1,65 @@
+@import "../../../../theme/colors.scss";
+@import '../coupons/coupons.component.scss';
+
+.threeGrid{
+    padding: 15px;
+    .iconSide{
+        width: 80px;
+        height: 80px;
+        background: #406fe6;
+        color: #fff;
+        border-radius: 50%;
+        font-size: 35px;
+        text-align: center;
+        padding-top: 30px;
+        margin-right: 10px;
+    }
+    .value{
+        font-size: 30px;
+        font-weight: 550;
+        margin-bottom: 5px;
+        text-align: right;
+    }
+}
+
+
+.proTitle{
+    font-size: 14px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #000;
+}
+.orderNum{
+    font-size: 14px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    color: #000;
+}
+
+.contSide{
+    width: 90%;
+}
+.imgSide{
+    width: 10%;
+}
+@media only screen and (max-width: 767px){
+    .contSide{
+        width: 85%;
+    }
+    .imgSide{
+        width: 15%;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .contSide{
+        width: 80%;
+    }
+    .imgSide{
+        width: 20%;
+    }
+}

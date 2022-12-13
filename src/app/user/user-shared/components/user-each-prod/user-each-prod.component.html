@@ -1,0 +1,16 @@
+<div class="userEachProd">
+    <div class="imgCont">
+        <div class="prodImg">
+            <cl-image appAltImageFormat public-id="{{product?.featured_img | publicId}}" format="avif">
+                <cl-transformation width="90" crop="scale"></cl-transformation>
+            </cl-image>
+        </div>
+    </div>
+    <div class="txtPart">
+        <a routerLink="/products/{{product?.id}}/{{product?.name_slug}}" class="prodName ellipsis">{{product?.name | textTransform:'capitalize'}}</a>
+        <div class="pv font-weight-bold primCol">{{product?.point_value}}pv</div>
+        <div class="price"><span [innerHTML]="curr"></span>{{product?.sales_price | number}}</div>
+        <button *ngIf="adding != product?.id" class="primBtnOutline" (click)="addToCart()">Add to cart</button>
+        <app-loading-btn *ngIf="adding == product?.id" clss="primBtnOutline"></app-loading-btn>
+    </div>
+</div>

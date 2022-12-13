@@ -1,0 +1,29 @@
+<header>
+    <div class="leftPart">
+        <div class="time">
+            <!-- <span>Time : {{present | date:'HH:mm:ss (z)'}}</span>
+            <span>Date : {{present | date:'E dd MMMM YYYY'}}</span> -->
+        </div>
+
+        <div class="mobileNavIcon">
+            <span><img src="{{ webSet?.logo_url }}" width="120px" alt=""></span>
+            <span class="mobileMenuIcon"  (click)="minimizeNav()"><i class="fa fa-align-justify"></i></span>
+        </div>
+    </div>
+
+    <div class="rightPart">
+        <div class="cusDropdown" id="testing">
+            <a routerLink="/shopping-carts">
+                <div appDropdown class="clickable">
+                    <span style="font-size: 20px"><i class="fa fa-shopping-cart"></i></span>
+                    <span class="count">{{ cartCount }}</span>
+                </div>
+            </a>
+        </div>
+        <a routerLink="/user/settings/profile">
+            <cl-image appAltImageFormat public-id="{{auth?.photo | publicId:'https://res.cloudinary.com/natures-extracts/image/upload/v1652953084/profile-default_m19n1m.png'}}" format="avif">
+                <cl-transformation width="29" height="29" crop="fill" radius="max"></cl-transformation>
+            </cl-image>
+        </a>
+    </div>
+</header>

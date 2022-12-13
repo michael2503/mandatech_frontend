@@ -1,0 +1,71 @@
+<app-user-layout>
+    <div
+        class="titleSearchSect d-flex align-items-center justify-content-between"
+    >
+        <form [formGroup]="form" (ngSubmit)="search()" class="searchCont">
+            <input
+                type="text"
+                formControlName="username"
+                (input)="trackInp()"
+                placeholder="eg. Johanez"
+                class="form-control"
+            />
+            <button class="primBtn">Search</button>
+        </form>
+    </div>
+    <div class="bodyPart" id="unilevelCont" #bodyPart>
+        <app-group-accordion [listener]="accOpenListener" *ngIf="levels?.length">
+            <app-cus-accordion *ngFor="let level of levels; let i = index" (onOpenEv)="accOpenListener.next(i)">
+                <div class="accHead" [class.cusCollapsed]="i != 0">
+                    <span>Level {{ i + 1 }}</span>
+                </div>
+                <div class="accBody" [class.cusShow]="i == 0">
+                    <div class="tableViewCont">
+                        <app-tab-table-view>
+                            <div class="tabBody">
+                                <div class="cusTable">
+                                    <div class="tableHead">
+                                        <div>Username</div>
+                                        <div>Phone</div>
+                                        <div>Package</div>
+                                        <div>Rank</div>
+                                        <div>Date Registered</div>
+                                    </div>
+                                    <div class="tableBody">
+                                        <div
+                                            *ngFor="let ref of level?.list"
+                                            class="tableRow"
+                                        >
+                                            <div>{{ ref?.username }}</div>
+                                            <div>{{ ref?.phone }}</div>
+                                            <div>{{ ref?.name }}</div>
+                                            <div>Level {{ i + 1 }}</div>
+                                            <div>
+                                                {{
+                                                    ref?.created_at | date: "dd/MM/YY hh:mm"
+                                                }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf="count" class="paginationCont">
+                                    <div class="leftSide">
+                                        {{ begin }}-{{ end[i] }} of {{ count[i] }}
+                                    </div>
+                                    <div class="rightSide">
+                                        <span class="ctrl" (click)="morePage(-1, i)"
+                                            ><i class="fa fa-angle-left"></i
+                                        ></span>
+                                        <span class="ctrl" (click)="morePage(1, i)"
+                                            ><i class="fa fa-angle-right"></i
+                                        ></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </app-tab-table-view>
+                    </div>
+                </div>
+            </app-cus-accordion>
+        </app-group-accordion>
+    </div>
+</app-user-layout>

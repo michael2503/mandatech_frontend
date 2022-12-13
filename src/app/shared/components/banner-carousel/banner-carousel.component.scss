@@ -1,0 +1,57 @@
+.carouselParent {
+    position: relative;
+    overflow: hidden;
+     ::ng-deep .flexCont {
+        display: flex;
+        position: relative;
+        width: 100%;
+    }
+     ::ng-deep .carouselItem {
+        width: 100%;
+        margin: 0 !important;
+    }
+     ::ng-deep .carouselIndicators {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 0;
+        .indicatorItem {
+            height: 15px;
+            min-width: 15px;
+            width: 15px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .indicatorItem.cusActive {
+            background: #fff;
+        }
+    }
+     ::ng-deep [class^="carouselCtrl"] {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        width: 44px;
+        border-radius: 50%;
+        background: #fff;
+        text-decoration: none !important;
+        color: #000;
+        font-weight: bold;
+        font-size: 18px;
+    }
+     ::ng-deep .carouselCtrlPrev {
+        left: 0;
+    }
+     ::ng-deep .carouselCtrlNext {
+        right: 0;
+    }
+}

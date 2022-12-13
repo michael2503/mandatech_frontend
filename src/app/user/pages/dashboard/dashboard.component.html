@@ -1,0 +1,129 @@
+<app-user-header></app-user-header>
+
+
+<div class="theSideMenu" id="theSideMenu">
+    <app-user-sidemenu [mainpage]="'dashboard'" [page]="'dashboard'"></app-user-sidemenu>
+</div>
+
+
+<div id="theMainPage" class="theMainPage">
+    <div class="container">
+        <div class="breadcrum mb-4">
+            <h4>Dashboard</h4>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-6 mt-3">
+                <div class="card card-body cardShadow threeGrid">
+                    <div class="d-flex justify-content-between">
+                        <div class="iconSide"><i class="fa fa-shopping-cart"></i></div>
+                        <div>
+                            <p class="value">{{ allOrder | number }}</p>
+                            <p class="title mb-0">All Orders</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-6 mt-3">
+                <div class="card card-body cardShadow threeGrid">
+                    <div class="d-flex justify-content-between">
+                        <div class="iconSide"><i class="fa fa-shopping-cart"></i></div>
+                        <div>
+                            <p class="value">{{ activeOrder | number }}</p>
+                            <p class="title mb-0">Active Orders</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-6 mt-3">
+                <div class="card card-body cardShadow threeGrid">
+                    <div class="d-flex justify-content-between">
+                        <div class="iconSide"><i class="fa fa-shopping-cart"></i></div>
+                        <div>
+                            <p class="value">{{ activeCoupon | number }}</p>
+                            <p class="title mb-0">Coupon Codes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-xl-6 mt-5">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="title pull-left">Recent Orders</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="orders?.length > 0">
+                        <a *ngFor="let order of orders" routerLink="/user/order-manager/details/{{ order?.order_number }}">
+                            <div class="card card-body cardShadow p-2 mb-2">
+                                <div class="d-flex justify-content-start">
+                                    <div class="imgSide" style="text-align: center;">
+                                        <img src="{{ order?.prodInfo.featured_img }}" alt="" style="height: 100%; width: 100%; object-fit: contain">
+                                    </div>
+                                    <div class="contSide">
+                                        <p class="proTitle">man is here for you to see {{ order?.prodInfo.product_name}}</p>
+                                        <p class="orderNum">{{ order?.order_number }}</p>
+                                        <p class="orderNum"><b>Total: ₦{{ order?.total | number }}</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xl-6 mt-5">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="title pull-left">Recent Coupons</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Coupon Code</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="coupons?.length > 0">
+                                <tr *ngFor="let coupon of coupons">
+                                    <td>{{ coupon?.coupon }}</td>
+                                    <td>₦{{ coupon?.amount | number }}</td>
+                                    <td>
+                                        <span *ngIf="coupon?.status == 'Active'" class="badge badge-success">Active</span>
+                                        <span *ngIf="coupon?.status == 'Used'" class="badge badge-danger">Used</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody *ngIf="coupons?.length < 1">
+                                <tr>
+                                    <td class="text-center mb-4" colspan="3">No Coupon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

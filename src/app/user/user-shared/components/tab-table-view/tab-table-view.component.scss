@@ -1,0 +1,88 @@
+@import '../../../../../theme/colors.scss';
+
+.tabCont {
+    font-size: 14px;
+    ::ng-deep .tabHead {
+        display: flex;
+        gap: 35px;
+        position: relative;
+        margin-bottom: 15px;
+        &::after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-bottom: 1px solid #DFDFDF;
+            content: '';
+        }
+        .eachTab {
+            padding-bottom: 15px;
+            position: relative;
+            cursor: pointer;
+            font-size: 14px;
+            &::after {
+                position: absolute;
+                border-bottom: 3px solid $primary;
+                width: 100%;
+                bottom: 0;
+                left: 0;
+            }
+            &.activeTab {
+                &::after {
+                    content: '';
+                }
+            }
+        }
+    }
+    ::ng-deep .tabBody {
+        padding: 0 21px 21px;
+        background: #fff;
+        border: 1px solid #DFDFDF;
+        .cusTable {
+            overflow-x: auto;
+            .tableHead, .tableRow {
+                display: flex;
+                white-space: nowrap;
+                height: 56px;
+                align-items: center;
+                &>div {
+                    flex: 1;
+                    &:first-child {
+                        padding-left: 55px;
+                    }
+                }
+                &.tableRow {
+                    border-top: 1px solid #E2E5F6;
+                    border-bottom: 1px solid #E2E5F6;
+                    &:hover {
+                        background: #FCFCFC;
+                    }
+                }
+            }
+            .tableBody {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                .emptyRes {
+                    display: flex;
+                    text-align: center;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100px;
+                }
+            }
+        }
+        .paginationCont {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+            .ctrl {
+                cursor: pointer;
+                padding: 5px 10px;
+                font-size: 16px;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,471 @@
+<app-home-header [activePage]="'about'"></app-home-header>
+
+<app-page-loader *ngIf="isLoading"></app-page-loader>
+
+<main *ngIf="!isLoading" id="main-content" class="body-container-wrapper">
+    <div class="container-fluid body-container body-container--about">
+        <div class="row-fluid-wrapper">
+            <div class="row-fluid">
+                <div class="span12 widget-span widget-type-cell " data-widget-type="cell" data-x="0" data-w="12">
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-1 dnd-section" style="margin-top: 200px;">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                <div id="hs_cos_wrapper_dnd_area-module-1" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                    <section class="page-banner">
+                                        <div class="image-layer" style="background-image: url(/assets/images/banner/banner-bg-1.webp);"></div>
+                                        <div class="auto-container">
+                                            <div class="breadcrumb-box">
+                                                <div class="auto-container">
+                                                    <ul class="bread-crumb clearfix">
+
+                                                        <li>
+                                                            <a routerLink="/">
+                                                                Home
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a routerLink="/about">
+                                                                About Us
+                                                            </a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h1>About Us</h1>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-2 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-3 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624782985454" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="about-section-four">
+                                                    <div class="pattern-image-left">
+                                                        <img src="/assets/images/banner/pattern-image-1.webp" alt="pattern-image-1-1" loading="lazy" style="max-width: 100%; height: auto;">
+                                                    </div>
+                                                    <div class="pattern-image-right">
+                                                        <img src="/assets/images/banner/pattern-image-2.webp" alt="pattern-image-2-1" loading="lazy" style="max-width: 100%; height: auto;">
+                                                    </div>
+                                                    <div class="auto-container">
+                                                        <div class="row clearfix">
+                                                            <div class="title-column col-lg-5 col-md-12 col-sm-12 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                <div class="inner">
+                                                                    <div class="sec-title">
+                                                                        <div class="upper-text">who are Mandatech <span class="icon flaticon-flash"></span></div>
+                                                                        <h2>{{ about?.title }}</h2>
+                                                                        <div class="subtitle">{{ about?.sub_title }}</div>
+                                                                        <div class="bottom-dots clearfix">
+                                                                            <span class="dot line-dot"></span>
+                                                                            <span class="dot"></span>
+                                                                            <span class="dot"></span>
+                                                                            <span class="dot"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <img src="{{ about?.second_banner }}" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="text-column col-lg-7 col-md-12 col-sm-12">
+                                                                <div class="inner wow fadeInRight" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                    <div class="text-content">
+                                                                        <div [innerHTML]="about?.content"></div>
+                                                                    </div>
+                                                                    <div class="signature">Mandatech Group</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="lower-content">
+                                                            <div class="row clearfix">
+
+                                                                <div *ngFor="let serv of aboutServices; let i = index" class="default-block col-lg-4 col-md-6 col-sm-12 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                    <div class="inner-box">
+                                                                        <div class="image-box">
+                                                                            <a>
+                                                                                <img src="{{ serv?.image }}" alt="featured-image-32" loading="lazy" style="max-width: 100%; height: auto;">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="lower-box">
+                                                                            <div class="count">0{{ i+1 }}</div>
+                                                                            <h3>
+                                                                                <a>
+                                                                                    {{ serv?.title }}
+                                                                                </a>
+                                                                            </h3>
+                                                                            <div class="text">{{ serv?.content }}</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- <div class="default-block col-lg-4 col-md-6 col-sm-12 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                    <div class="inner-box">
+                                                                        <div class="image-box">
+                                                                            <a href="?hsLang=en">
+                                                                                <img src="https://f.hubspotusercontent20.net/hub/20168525/hubfs/featured-image-33.jpg?width=360&amp;height=250&amp;name=featured-image-33.jpg" alt="featured-image-33" loading="" width="360" height="250">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="lower-box">
+                                                                            <div class="count">02</div>
+                                                                            <h3>
+                                                                                <a href="?hsLang=en">
+                                                                                    Commercial Solutions
+                                                                                </a>
+                                                                            </h3>
+                                                                            <div class="text">Pellentesque porta velit faucibs kodales dolor rhoncus sed curabitur</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="default-block col-lg-4 col-md-6 col-sm-12 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                    <div class="inner-box">
+                                                                        <div class="image-box">
+                                                                            <a href="?hsLang=en">
+                                                                                <img src="https://f.hubspotusercontent20.net/hub/20168525/hubfs/featured-image-34.jpg?width=360&amp;height=250&amp;name=featured-image-34.jpg" alt="featured-image-34" loading="" width="360" height="250">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="lower-box">
+                                                                            <div class="count">03</div>
+                                                                            <h3>
+                                                                                <a href="?hsLang=en">
+                                                                                    Solar Thermal Systems
+                                                                                </a>
+                                                                            </h3>
+                                                                            <div class="text">Pellentesque porta velit faucibs kodales dolor rhoncus sed curabitur</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div> -->
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-4 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-5 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624783529463" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="projects-section-three">
+                                                    <div class="outer-container clearfix">
+                                                        <div class="text-column clearfix">
+                                                            <div class="bg-layer"></div>
+                                                            <div class="inner clearfix">
+                                                                <div class="content wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-delay: 0ms; animation-name: fadeInLeft;">
+                                                                    <div class="title">
+                                                                        <div class="sub-title"><span class="icon flaticon-flash"></span>{{ whyus?.small_title }}</div>
+                                                                        <h2>{{ whyus?.main_title }}</h2>
+                                                                    </div>
+
+                                                                    <div class="text">
+                                                                        <div [innerHTML]="whyus?.content"></div>
+                                                                    </div>
+
+                                                                    <div class="links-box">
+                                                                        <a routerLink="/projects" class="theme-btn btn-style-one">
+                                                                     <div class="btn-title"><span class="btn-txt">{{ whyus?.btn_title }}</span><span class="btn-icon"><span class="icon flaticon-arrows-11"></span> </span></div>
+                                                                      </a>
+                                                                  </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="image-column clearfix">
+                                                            <div class="inner clearfix">
+                                                                <div class="text-over-block">
+                                                                    <div class="inner-box">
+                                                                        <div class="block-image-layer" [style.backgroundImage]="'url(' + whyus?.mission_banner + ')'"></div>
+                                                                        <div class="title">
+                                                                            <span class="icon flaticon-solar-panel"></span>
+                                                                            <span class="txt">{{ whyus?.mission_title }}</span>
+                                                                        </div>
+                                                                        <div class="overlay">
+                                                                            <div class="over-inner">
+                                                                                <div class="icon-box">
+                                                                                    <span class="icon {{ whyus?.mission_icon }}"></span>
+                                                                                </div>
+                                                                                <h3>
+                                                                                    <a routerLink="/">{{ whyus?.mission_title }}</a>
+                                                                              </h3>
+                                                                                <div class="text">{{ whyus?.mission_content }}</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="text-over-block">
+                                                                    <div class="inner-box">
+                                                                        <div class="block-image-layer" [style.backgroundImage]="'url(' + whyus?.innovation_banner + ')'"></div>
+                                                                        <div class="title">
+                                                                            <span class="icon flaticon-trees"></span>
+                                                                            <span class="txt">{{ whyus?.innovation_title }}</span>
+                                                                        </div>
+                                                                        <div class="overlay">
+                                                                            <div class="over-inner">
+                                                                                <div class="icon-box">
+                                                                                    <span class="icon {{ whyus?.innovation_icon }}"></span>
+                                                                                </div>
+                                                                                <h3>
+                                                                                    <a routerLink="/">{{ whyus?.innovation_title }}</a>
+                                                                              </h3>
+                                                                                <div class="text">{{ whyus?.innovation_content }}</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div><!--end widget-span -->
+                                    </div><!--end row-->
+                                </div><!--end row-wrapper -->
+                            </div><!--end widget-span -->
+                        </div><!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-6 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-7 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624784429571" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="history-section default-theme">
+                                                    <div class="auto-container">
+                                                        <div class="sec-title centered">
+                                                            <div class="upper-text">Mandatech is important <span class="icon flaticon-flash"></span></div>
+                                                            <h2>Mandatech Company History</h2>
+                                                            <div class="subtitle">{{ about?.title }}</div>
+                                                            <div class="bottom-dots clearfix">
+                                                                <span class="dot line-dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="carousel-box">
+                                                            <app-flex-slider [slideResizeConfig]="historyResizeConfig" [autoSlide]="true">
+                                                                <div class="flexCont" >
+                                                                    <div *ngFor="let hist of histories" class="carouselItem">
+                                                                        <div class="slide">
+                                                                            <div class="history-block">
+                                                                                <div class="date">{{ hist?.year }}</div>
+                                                                                <div class="round-dot"></div>
+                                                                                <div class="title">{{ hist?.title }}</div>
+                                                                                <div class="text">{{ hist?.contents }}</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="controlCont">
+                                                                    <a href="javascript:void(0)" class="prev"><i class="fa fa-angle-left"></i></a>
+                                                                    <a href="javascript:void(0)" class="next"><i class="fa fa-angle-right"></i></a>
+                                                                </div>
+                                                            </app-flex-slider>
+
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+
+                    <section class="newsletter-section">
+                        <div class="auto-container">
+                            <!--Big Icon-->
+                            <div class="big-icon"><span class="flaticon-solar-panel"></span></div>
+
+                            <div class="row clearfix">
+                                <div class="title-column col-xl-4 col-lg-12 col-md-12">
+                                    <div class="inner wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-delay: 0ms; animation-name: fadeInLeft;">
+                                        <h2>We’re Dedicated To <br>Build A Cleaner Future</h2>
+                                    </div>
+                                </div>
+                                <div class="form-column col-xl-8 col-lg-12 col-md-12">
+                                    <div class="inner">
+                                        <div class="newsletter-form">
+                                            <form method="post" action="contact.html">
+                                                <div class="row clearfix">
+                                                    <!-- <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                                                        <div class="field-inner">
+                                                            <input id="field-1" type="text" name="field-name" value="" placeholder="Your Name" required="">
+                                                            <label for="field-1"><span class="far fa-user"></span></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                                                        <div class="field-inner">
+                                                            <input id="field-2" type="text" name="field-name" value="" placeholder="Your Email" required="">
+                                                            <label for="field-2"><span class="far fa-envelope-open"></span></label>
+                                                        </div>
+                                                    </div> -->
+                                                    <div class="form-group col-lg-4 col-md-6 col-sm-12"></div>
+                                                    <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                                                        <div class="field-inner">
+                                                            <a routerLink="/products" class="theme-btn btn-style-one"><span class="btn-title"><span class="btn-txt">Our Products</span><span class="btn-icon"><span class="icon flaticon-arrows-11"></span> </span></span></a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                                                        <div class="field-inner">
+                                                            <a routerLink="/contact-us" class="theme-btn btn-style-three"><span class="btn-title"><span class="btn-txt">Contact Us</span><span class="btn-icon"><span class="icon flaticon-arrows-11"></span> </span></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-10 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-11 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624784735189" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="team-section default-theme">
+                                                    <div class="auto-container">
+                                                        <div class="sec-title centered">
+                                                            <div class="upper-text">Mandatech is important <span class="icon flaticon-flash"></span></div>
+                                                            <h2>Expert Team Members</h2>
+                                                            <div class="subtitle">{{ about?.sub_title }}</div>
+                                                            <div class="bottom-dots clearfix">
+                                                                <span class="dot line-dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row clearfix">
+
+                                                            <div *ngFor="let team of teams" class="team-block col-lg-3 col-md-6 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                                                <div class="inner-box">
+                                                                    <div class="image-box">
+                                                                        <div class="image">
+                                                                            <a routerLink="/about">
+                                                                                <img src="{{ team?.image }}" alt="{{ team?.name }}" loading="lazy" style="max-width: 100%; height: 275px; object-fit: contain;">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="social-links">
+                                                                            <ul>
+                                                                                <li *ngIf="team?.facebook">
+                                                                                    <a href="{{ team?.facebook }}">
+                                                                                        <span class="fa fa-facebook"></span>
+                                                                                    </a>
+                                                                                </li>
+
+                                                                                <li *ngIf="team?.twitter">
+                                                                                    <a href="{{ team?.twitter }}">
+                                                                                        <span class="fa fa-twitter"></span>
+                                                                                    </a>
+                                                                                </li>
+
+                                                                                <li *ngIf="team?.instagram">
+                                                                                    <a href="{{ team?.instagram }}">
+                                                                                        <span class="fa fa-instagram"></span>
+                                                                                    </a>
+                                                                                </li>
+
+                                                                                <li *ngIf="team?.linkedin">
+                                                                                    <a href="{{ team?.linkedin }}">
+                                                                                        <span class="fa fa-linkedin"></span>
+                                                                                    </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="lower-box">
+                                                                        <h3>
+                                                                            <a routerLink="/about">
+                                                                                {{ team?.name }}
+                                                                            </a>
+                                                                        </h3>
+                                                                        <div class="info">{{ team?.position }}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+
+                </div>
+                <!--end widget-span -->
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+<app-footer *ngIf="!isLoading"></app-footer>

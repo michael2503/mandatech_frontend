@@ -1,0 +1,635 @@
+<app-home-header [activePage]="'home'"></app-home-header>
+
+<app-page-loader *ngIf="isLoading"></app-page-loader>
+
+<main *ngIf="!isLoading" id="main-content" class="body-container-wrapper">
+
+    <div class="container-fluid body-container body-container--home">
+        <div class="row-fluid-wrapper">
+            <div class="row-fluid">
+                <div class="span12 widget-span widget-type-cell " data-widget-type="cell" data-x="0" data-w="12">
+
+
+
+
+
+                    <section class="banner-section banner-five">
+                        <div class="banner-carousel strnix-carousel owl-theme owl-carousel owl-loaded owl-drag" data-options="{&quot;loop&quot;: true, &quot;margin&quot;: 0, &quot;autoheight&quot;:true, &quot;lazyload&quot;:true, &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 6000, &quot;smartSpeed&quot;: 300, &quot;responsive&quot;:{ &quot;0&quot; :{ &quot;items&quot;: &quot;1&quot; }, &quot;768&quot; :{ &quot;items&quot; : &quot;1&quot; } , &quot;1000&quot;:{ &quot;items&quot; : &quot;1&quot; }}}">
+
+                            <div class="owl-stage-outer">
+                                <div class="owl-stage" style="transform: translate3d(0px); transition: all 0.3s ease 0s; width: 8094px;">
+                                    <div class="owl-item active" style="width: 100vw; margin-top: 50px;">
+                                        <div class="slide-item">
+                                            <div class="image-layer" style="background-image:url('/assets/images/slider/14.jpg')"></div>
+
+                                            <div class="auto-container">
+                                                <div class="content-box">
+                                                    <div class="content">
+                                                        <div class="inner">
+                                                            <div class="sub-title wow fadeInDownBig animated" data-wow-delay="0ms" data-wow-duration="1000ms">{{ sliders?.title }}</div>
+                                                            <h1 class="wow fadeInUpBig animated" data-wow-delay="500ms" data-wow-duration="1000ms">{{ sliders?.sub_title }}</h1>
+                                                            <div class="text wow fadeInUpBig animated" data-wow-delay="800ms" data-wow-duration="1000ms">{{ sliders?.content }}</div>
+                                                            <div class="links-box clearfix wow fadeInUpBig animated" data-wow-delay="1200ms" data-wow-duration="1000ms">
+                                                                <a routerLink="/services" class="theme-btn btn-style-thirteen"><div class="btn-title">What We Offer</div></a>
+                                                                <a href="/get-  quote" class="theme-btn btn-style-fourteen"><div class="btn-title">Get a Quote</div></a>
+                                                            </div>
+
+                                                            <div class="content-image wow fadeInRightBig animated" data-wow-delay="1200ms" data-wow-duration="1000ms" style="margin-top: 80px;">
+                                                                <img src="{{ sliders?.image }}" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-nav">
+                                <button type="button" role="presentation" class="owl-prev">
+                                    <span class="icon fa fa-angle-left"></span>
+                                </button>
+                                <button type="button" role="presentation" class="owl-next">
+                                    <span class="icon fa fa-angle-right"></span>
+                                </button>
+                            </div>
+                            <div class="owl-dots">
+                                <button role="button" class="owl-dot">
+                                    <span></span>
+                                </button>
+                                <button role="button" class="owl-dot active">
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+
+                    <!-- ABOUT US -->
+                    <div class="row-fluid-wrapper row-depth-1 row-number-3 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-4 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624721415612" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="about-section-one">
+                                                    <div class="auto-container">
+                                                        <div class="row clearfix">
+                                                            <div class="text-column col-lg-6 col-md-12 col-sm-12">
+                                                                <div class="inner">
+                                                                    <div class="sec-title wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+                                                                        <div class="upper-text">About Mandatech <span class="icon flaticon-flash"></span></div>
+                                                                        <h2>{{ about?.title }}</h2>
+                                                                        <div class="subtitle">{{ about?.sub_title }}</div>
+                                                                        <div class="bottom-dots clearfix">
+                                                                            <span class="dot line-dot"></span>
+                                                                            <span class="dot"></span>
+                                                                            <span class="dot"></span>
+                                                                            <span class="dot"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="text-content wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+                                                                        <div [innerHTML]="about?.content | summary: 400"></div>
+                                                                    </div>
+                                                                    <div class="featured-list">
+                                                                        <ul class="clearfix">
+
+                                                                            <li class=" wow fadeInUp" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                                <div class="icon"><span class="flaticon-solar-energy"></span></div>
+                                                                                <div class="title" [innerHTML]="about?.icon_title_one"></div>
+                                                                            </li>
+
+                                                                            <li class=" wow fadeInUp" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                                <div class="icon"><span class="flaticon-solar-panel"></span></div>
+                                                                                <div class="title" [innerHTML]="about?.icon_title_two"></div>
+                                                                            </li>
+
+                                                                            <li class=" wow fadeInUp" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                                <div class="icon"><span class="flaticon-forest"></span></div>
+                                                                                <div class="title" [innerHTML]="about?.icon_title_three"></div>
+                                                                            </li>
+
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                                                                <div class="inner">
+                                                                    <div class="image-box">
+                                                                        <figure class="image wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                            <img src="{{ about?.first_banner }}" alt="featured-image-1-1" loading="lazy" style="max-width: 100%; height: auto;">
+                                                                        </figure>
+                                                                        <figure class="image-two wow fadeInRight animated" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                            <img src="{{ about?.second_banner }}" alt="featured-image-2" loading="lazy" style="max-width: 100%; height: auto;">
+                                                                        </figure>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!-- ABOUT US -->
+
+
+
+                    <!-- <section id="testimonials" class="testimonialSect">
+                        <div class="bodyCont">
+                            <div class="titleSect noPara">
+                                <h1>Testimonial</h1>
+                                <i>Learn something intresting</i>
+                                <h3>Word’s from our customers</h3>
+                            </div>
+                            <div class="bodySect">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <app-banner-carousel>
+                                            <div class="flexCont">
+                                                <div *ngFor="let testi of testimonials;" class="carouselItem">
+                                                    <div class="eachTesti">
+                                                        <div class="imgCont">
+                                                            <div class="prodImg">
+                                                                <img src="{{testi?.prod_image}}" alt="{{testi?.occupation}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="testiTxt">
+                                                            <section class="banner-section banner-five">
+                                                                <div class="banner-carousel strnix-carousel owl-theme owl-carousel owl-loaded owl-drag" data-options="{&quot;loop&quot;: true, &quot;margin&quot;: 0, &quot;autoheight&quot;:true, &quot;lazyload&quot;:true, &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 6000, &quot;smartSpeed&quot;: 300, &quot;responsive&quot;:{ &quot;0&quot; :{ &quot;items&quot;: &quot;1&quot; }, &quot;768&quot; :{ &quot;items&quot; : &quot;1&quot; } , &quot;1000&quot;:{ &quot;items&quot; : &quot;1&quot; }}}">
+
+
+
+                                                                    <div class="owl-stage-outer" >
+                                                                        <div class="owl-stage" style="transform: translate3d(0px); transition: all 0.3s ease 0s; width: 8094px;">
+
+                                                                            <div class="owl-item active" style="width: 1349px; margin-top: 50px;">
+                                                                                <div class="slide-item">
+                                                                                    <div class="image-layer" style="background-image:url('/assets/images/slider/14.jpg');"></div>
+
+
+                                                                                    <div class="auto-container">
+                                                                                        <div class="content-box">
+                                                                                            <div class="content">
+                                                                                                <div class="inner">
+                                                                                                    <div class="sub-title wow fadeInDown animated" data-wow-delay="0ms" data-wow-duration="1000ms">welcome to strnix</div>
+                                                                                                    <h1 class="wow fadeInUpBig animated" data-wow-delay="500ms" data-wow-duration="1000ms">We help to Enable Efficient Energy</h1>
+                                                                                                    <div class="text wow fadeInUpBig animated" data-wow-delay="800ms" data-wow-duration="1000ms">Solutions to Wind Energy Production  behind the word mountains, far from the countries Vokalia and Consonantia they live in Bookmarksgrove.</div>
+                                                                                                    <div class="links-box clearfix wow fadeInUpBig animated" data-wow-delay="1200ms" data-wow-duration="1000ms">
+                                                                                                        <a href="contact.html" class="theme-btn btn-style-thirteen"><div class="btn-title">What We Offers</div></a>
+                                                                                                        <a href="contact.html" class="theme-btn btn-style-fourteen"><div class="btn-title">Get a Quote</div></a>
+                                                                                                    </div>
+
+                                                                                                    <div class="content-image" style="margin-top: 80px;">
+                                                                                                        <img src="assets/images/slider/content-image-1.png" alt="">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </section>
+
+
+
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input id="testiPrev" hidden class="carouselCtrlPrev">
+                                            <input id="testiNext" hidden class="carouselCtrlNext">
+                                        </app-banner-carousel>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="controls">
+                                            <label for="testiPrev"><i class="fa fa-angle-left"></i></label>
+                                            <label for="testiNext"><i class="fa fa-angle-right"></i></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section> -->
+
+
+
+
+
+                    <!-- WHY CHOSE US -->
+                    <div class="row-fluid-wrapper row-depth-1 row-number-4 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-5 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624783529463" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="projects-section-three">
+                                                    <div class="outer-container clearfix">
+                                                        <div class="text-column clearfix">
+                                                            <div class="bg-layer"></div>
+                                                            <div class="inner clearfix">
+                                                                <div class="content wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-delay: 0ms; animation-name: fadeInLeft;">
+                                                                    <div class="title">
+                                                                        <div class="sub-title"><span class="icon flaticon-flash"></span>{{ whyus?.small_title }}</div>
+                                                                        <h2>{{ whyus?.main_title }}</h2>
+                                                                    </div>
+
+                                                                    <div class="text">
+                                                                        <div [innerHTML]="whyus?.content"></div>
+                                                                    </div>
+
+                                                                    <div class="links-box">
+                                                                        <a routerLink="/projects" class="theme-btn btn-style-one">
+                                                                     <div class="btn-title"><span class="btn-txt">{{ whyus?.btn_title }}</span><span class="btn-icon"><span class="icon flaticon-arrows-11"></span> </span></div>
+                                                                      </a>
+                                                                  </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="image-column clearfix">
+                                                            <div class="inner clearfix">
+                                                                <div class="text-over-block">
+                                                                    <div class="inner-box">
+                                                                        <div class="block-image-layer" [style.backgroundImage]="'url(' + whyus?.mission_banner + ')'"></div>
+                                                                        <div class="title">
+                                                                            <span class="icon flaticon-solar-panel"></span>
+                                                                            <span class="txt">{{ whyus?.mission_title }}</span>
+                                                                        </div>
+                                                                        <div class="overlay">
+                                                                            <div class="over-inner">
+                                                                                <div class="icon-box">
+                                                                                    <span class="icon {{ whyus?.mission_icon }}"></span>
+                                                                                </div>
+                                                                                <h3>
+                                                                                    <a routerLink="/">{{ whyus?.mission_title }}</a>
+                                                                              </h3>
+                                                                                <div class="text">{{ whyus?.mission_content }}</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="text-over-block">
+                                                                    <div class="inner-box">
+                                                                        <div class="block-image-layer" [style.backgroundImage]="'url(' + whyus?.innovation_banner + ')'"></div>
+                                                                        <div class="title">
+                                                                            <span class="icon flaticon-trees"></span>
+                                                                            <span class="txt">{{ whyus?.innovation_title }}</span>
+                                                                        </div>
+                                                                        <div class="overlay">
+                                                                            <div class="over-inner">
+                                                                                <div class="icon-box">
+                                                                                    <span class="icon {{ whyus?.innovation_icon }}"></span>
+                                                                                </div>
+                                                                                <h3>
+                                                                                    <a routerLink="/">{{ whyus?.innovation_title }}</a>
+                                                                              </h3>
+                                                                                <div class="text">{{ whyus?.innovation_content }}</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div><!--end widget-span -->
+                                    </div><!--end row-->
+                                </div><!--end row-wrapper -->
+                            </div><!--end widget-span -->
+                        </div><!--end row-->
+                    </div>
+                    <!-- WHY CHOSE US -->
+
+
+                    <!-- SERVICES -->
+                    <div class="row-fluid-wrapper row-depth-1 row-number-9 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-10 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624727290963" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="services-section-one">
+                                                    <div class="pattern-image-left paroller" data-paroller-factor="-0.4" data-paroller-factor-lg="-0.4" data-paroller-factor-md="-0.2" data-paroller-factor-sm="-0.2" data-paroller-type="foreground" data-paroller-direction="vertical">
+                                                        <img src="/assets/images/banner/pattern-image-1.png" alt="pattern-image-1" loading="lazy" style="max-width: 100%; height: auto;">
+                                                    </div>
+                                                    <div class="pattern-image-right paroller" data-paroller-factor="-0.3" data-paroller-factor-lg="-0.3" data-paroller-factor-md="0.2" data-paroller-factor-sm="0.2" data-paroller-type="foreground" data-paroller-direction="vertical">
+                                                        <img src="/assets/images/banner/pattern-image-2.png" alt="pattern-image-2" loading="lazy" style="max-width: 100%; height: auto;">
+
+                                                    </div>
+                                                    <div class="auto-container">
+                                                        <div class="sec-title centered">
+                                                            <div class="upper-text">Mandatech Services <span class="icon flaticon-flash"></span></div>
+                                                            <h2>Powering Your World</h2>
+                                                            <div class="subtitle">For Controling Your Energy Production</div>
+                                                            <div class="bottom-dots clearfix">
+                                                                <span class="dot line-dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="services">
+
+                                                            <div *ngFor="let service of topServices" class="service-block">
+                                                                <div class="row clearfix">
+                                                                    <div class="image-column col-lg-5 col-md-6 col-sm-12">
+                                                                        <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                            <div class="image">
+                                                                                <img src="{{ service?.banner }}" alt="featured-image-3" loading="lazy" style="max-width: 100%; height: auto;">
+                                                                            </div>
+                                                                            <div class="icon-box"><span class="{{ service?.icon }}"></span></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="text-column col-lg-7 col-md-6 col-sm-12">
+                                                                        <div class="inner clearfix">
+                                                                            <div class="content wow fadeInRight" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                                <div class="title">
+                                                                                    <h2><span>{{ service?.title }}</span></h2>
+                                                                                    <div class="sub-text">{{ service?.sub_itle }}</div>
+                                                                                </div>
+                                                                                <div class="text"><div [innerHTML]="service?.content | summary: 300"></div></div>
+                                                                                <div class="link-box">
+                                                                                    <a routerLink="/services/{{ service?.id }}/{{ service?.title | cleanUrl }}">
+                                                                                        <span class="txt">Get Started</span><span class="icon flaticon-arrows-11"></span>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!-- SERVICES -->
+
+
+
+
+                    <!-- TESTIMONIES -->
+                    <div class="row-fluid-wrapper row-depth-1 row-number-15 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-16 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624727814517" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="reviews-section">
+                                                    <div class="image-layer" style="background-image: url(/assets/images/banner/bg-image-1.jpg);"></div>
+
+                                                    <div class="auto-container">
+                                                        <div class="sec-title light-title centered">
+                                                            <div class="upper-text">Testimonials <span class="icon flaticon-flash"></span></div>
+                                                            <h2>Client’s Reviews</h2>
+                                                            <div class="subtitle">Company Testimonials</div>
+                                                            <div class="bottom-dots clearfix">
+                                                                <span class="dot line-dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="bodySect">
+
+                                                        </div>
+
+
+                                                        <div class="testimonialSect">
+
+                                                            <app-flex-slider [slideResizeConfig]="slideResizeConfig" [autoSlide]="true">
+                                                                <div class="flexCont" >
+                                                                    <div *ngFor="let test of testimonies" class="carouselItem">
+                                                                        <app-each-testimony [testimony]="test"></app-each-testimony>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="controlCont">
+                                                                    <a href="javascript:void(0)" class="prev"><i class="fa fa-angle-left"></i></a>
+                                                                    <a href="javascript:void(0)" class="next"><i class="fa fa-angle-right"></i></a>
+                                                                </div>
+                                                            </app-flex-slider>
+                                                        </div>
+
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!-- TESTIMONIES -->
+
+
+
+
+                    <!-- FIELD WORKS -->
+                    <div class="row-fluid-wrapper row-depth-1 row-number-11 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-12 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624727033524" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="recent-projects">
+                                                    <div class="bg-pattern-layer"></div>
+                                                    <div class="auto-container">
+                                                        <div class="row clearfix">
+                                                            <div class="title-column col-lg-5 col-md-12 col-sm-12">
+
+                                                                <div *ngFor="let project of recentProjects; let i = index" class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                    <div *ngIf="activeOne == i + 1">
+                                                                        <div class="sec-title">
+                                                                            <div class="upper-text">Field Works <span class="icon flaticon-flash"></span></div>
+                                                                            <h2>{{ project?.title }}</h2>
+                                                                            <div class="subtitle">{{ project?.service }}</div>
+                                                                            <div class="bottom-dots clearfix">
+                                                                                <span class="dot line-dot"></span>
+                                                                                <span class="dot"></span>
+                                                                                <span class="dot"></span>
+                                                                                <span class="dot"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="text"><div [innerHTML]="project?.content | summary:200"></div></div>
+                                                                        <div class="links-box">
+                                                                            <a href="/projects" class="theme-btn btn-style-two">
+                                                                                <div class="btn-title"><span class="btn-txt">View All Works</span><span class="btn-icon"><span class="icon flaticon-arrows-11"></span> </span></div>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="image-column col-lg-7 col-md-12 col-sm-12">
+                                                                <div class="inner wow fadeInRight" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                    <div class="tabs-box recent-proj-tabs">
+                                                                        <div class="buttons-box">
+                                                                            <ul class="tab-buttons clearfix">
+                                                                                <li *ngFor="let project of recentProjects; let i = index" data-tab="#tab-1" class="tab-btn" [class.active-btn]="activeOne == i +1" rel="tab-1" (click)="nextTheTab(i + 1)">
+                                                                                    <span class="btn-title">{{ project?.title }}</span>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div class="tabs-content">
+
+                                                                            <div *ngFor="let project of recentProjects; let i = index" class="tab active-tab" id="tab-1">
+                                                                                <div *ngIf="activeOne == i + 1" class="tab-inner">
+                                                                                    <figure class="image">
+                                                                                        <img src="{{ project?.image }}" alt="featured-image-6-1" loading="lazy" style="max-width: 100%; height: auto;">
+
+                                                                                    </figure>
+                                                                                    <div class="cat-info">commercial</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!-- FIELD WORKS -->
+
+
+
+                    <!-- STATISTICS -->
+                    <div class="row-fluid-wrapper row-depth-1 row-number-13 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-14 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624727370735" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="fun-facts-section">
+                                                    <div class="bg-pattern-layer"></div>
+                                                    <div class="fact-counter">
+                                                        <div class="auto-container">
+                                                            <div class="row clearfix">
+                                                                <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
+                                                                    <div class="inner">
+                                                                        <div class="icon-box"><span class="icon flaticon-flash"></span></div>
+                                                                        <div class="count-box"><span class="count-text" data-speed="1000">{{ config?.exp_year }}</span>+ Years</div>
+                                                                        <div class="counter-title">Of Experience &amp; Record</div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
+                                                                    <div class="inner">
+                                                                        <div class="icon-box"><span class="icon flaticon-flash"></span></div>
+                                                                        <div class="count-box"><span class="count-text" data-speed="1000">{{ config?.no_of_project }}</span>+</div>
+                                                                        <div class="counter-title">Systems Installed</div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
+                                                                    <div class="inner">
+                                                                        <div class="icon-box"><span class="icon flaticon-flash"></span></div>
+                                                                        <div class="count-box"><span class="count-text" data-speed="1000" data-stop="65">{{ config?.product_sold }}</span>+</div>
+                                                                        <div class="counter-title">Product Sold</div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
+                                                                    <div class="inner">
+                                                                        <div class="icon-box"><span class="icon flaticon-flash"></span></div>
+                                                                        <div class="count-box"><span class="count-text" data-speed="1000">{{ config?.recommendation }}</span>+</div>
+                                                                        <div class="counter-title">Awards & Recommendation</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!-- STATISTICS -->
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+<app-footer *ngIf="!isLoading"></app-footer>

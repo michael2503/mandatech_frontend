@@ -1,0 +1,38 @@
+@import '../../../../theme/colors.scss';
+.stageCont {
+    margin: auto;
+    max-width: 430.36px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 52.52px;
+    .stageLine {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        transform: translateY(-50%);
+        height: 1px;
+        background: $greyBg;
+        .currStage {
+            background: $primary;
+            z-index: 20;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 1px;
+            max-width: 100%;
+        }
+    }
+    .eachStage {
+        min-width: 21.54px;
+        height: 20px;
+        width: 21.54px;
+        background: $greyBg;
+        position: relative;
+        z-index: 20;
+        &.filled {
+            background: $primary;
+        }
+    }
+}

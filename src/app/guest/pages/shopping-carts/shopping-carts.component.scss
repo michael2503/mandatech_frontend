@@ -1,0 +1,99 @@
+.contact-section .info-block .inner{
+    padding: 0px !important;
+}
+.tHead{
+    th{
+        background: #406fe6 !important;
+        color: #fff !important;
+        font-size: 14px !important;
+        padding: 15px !important;
+    }
+}
+.eachCart{
+    td{
+        padding: 30px 20px 20px;
+    }
+    padding: 30px 0px 20px;
+    border-bottom: 1px solid #ccc;
+    .firstCol{
+        width: 280px;
+        text-align: left;
+    }
+    .proImg{
+        width: 70px;
+        margin-right: 10px;
+        img{
+            width: 100%;
+        }
+    }
+    .proInfo{
+        .title{
+            margin-bottom: 1px;
+            font-size: 15px;
+            font-weight: 550;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 220px;
+        }
+        .subTtitle{
+            margin-bottom: 2px;
+            font-size: 13px;
+        }
+    }
+    .desInc{
+        span{
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            padding-top: 5px;
+            text-align: center;
+        }
+        .pointer{
+            cursor: pointer;
+            font-size: 17px;
+        }
+    }
+    .price{
+        .amount{
+            font-size: 18px;
+            font-weight: 550;
+            margin-bottom: 2px;
+        }
+        .amtDesc{
+            font-size: 13px;
+        }
+    }
+}
+
+.card-header{
+    background: #406fe6;
+    color: #fff;
+    font-size: 14px;
+    padding: 15px;
+}
+
+.orderSumm{
+    .d-flex{
+        padding: 20px 15px;
+        font-size: 15px;
+        border-bottom: 1px solid #ccc;
+    }
+}
+
+.coverUp{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    position: absolute;
+    z-index: 1000;
+    span{
+        font-size: 50px;
+        position: fixed;
+        top: 300px;
+        text-align: center;
+        color: #fff;
+    }
+}

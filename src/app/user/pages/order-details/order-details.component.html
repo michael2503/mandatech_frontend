@@ -1,0 +1,139 @@
+<app-page-loader *ngIf="pageLoader"></app-page-loader>
+
+<app-user-header></app-user-header>
+
+
+<div class="theSideMenu" id="theSideMenu">
+    <app-user-sidemenu [mainpage]="'order'" [page]="'order'"></app-user-sidemenu>
+</div>
+
+
+<div *ngIf="!pageLoader" id="theMainPage" class="theMainPage">
+    <div class="container">
+        <div class="breadcrum mt-2">
+            <h4>Order Details</h4>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-12 mt-5">
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="title pull-left">Order Info</h4>
+                                <!-- <a href="#" class="btn btn-sm btn-primary pull-right"><i class="fa fa-plus"></i> Add New</a> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card cardShadow">
+                        <div class="card-body orderInfo p-2">
+                            <div class="d-flex justify-content-between">
+                                <p>Order Number</p>
+                                <p>{{ order?.order_number }}</p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <p>Payment Method</p>
+                                <p>{{ order?.payment_method }}</p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <p>Phone</p>
+                                <p>{{ order?.phone }}</p>
+                            </div>
+                            <div *ngIf="order?.couponInfo" class="d-flex justify-content-between">
+                                <p>Coupon Code</p>
+                                <p>{{ order?.couponInfo.coupon }}</p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <p>Status</p>
+                                <p>
+                                    <span *ngIf="order?.status == 'Pending'" class="badge badge-info ml-2">Pending</span>
+                                    <span *ngIf="order?.status == 'Delivered'" class="badge badge-success ml-2">Delivered</span>
+                                    <span *ngIf="order?.status == 'Cancelled'" class="badge badge-danger ml-2">Cancelled</span>
+                                    <span *ngIf="order?.status == 'Returned'" class="badge badge-dark ml-2">Returned</span>
+                                    <span *ngIf="order?.status == 'Shipped'" class="badge badge-warning ml-2">Shipped</span>
+                                </p>
+                            </div>
+                            <div class="d-block shippingAddr">
+                                <p>Shipping Address</p>
+                                <p class="mb-0">
+                                    {{ order?.address }}, {{ order?.city | titlecase }}, {{ order?.state | titlecase }}, {{ order?.country | titlecase }}
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <p>Order On</p>
+                                <p>{{ order?.created_at | date }}</p>
+                            </div>
+                            <div *ngIf="order?.payment_method == 'Bank'" class="mt-4 text-center">
+                                <a href="{{ order?.pop }}" class="btn btn-primary btn-sm" target="_blank">View POP</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-8 col-lg-8 col-md-12 mt-5 mb-5">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="title pull-left">Order Products</h4>
+                                <!-- <a href="#" class="btn btn-sm btn-primary pull-right"><i class="fa fa-plus"></i> Add New</a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card cardShadow">
+                        <div class="card-body proDetBody">
+                            <div *ngIf="products?.length > 0">
+                                <div *ngFor="let prod of products" class="eachOrder">
+                                    <div class="row">
+                                        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <div class="proImg">
+                                                <img src="{{ prod?.featured_img }}" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-10 col-lg-9 col-md-9 col-sm-9 col-9 proInfoWrapepr">
+                                            <div class="proInfo">
+                                                <p class="mb-0 proName">{{ prod?.product_name }}</p>
+                                                <p class="pInfo mb-0">Qty: {{ prod?.quantity }}</p>
+                                                <div class="d-flex justify-content-between priceSide">
+                                                    <p class="amt">Amount: <br> <span>₦{{ prod?.amount | number }}</span></p>
+                                                    <p class="amt">Sub Total: <br> <span>₦{{ prod?.sub_total | number }}</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between mt-3 shippingFee">
+                                    <p>Shipping Fee</p>
+                                    <p>₦0.00</p>
+                                </div>
+
+                                <div class="d-flex justify-content-between mt-3">
+                                    <p><b>Total</b></p>
+                                    <p><b>₦{{ order?.total | number }}</b></p>
+                                </div>
+                                <div *ngIf="order?.couponInfo" class="d-flex justify-content-between mt-3 shippingFee">
+                                    <p>Coupon</p>
+                                    <p>(₦{{ order?.couponInfo.amount | number }})</p>
+                                </div>
+                                <div *ngIf="order?.couponInfo" class="d-flex justify-content-between mt-3">
+                                    <p><b>Total Paid</b></p>
+                                    <p><b>₦{{ order?.total_paid | number }}</b></p>
+                                </div>
+                            </div>
+                            <div *ngIf="products?.length < 1">
+                                <p class="text-center">No Products</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

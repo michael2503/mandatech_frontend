@@ -1,0 +1,340 @@
+@import '../../../../theme/colors.scss';
+
+
+.product-grid{
+  font-family: 'Lato', sans-serif;
+  border: 2px solid #eee;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all .4s ease-in-out;
+  box-shadow: 0px 0px 25px 0px rgb(0 0 0 / 12%);
+}
+.product-grid:hover{ border-color: $primary; }
+.product-grid .product-image{ position: relative; height: 233px; width: 100%;}
+// .product-grid .product-image a.image{ display: block; }
+.product-grid .product-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px 10px;
+}
+.product-grid .product-links{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  z-index: 1;
+}
+.product-grid .product-links li{
+  margin: 0 0 8px;
+  transform: translate(140%, 0);
+  transition: all 0.3s;
+}
+.product-grid .product-links li:nth-child(1){ transition-duration: 0.2s; }
+.product-grid .product-links li:nth-child(2){ transition-duration: 0.4s; }
+.product-grid .product-links li:nth-child(3){ transition-duration: 0.6s; }
+.product-grid:hover .product-links li{ transform: translate(0, 0); }
+.product-grid .product-links li a{
+  color: $primary;
+  background-color: rgba(0,0,0,0.1);
+  font-size: 14px;
+  text-align: center;
+  line-height: 42px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: block;
+  transition: all .3s ease-in-out;
+}
+.product-grid .product-links li a:hover{
+  color: #fff;
+  background: $primary;
+}
+.product-grid .product-content{
+  padding: 15px;
+  background: #fff;
+}
+.product-grid .product-category{
+  color: $primary;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin: 0 0 8px;
+  display: block;
+}
+.product-grid .product-category a{
+  color: $primary;
+  transition: all .3s ease 0s;
+}
+.product-grid .product-category a:hover{ text-decoration: underline; }
+.product-grid .title{
+    font-size: 15px;
+    // font-weight: 600;
+    text-transform: capitalize;
+    margin: 0 0 5px;
+    height: 37px;
+    overflow-y: hidden;
+}
+.product-grid .title a{
+  color: #3D3D3D;
+  transition: all 0.3s ease 0s;
+}
+.product-grid .title a:hover{ color: $primary; }
+.product-grid .price{
+  color: $primary;
+  font-size: 20px;
+  font-weight: 700;
+  width: calc(100% - 43px);
+  display: inline-block;
+}
+.product-grid .add-to-cart{
+  color: #BCBCBC;
+  background:#f4f4f4;
+  font-size: 18px;
+  text-align: center;
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px 12px 20px 12px;
+  display: inline-block;
+  transition: all .3s ease-in-out;
+}
+.product-grid .add-to-cart:hover{ border-radius: 10px; }
+.product-grid:hover .add-to-cart{
+  color: #fff;
+  background: $primary;
+}
+@media screen and (max-width: 990px){
+  .product-grid{ margin-bottom: 30px; }
+}
+
+.pointValue{
+  background: #ffc107;
+  height: 23px;
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+.list-group-item{
+  background: transparent;
+  color: #000;
+  border-bottom: 1px solid #ccc;
+  padding: 12px !important;
+  cursor: pointer;
+}
+.list-group-item:hover{
+  background: #ccc;
+}
+.sortWrapper{
+  border-top: none !important;
+  border-radius: none !important;
+  .list-group{
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 1;
+    transition: 3s;
+  }
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #ccc !important;
+}
+
+
+
+.eachSortSect {
+    margin-bottom: 25px;
+    h4 {
+        font-size: 20px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+        &::after {
+            border-top: 1px solid #DFDFDF;
+            content: '';
+            flex: 1;
+        }
+    }
+    .sortBody {
+        .eachCheck {
+            label {
+                display: flex;
+                gap: 15px;
+                align-items: center;
+                padding: 8px 0;
+                cursor: pointer;
+                margin: 0;
+                span{
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+                .cusCheck {
+                    width: 20px;
+                    height: 20px;
+                    min-width: 20px;
+                    display: flex;
+                    border: 1px solid #DFDFDF;
+                    i {
+                        margin: auto;
+                        font-size: 12px;
+                        display: none;
+                        color: #fff;
+                    }
+                }
+            }
+            input:checked+label {
+                .cusCheck {
+                    background: $primary;
+                    border-color: $primary;
+                    i {
+                        display: block;
+                    }
+                }
+            }
+        }
+        .eachTopRated {
+            max-width: 224px;
+            padding-bottom: 14px;
+            margin-bottom: 14px;
+            border-bottom: 1px solid #DFDFDF;
+            color: $txtColor;
+            font-size: 15px;
+            .rateImgCont {
+                min-width: 42.72px;
+                width: 42.72px;
+                margin-left: 10px;
+            }
+            .rateTxtCont {
+                flex: 1;
+                * {
+                    line-height: 1;
+                }
+                .name {
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                }
+                .starRate {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        &.priceFilt {
+            * {
+                font-size: 14px;
+            }
+            .cusRangeCont {
+                margin: 21.63px 0;
+                .greyLine {
+                    height: 3px;
+                    background: #c4c4c4;
+                    position: relative;
+                    max-width: 200px;
+                    [class$="Line"] {
+                        height: 100%;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 0;
+                        background: $primary;
+                        transition: 0s;
+                        * {
+                            transition: 0s;
+                        }
+                        &.maxLine {
+                            width: 100%;
+                        }
+                        &.minLine {
+                            background: #c4c4c4;
+                            z-index: 20;
+                        }
+                        [class*="Circle"] {
+                            width: 9px;
+                            height: 9px;
+                            background: $primary;
+                            border-radius: 50%;
+                            top: 50%;
+                            position: absolute;
+                            transform: translate(-50%, -50%);
+                            cursor: pointer;
+                            left: 100%;
+                            .cusToolTip {
+                                position: absolute;
+                                visibility: hidden;
+                                top: calc(100% + 10px);
+                                left: 50%;
+                                transform: translateX(-50%);
+                                &::before {
+                                    position: absolute;
+                                    content: '';
+                                    width: 7px;
+                                    height: 7px;
+                                    transform: translate(-50%, -50%) rotate(45deg);
+                                    background: #000000f1;
+                                    left: 50%;
+                                    top: 0;
+                                }
+                                span {
+                                    position: relative;
+                                    padding: 2px 10px 8px;
+                                    border-radius: 2px;
+                                    background: #000000f1;
+                                    display: block;
+                                    color: #fff;
+                                    z-index: 4;
+                                    line-height: 1;
+                                }
+                            }
+                            &:hover,
+                            &.dragging {
+                                width: 15px;
+                                height: 15px;
+                                .cusToolTip {
+                                    visibility: visible;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.prodListCont {
+    h1 {
+        font-size: 25px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-bottom: 40px;
+        &::after {
+            content: '';
+            flex: 1;
+            border-top: 1px solid #DFDFDF;
+        }
+    }
+}
+
+
+.coverUp{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    position: absolute;
+    z-index: 1000;
+    span{
+        font-size: 50px;
+        position: fixed;
+        top: 300px;
+        text-align: center;
+        color: #fff;
+    }
+}

@@ -1,0 +1,429 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/css/font-awesome.min.css';
+@import '~simple-line-icons/css/simple-line-icons.css';
+@import './theme/colors.scss';
+@import './theme/flaticons.scss';
+@import './theme/animate.scss';
+@import './theme/mainstyle.scss';
+@import './theme/responsive.scss';
+
+@font-face {
+    font-family: "Playfair Display";
+    src: url(assets/fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Playfair Display";
+    src: url(assets/fonts/Playfair_Display/static/PlayfairDisplay-Medium.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Playfair Display";
+    src: url(assets/fonts/Playfair_Display/static/PlayfairDisplay-SemiBold.ttf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Playfair Display";
+    src: url(assets/fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf);
+    font-weight: bold;
+}
+
+:root {
+    --view-height: 100vh;
+}
+
+
+
+.adminNoteWrap {
+    display: table;
+    float: right;
+    min-height: 180px;
+    width: 300px;
+    background-color: #fff;
+    padding: 20px 10px;
+    position: fixed;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-animation-name: noticeAnime;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.5s;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-delay: 0.5s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: noticeAnime;
+    animation-duration: 0.5s;
+    animation-delay: -0.1s;
+    z-index: 50000;
+    font-family: calibri;
+    font-size: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    p {
+        color: #000;
+        text-align: center;
+        .pointer {
+            cursor: pointer;
+        }
+    }
+    .delIcon{
+      border: 3px solid #000;
+      padding: 14px 13px;
+      border-radius: 50%;
+      font-size: 30px;
+      background: red;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .checkmark__circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      stroke-width: 2;
+      stroke-miterlimit: 10;
+      stroke: #7ac142;
+      fill: none;
+      animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
+    }
+
+    .checkmark {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: block;
+        stroke-width: 2;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        margin: auto;
+        box-shadow: inset 0px 0px 0px #7ac142;
+        animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
+    }
+
+    .checkmark__check {
+        transform-origin: 50% 50%;
+        stroke-dasharray: 48;
+        stroke-dashoffset: 48;
+        animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards
+    }
+  }
+
+  @-webkit-keyframes noticeAnime {
+    0% {
+        top: 0px;
+    }
+    20% {
+        top: 30px;
+    }
+    40% {
+        top: 60px;
+    }
+    60% {
+        top: 90px;
+    }
+    80% {
+        top: 120px;
+    }
+    100% {
+        top: 150px;
+    }
+  }
+
+
+  /* Standard syntax */
+
+  @keyframes noticeAnime {
+    0% {
+      top: 0px;
+    }
+    20% {
+        top: 30px;
+    }
+    40% {
+        top: 60px;
+    }
+    60% {
+        top: 90px;
+    }
+    80% {
+        top: 120px;
+    }
+    100% {
+        top: 150px;
+    }
+  }
+
+  @keyframes stroke {
+    100% {
+        stroke-dashoffset: 0
+    }
+  }
+
+  @keyframes scale {
+    0%,
+    100% {
+        transform: none
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1)
+    }
+  }
+
+  @keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #7ac142
+    }
+  }
+
+
+
+
+// USER MAIN PAGE AND MENU
+#theMainPage {
+    transition: margin-left .5s;
+    margin-left: 260px;
+    background: #f9f9f9;
+    padding-top: 80px;
+    padding-bottom: 100px;
+    // padding-bottom: 80px;
+    .cardShadow{
+        box-shadow: 0 0 15px -3px rgb(0 0 0 / 20%);
+    }
+}
+.theSideMenu{
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    z-index: 3000;
+    // top: 70px;
+    // left: 0;
+    // background-color: red;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: 0.5s;
+    // padding-top: 10px;
+    border-right: 1px solid #ccc;
+}
+header{
+    .leftPart {
+        font-size: 14px;
+        margin-left: 20px;
+
+        .mobileNavIcon{
+            display: none;
+        }
+        .mobileMenuIcon{
+            font-size: 20px;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+        @media only screen and (max-width: 776px) {
+            // margin-left: 0px;
+            .time{
+                display: none;
+            }
+            .mobileNavIcon{
+                display: inline;
+            }
+        }
+    }
+}
+
+
+
+@media only screen and (max-width: 776px){
+    #theMainPage {
+        margin-left: 0px !important;
+    }
+    .theSideMenu{
+        width: 0px;
+    }
+    .adminMain-wrapper{
+        margin-top: 60px;
+        padding-left: 8px;
+        // padding-right: 8px;
+    }
+}
+
+.theMainPage{
+    .breadcrum{
+        background-color: #eee;
+        padding: 15px;
+        border: 1px solid #ddd;
+        // margin-top: 10px;
+        h4{
+            margin-bottom: 0px;
+            font-size: 20px;
+        }
+    }
+}
+
+
+
+#userPage {
+    display: flex;
+    // min-height: var(--view-height);
+    font-size: 14px;
+    #largeRight {
+        flex: 1;
+        width: 10px;
+    }
+    #largeBottom {
+        display: flex;
+        min-height: calc(var(--view-height) - 61px);
+        main {
+            flex: 1;
+            background: #fafafa;
+            padding-bottom: 100px;
+            // padding: 51.6px 39.28px 51.6px;
+            .titleSection {
+                padding-bottom: 15px;
+                border-bottom: 1px solid #dfdfdf;
+                h1 {
+                    font-size: 20px;
+                    font-weight: 500;
+                    margin-bottom: 0;
+                }
+                .primBtnOutline {
+                    border-radius: 100px;
+                    height: 43.5px;
+                    gap: 10px;
+                    padding: 0 18.36px;
+                }
+            }
+        }
+    }
+    ::ng-deep .formGroup {
+        margin-bottom: 30px;
+        label {
+            margin-bottom: 14px;
+        }
+        input,
+        select {
+            height: 60px;
+            border: 1px solid #8692a6;
+            padding: 0 23px;
+            &:not([readonly]):focus {
+                border-color: $primary;
+                // box-shadow: 0px 4px 10px 3px #0000001c;
+                box-shadow: none;
+            }
+            &.error {
+                border-color: red;
+            }
+            &[readonly] {
+                background: #fafafa;
+                cursor: not-allowed;
+            }
+        }
+        .inputCont {
+            position: relative;
+            [class*="fa-eye"] {
+                position: absolute;
+                top: 50%;
+                cursor: pointer;
+                right: 23px;
+                transform: translateY(-50%);
+            }
+            &.phone {
+                display: flex;
+                border: 1px solid #8692a6;
+                border-radius: 5px;
+                align-items: center;
+                &.focused {
+                    border-color: $primary;
+                    background: #fff;
+                    // box-shadow: 0px 4px 10px 3px #0000001c;
+                }
+                &.error {
+                    border-color: red;
+                }
+                .ctryCode {
+                    padding: 2px 23px;
+                    padding-right: 26.05px;
+                    border-right: 1px solid #b4b4b4;
+                }
+                input {
+                    border: none !important;
+                    box-shadow: none !important;
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .errDisp {
+            font-size: 14px;
+            margin-top: 5px;
+            color: red;
+        }
+    }
+    ::ng-deep #modals {
+        position: absolute;
+        .modalContent {
+            max-width: 450px !important;
+            button,
+            ::ng-deep button {
+                height: 60px;
+                width: 100%;
+                filter: none;
+                margin: 46px 0 17px;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+
+.adminUpload {
+    .uploadWrapper {
+        width: 100%;
+        border: 2px dashed #ccc;
+        height: 160px;
+        // cursor: pointer;
+        .uploadLabel {
+            width: 100%;
+            height: 160px;
+            cursor: pointer;
+        }
+        .uploadIcon {
+            font-size: 40px;
+            text-align: center !important;
+            color: #ccc;
+            margin-top: 55px;
+        }
+        p {
+            color: #ccc;
+            font-size: 13px;
+        }
+        .deleteImg {
+            position: absolute;
+            right: 10px;
+            top: 7px;
+            width: 25px;
+            height: 25px;
+            background: red;
+            border-radius: 4px;
+            z-index: 1;
+            cursor: pointer;
+            i {
+                color: #fff;
+                margin-top: 4px;
+            }
+        }
+        .uploadProgress {
+            position: absolute;
+            top: 80px;
+            width: 100%;
+        }
+        .uploaded {
+            position: absolute;
+            top: 7px;
+            left: 15px;
+            object-fit: contain;
+            width: 90%;
+            height: 90%;
+        }
+    }
+}

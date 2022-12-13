@@ -1,0 +1,20 @@
+#empty {
+    display: flex;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 30px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    svg {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+        path {
+            fill: brown;
+        }
+    }
+    p {
+        font-size: 17px;
+    }
+}

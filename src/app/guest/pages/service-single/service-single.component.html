@@ -1,0 +1,131 @@
+<app-home-header [activePage]="'services'"></app-home-header>
+
+
+
+<!-- Page Banner Section -->
+<section class="page-banner">
+    <div class="image-layer" style="background-image: url(/assets/images/banner/banner-bg-2.jpg);"></div>
+
+    <div class="auto-container">
+        <div class="breadcrumb-box">
+            <div class="auto-container">
+                <ul class="bread-crumb clearfix">
+                    <li><a routerLink="/">Home</a></li>
+                    <li><a routerLink="/services">Services</a></li>
+                    <li class="active">Service Details</li>
+                </ul>
+            </div>
+        </div>
+
+        <h1 style="font-size: 30px;">{{ service?.title }}</h1>
+    </div>
+
+</section>
+<!--End Page Banner Section -->
+
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!--Content Side-->
+            <div class="content-side col-lg-8 col-md-12 col-sm-12">
+                <div class="service-details">
+                    <div class="details-inner">
+                        <div class="main-image">
+                            <img src="/assets/images/resource/featured-image-40.jpg" alt="">
+                        </div>
+                        <div class="sec-title service-title">
+                            <h2>{{ service?.title }}</h2>
+                            <div class="subtitle">{{ service?.sub_title }}</div>
+                            <div class="bottom-dots clearfix">
+                                <span class="dot line-dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                        <div class="text-block text-content">
+                            <p [innerHTML]="service?.content"></p>
+                        </div>
+                        <div class="featured-list mt-5 mb-5">
+                            <ul class="clearfix">
+                                <li class="wow fadeInUp" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                    <div class="icon"><span class="flaticon-solar-energy"></span></div>
+                                    <div class="title" [innerHTML]="about?.icon_title_one"></div>
+                                </li>
+
+                                <li class="wow fadeInUp" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                    <div class="icon"><span class="flaticon-solar-panel"></span></div>
+                                    <div class="title" [innerHTML]="about?.icon_title_two"></div>
+                                </li>
+
+                                <li class="wow fadeInUp" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                    <div class="icon"><span class="flaticon-forest"></span></div>
+                                    <div class="title" [innerHTML]="about?.icon_title_three"></div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="row clearfix">
+                            <div class="featured-link-block col-md-6 col-sm-12">
+                                <div class="inner">
+                                    <div class="image"><a routerLink="#"><img src="images/resource/featured-image-36.jpg" alt=""></a></div>
+                                    <div class="caption-box">
+                                        <span class="title"><a routerLink="#">Get The Better Services</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="featured-link-block col-md-6 col-sm-12">
+                                <div class="inner">
+                                    <div class="image"><a routerLink="/contact-us"><img src="images/resource/featured-image-37.jpg" alt=""></a></div>
+                                    <div class="caption-box">
+                                        <span class="title"><a routerLink="/contact-us">talk with our expert</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Sidebar Side-->
+            <div class="sidebar-side col-lg-4 col-md-8 col-sm-12">
+                <aside class="sidebar service-sidebar">
+                    <!--Sidebar Widget-->
+                    <div class="sidebar-widget services-widget">
+                        <div class="widget-inner">
+                            <ul>
+                                <li *ngFor="let service of services" [class.active]="serviceID == service?.id" >
+                                    <a routerLink="/services/{{ service?.id }}/{{ service?.title | cleanUrl }}">
+                                        <span class="txt">{{ service?.title }}</span>
+                                        <span class="icon {{ service?.icon }}"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--Sidebar Widget-->
+                    <div class="sidebar-widget info-widget">
+                        <div class="widget-inner">
+                            <div class="image"><a href="#"><img src="/assets/images/resource/featured-image-38.jpg" alt=""></a></div>
+                            <div class="lower">
+                                <div class="subtitle">Got any Questions? <br>Call us Today!</div>
+                                <div class="icon-box"><span class="flaticon-telephone-1"></span></div>
+                                <div class="phone"><a href="tel:{{ webset?.biz_phone }}">{{ webset?.biz_phone }}</a></div>
+                                <div class="email"><a href="mailto:{{ webset?.site_email }}">{{ webset?.site_email }}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Sidebar Widget-->
+
+                </aside>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<app-footer></app-footer>

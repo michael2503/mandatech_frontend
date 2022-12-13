@@ -1,0 +1,36 @@
+@import "../../../../../theme/colors.scss";
+.userEachProd {
+    display: flex;
+    gap: 15px;
+    .imgCont {
+        width: 87px;
+        .prodImg {
+            padding-top: 109.369617636927%;
+        }
+    }
+    .txtPart {
+        font-size: 14px;
+        * {
+            line-height: 19px;
+        }
+        .prodName {
+            color: $txtColor;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+        .pv {
+            margin-bottom: 2.74px;
+        }
+        .price {
+            font-weight: 500;
+        }
+        button,
+        ::ng-deep button {
+            font-size: 12px;
+            height: 25.5px;
+            margin-top: 7.28px;
+            padding: 0 11.69px;
+            min-width: 85.34px;
+        }
+    }
+}

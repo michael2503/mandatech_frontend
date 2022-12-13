@@ -1,0 +1,14 @@
+@import '../../../../../../theme/colors.scss';
+.note {
+    font-size: 14px;
+}
+.inputCont {
+    position: relative;
+    span {
+        position: absolute;
+        top: 50%;
+        right: 23px;
+        transform: translateY(-50%);
+        display: block;
+    }
+}

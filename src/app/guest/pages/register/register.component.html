@@ -1,0 +1,96 @@
+
+
+<div class="form-bg">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 col-md-8">
+
+                <form [formGroup]="form" (ngSubmit)="submit()" class="form-horizontal">
+                    <div class="text-center">
+                        <a routerLink="/">
+                            <img src="{{ webSet?.logo_url }}" width="150" alt="{{ webSet?.site_name }}">
+                        </a>
+                        <div class="heading">Register</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" formControlName="first_name">
+
+                        <div *ngIf="f('first_name').touched && f('first_name').invalid" class="errDisp">*This field is required!
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" formControlName="last_name">
+
+                        <div *ngIf="f('last_name').touched && f('last_name').invalid" class="errDisp">*This field is required!
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label>Email</label>
+                        <input type="email" class="form-control" formControlName="email">
+
+                        <div *ngIf="f('email').touched && f('email').invalid" class="errDisp">*This field is required!
+                        </div>
+                        <div *ngIf="userErr" class="errDisp">*{{userErr}}</div>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" formControlName="password" #pwd>
+                        <div class="show-hide">
+                            <span [appPassToggle]="pwd" class="show">Show</span>
+                        </div>
+                        <div *ngIf="f('password').touched && f('password').invalid" class="errDisp">*This field is required!
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label for="exampleInputPassword1">Confirm Password</label>
+                        <input type="password" class="form-control" formControlName="confirm_password" #conpwd>
+                        <div class="show-hide">
+                            <span [appPassToggle]="conpwd" class="show">Show</span>
+                        </div>
+                        <div *ngIf="f('confirm_password').touched && f('confirm_password').invalid" class="errDisp">*This field is required!
+                        </div>
+                        <div *ngIf="passErr" class="errDisp">*{{passErr}}</div>
+                    </div>
+
+
+                    <div class="form-group mt-5">
+                        <button type="submit" class="theme-btn btn-style-eight btn-block">
+                            <div class="btn-title">
+                                <span *ngIf="!submitting" class="btn-txt">Register</span>
+                                <span *ngIf="submitting" class="btn-txt"><i class="fa fa-spinner fa-spin"></i> Loading...</span>
+                                <span class="btn-icon">
+                                    <span class="icon flaticon-arrows-11"></span>
+                                </span>
+                            </div>
+                        </button>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <ul class="social">
+                            <li class="text-center">Not a member? <a routerLink="/login">Login</a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

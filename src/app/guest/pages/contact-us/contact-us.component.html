@@ -1,0 +1,237 @@
+<app-home-header [activePage]="'contact'"></app-home-header>
+
+
+<main id="main-content" class="body-container-wrapper">
+    <div class="container-fluid body-container body-container--contact">
+        <div class="row-fluid-wrapper">
+            <div class="row-fluid">
+                <div class="span12 widget-span widget-type-cell " data-widget-type="cell" data-x="0" data-w="12">
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-1 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                <div id="hs_cos_wrapper_dnd_area-module-1" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                    <section class="page-banner">
+                                        <div class="image-layer" style="background-image: url(/assets/images/banner/banner-bg-1.webp);"></div>
+                                        <div class="auto-container">
+                                            <div class="breadcrumb-box">
+                                                <div class="auto-container">
+                                                    <ul class="bread-crumb clearfix">
+
+                                                        <li>
+                                                            <a routerLink="/">Home</a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a routerLink="/contact-us">Contact Us</a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h1>Contact Us</h1>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+                    <div class="row-fluid-wrapper row-depth-1 row-number-2 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-3 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624795245921" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="contact-section contact-page">
+                                                    <div class="auto-container">
+                                                        <div class="info-blocks">
+                                                            <div class="row clearfix">
+
+                                                                <div class="info-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                    <div class="inner">
+                                                                        <div class="icon">
+                                                                            <img src="/assets/images/icon-message-1.png" alt="icon-message" loading="" style="max-width: 100%; height: auto;">
+                                                                        </div>
+                                                                        <strong>Visit The Office</strong>
+                                                                        <ul class="info">
+                                                                            <li>{{ webset?.biz_addr }} {{ webset?.biz_city }} {{ webset?.biz_state }}, {{ webset?.biz_country }}</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="info-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                    <div class="inner">
+                                                                        <div class="icon">
+                                                                            <img src="/assets/images/icon-call-1-4.png" alt="icon-call" loading="" width="36" height="36">
+                                                                        </div>
+                                                                        <strong>Phone Inquiry</strong>
+                                                                        <ul class="info">
+                                                                            <li>{{ webset?.biz_phone }} <br>{{ webset?.biz_phone_two }}</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="info-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                                    <div class="inner">
+                                                                        <div class="icon">
+                                                                            <img src="/assets/images/icon-mail-1-4.webp" alt="icon-mail" loading="" width="36" height="36">
+                                                                        </div>
+                                                                        <strong>Send Email</strong>
+                                                                        <ul class="info">
+                                                                            <li>{{ webset?.site_email }}<br>{{ webset?.site_email_two }}</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="content-box clearfix wow fadeInUp animated" data-wow-delay="0ms" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                                            <div class="form-box clearfix">
+                                                                <div class="sec-title light-title">
+                                                                    <h2>Don’t Hesitate To <br>Contact Us</h2>
+                                                                    <div class="bottom-dots clearfix">
+                                                                        <span class="dot line-dot"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="default-form contact-form">
+                                                                    <form method="post" id="contact-form" novalidate="novalidate">
+                                                                        <div class="row clearfix">
+                                                                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                                                                <input type="text" name="username" placeholder="Your Name" required="" class="form-control">
+                                                                            </div>
+
+                                                                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                                                                <input type="email" name="email" placeholder="Email" required="" class="form-control">
+                                                                            </div>
+
+                                                                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                                                                <input type="text" name="subject" placeholder="Subject" required="" class="form-control">
+                                                                            </div>
+
+                                                                            <div class="col-md-12 col-sm-12 form-group">
+                                                                                <textarea name="message" class="form-control" placeholder="Message"></textarea>
+                                                                            </div>
+
+                                                                            <div class="col-md-12 col-sm-12 form-group">
+                                                                                <button type="submit" class="theme-btn btn-style-eight"><div class="btn-title"><span class="btn-txt">Send Request</span><span class="btn-icon"><span class="icon flaticon-arrows-11"></span> </span></div></button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                            <div class="image-layer" style="background-image: url(https://f.hubspotusercontent20.net/hubfs/20168525/bg-image-9.jpg);">
+                                                                <div class="info-box">
+                                                                    <div class="subtitle">Call Us 24/7 For Support</div>
+                                                                    <div class="phone">
+                                                                        <span class="icon">
+                                                                            <img src="/assets/images/icon-call-1-4.png" alt="icon-call-1-2" loading="lazy" style="max-width: 100%; height: auto;">
+                                                                        </span>
+                                                                        <a href="tel:{{ webset?.biz_phone }}">{{ webset?.biz_phone }}</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end row-wrapper -->
+
+
+
+
+
+                    <!-- CONTACT -->
+                    <div class="row-fluid-wrapper row-depth-1 row-number-19 dnd-section">
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" data-widget-type="cell" data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-20 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            <div id="hs_cos_wrapper_widget_1624729984510" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <section class="enquiry-section">
+                                                    <div class="image-layer" style="background-image: url(/assets/images/banner/bg-image-2.webp);"></div>
+                                                    <div class="auto-container">
+                                                        <div class="sec-title light-title centered wow fadeInDown" data-wow-delay="0ms" data-wow-duration="1000ms">
+                                                            <div class="upper-text">who are Mandatech <span class="icon flaticon-flash"></span></div>
+                                                            <h2>Get Free Consultation</h2>
+                                                            <div class="subtitle">For Controling Your Energy Production</div>
+                                                            <div class="bottom-dots clearfix">
+                                                                <span class="dot line-dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                                <span class="dot"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="content-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="2000ms">
+                                                            <div class="default-form contact-form">
+                                                                <span id="hs_cos_wrapper_widget_1624729984510_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_form" data-hs-cos-general-type="widget" data-hs-cos-type="form">
+                                                                    <h3 id="hs_cos_wrapper_form_355445941_title" class="hs_cos_wrapper form-title" data-hs-cos-general-type="widget_field" data-hs-cos-type="text"></h3>
+
+                                                                    <div id="hs_form_target_form_355445941"></div>
+                                                                </span>
+                                                            </div>
+                                                            <div class="lower-text">
+                                                                <div class="sub-title">
+                                                                    <span class="txt">Or if you need quick assistance</span>
+                                                                </div>
+                                                                <div class="info">For 24/7 Instant Customer Support, Chat With Us
+                                                                    <a target="_blank" href="https://wa.me//{{ webset?.biz_phone_two }}">
+                                                                        <span class="fa fa-whatsapp"></span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CONTACT -->
+
+
+
+                    <!--end row-wrapper -->
+
+                </div>
+                <!--end widget-span -->
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+
+<app-footer></app-footer>

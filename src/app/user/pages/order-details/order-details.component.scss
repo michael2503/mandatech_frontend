@@ -1,0 +1,82 @@
+@import '../coupons/coupons.component.scss';
+
+.activeTab {
+    background: $primary;
+    color: #fff !important;
+    border-radius: 5px;
+}
+
+.tabLink {
+    padding: 12px 20px 13px;
+    font-weight: 550;
+    font-size: 15px;
+    color: #555;
+}
+.sortWrap{
+    border: 1px solid #ccc;
+    background: #fff;
+    margin-top: 30px;
+    padding: 15px 10px;
+    border-radius: 10px;
+}
+.eachOrder{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    .proImg{
+        border: 2px solid #ccc;
+        padding: 2px;
+        border-radius: 5px;
+        img{
+            object-fit: contain;
+            width: 100%;
+            height: 70px;
+        }
+    }
+    .proInfoWrapepr{
+        padding-left: 0px;
+        .proInfo{
+            .pInfo{
+                margin-bottom: 2px;
+                font-size: 13px;
+                // font-weight: 550;
+            }
+            .proName{
+                font-size: 14px;
+            }
+            .priceSide{
+                .amt{
+                    margin-bottom: 2px;
+                    font-size: 13px;
+                    span{
+                        font-weight: 550;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+.shippingFee{
+    border-bottom: 1px solid #ccc;
+    p{
+        font-size: 14px;
+    }
+}
+.orderInfo{
+    p{
+        font-size: 14px;
+    }
+    .shippingAddr{
+        background: #f2f2f2;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .proDetBody{
+        padding: 5px;
+    }
+}

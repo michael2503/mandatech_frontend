@@ -1,0 +1,93 @@
+<app-user-layout sidebar="cart" [form]="form">
+    <app-package-layout>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="formGroup">
+                <label for="">Enter Username</label>
+                <div class="inputCont">
+                    <input
+                        type="text"
+                        class="form-control"
+                        (blur)="verifyUser()"
+                        (input)="removeUser()"
+                        [class.error]="
+                            (f('username')?.touched && f('username')?.invalid) ||
+                            (userErr && prevUser == f('username')?.value)
+                        "
+                        formControlName="username"
+                        placeholder="Enter first name"
+                    />
+                    <span *ngIf="fetching">
+                        <i  class="fa fa-spinner fa-spin"></i>
+                    </span>
+                </div>
+                <div
+                    *ngIf="f('username')?.touched && f('username')?.invalid"
+                    class="errDisp"
+                >
+                    *This field is required
+                </div>
+                <div
+                    *ngIf="userErr && prevUser == f('username')?.value"
+                    class="errDisp"
+                >
+                    *{{ userErr }}
+                </div>
+            </div>
+            <div class="formGroup">
+                <label for="">Full Name</label>
+                <input
+                    type="text"
+                    formControlName="full_name"
+                    readonly
+                    class="form-control"
+                    placeholder=""
+                />
+            </div>
+            <div class="formGroup">
+                <label for="">Package</label>
+                <select
+                    class="form-control"
+                    [class.error]="
+                        f('packageID')?.touched && f('packageID')?.invalid
+                    "
+                    (change)="selectPackage()"
+                    formControlName="packageID"
+                >
+                    <option value="">Select</option>
+                    <option
+                        *ngFor="let p of packages; trackBy: trackPackage"
+                        value="{{ p?.id }}"
+                    >
+                        {{ p?.name }}
+                    </option>
+                </select>
+                <div
+                    *ngIf="f('packageID')?.touched && f('packageID')?.invalid"
+                    class="errDisp"
+                >
+                    *This field is required!
+                </div>
+            </div>
+            <div *ngIf="form.valid" class="products">
+                <label for="">Products</label>
+                <p class="note">
+                    <i
+                        >You have to select products that the total PV is not
+                        less than
+                        {{ f("packageID").value | prodPackage | async }}PV</i
+                    >
+                </p>
+                <div class="gridCont">
+                    <div
+                        *ngFor="let prod of products; trackBy: trackProd"
+                        class="gridItem"
+                    >
+                        <app-user-each-prod
+                            [product]="prod"
+                        ></app-user-each-prod>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </app-package-layout>
+</app-user-layout>

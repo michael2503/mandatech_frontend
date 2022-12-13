@@ -1,0 +1,93 @@
+@import '../../../../../theme/colors.scss';
+aside {
+    position: sticky;
+    top: 0;
+    #closeAside {
+        position: absolute;
+    }
+    #asideInner {
+        width: 269px;
+        background: #fff;
+        display: flex;
+        height: var(--view-height);
+        flex-direction: column;
+        .logoCont {
+            height: 61px;
+            display: flex;
+            align-items: center;
+            padding-left: 15px;
+            padding-right: 30px;
+            border-bottom: 1px solid #DFDFDF;
+            justify-content: space-between;
+        }
+        #menuCont {
+            padding-top: 20px;
+            height: calc(var(--view-height) - 61px);
+            border-right: 1px solid #DFDFDF;
+            overflow-y: auto;
+            a {
+                display: flex;
+                align-items: center;
+                padding: 17px 0;
+                padding-left: 30px;
+                font-size: 15px;
+                font-weight: 500;
+                color: $txtColor;
+                gap: 16px;
+                svg {
+                    width: 31px;
+                    path {
+                        fill: $txtColor;
+                    }
+                }
+                &.stroke {
+                    svg {
+                        path {
+                            stroke: $txtColor;
+                            fill: none;
+                        }
+                    }
+                }
+                span {
+                    flex: 1;
+                }
+                &.activeLink {
+                    color: $primary;
+                    font-weight: bold;
+                    &:not(.stroke) {
+                        svg {
+                            path {
+                                fill: $primary;
+                            }
+                        }
+                    }
+                    &.stroke {
+                        svg {
+                            path {
+                                stroke: $primary;
+                            }
+                        }
+                    }
+                }
+            }
+            .submenuCont {
+                a {
+                    padding: 8px 0;
+                    padding-left: 99px;
+                }
+            }
+        }
+    }
+}
+
+.mobileMenuIcon{
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+@media only screen and (max-width: 776px){
+    .mobileMenuIcon{
+        display: inline;
+    }
+}

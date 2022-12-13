@@ -1,0 +1,320 @@
+@import "../../../../../theme/colors.scss";
+* {
+    font-size: 14px;
+}
+::ng-deep .titleSection {
+    border-bottom: none !important;
+}
+.titleSearchSect {
+    margin-top: 62px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #dfdfdf;
+    margin-bottom: 62px;
+    form {
+        display: flex;
+        gap: 7px;
+        height: 38.78px;
+        input,
+        button {
+            height: unset;
+            border-radius: 0;
+        }
+        input:focus {
+            box-shadow: none;
+            border-color: $primary;
+        }
+        button {
+            min-width: 110.95px;
+        }
+    }
+}
+.treeCont {
+    .eachUserLevel.moreDetails {
+        margin-top: 24px;
+        .eachUserCont {
+            padding-top: 24px;
+            height: 175.6px !important;
+            .vertLine:first-child {
+                display: none;
+            }
+        }
+        .moreCont.d-none {
+            transform: translateY(calc(100% + 2px)) rotate(-180deg);
+            top: 0;
+            bottom: unset;
+            display: block !important;
+        }
+    }
+    .eachUserLevel {
+        width: 100%;
+        display: grid;
+        align-items: flex-start;
+        // height: 151.6px;
+        .eachUserCont:not(.addUser) {
+            height: 151.6px;
+        }
+        .addUser {
+            height: 108.2px;
+        }
+        .eachUserCont {
+            display: flex;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            img {
+                width: 100%;
+            }
+            .eachUserInfoInner {
+                display: flex;
+                flex-direction: column;
+                width: fit-content;
+                align-items: center;
+                justify-content: center;
+                .imgCont {
+                    width: 77px;
+                    cursor: pointer;
+                    height: 77px;
+                    padding: 4px;
+                    border-radius: 50%;
+                    border: 1px solid #00321c;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    ::ng-deep img {
+                        border-radius: 50%;
+                    }
+                }
+                .imgCont:hover {
+                    z-index: 20;
+                    .fullDetail {
+                        opacity: 1;
+                        visibility: visible;
+                        display: block;
+                    }
+                }
+                .username {
+                    width: 100%;
+                    text-align: center;
+                    line-height: 18px;
+                    margin-top: 5px;
+                    // color: #fff;
+                    border-radius: 2px;
+                    font-size: 14px;
+                    padding: 3px 3px 4px;
+                    font-weight: 500;
+                    // background: #5c519f;
+                }
+            }
+            .fullDetail {
+                position: absolute;
+                top: 100%;
+                transition: 0.3s ease;
+                visibility: hidden;
+                display: none;
+                opacity: 0;
+                left: 50%;
+                padding-top: 16px;
+                transform: translateX(-50%);
+                width: 160px;
+                font-size: 12px;
+                * {
+                    font-size: 12px;
+                }
+                .fullDetailInnerPar {
+                    position: relative;
+                    box-shadow: 0px 4px 20px #0000001a;
+                }
+                .fullDetailInner {
+                    background: #fff;
+                    position: relative;
+                    z-index: 8;
+                }
+                .topPart {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 11px;
+                    background: $primary;
+                    color: #fff;
+                }
+                .imgCont {
+                    width: 38px;
+                    height: 38px;
+                    padding: 3px;
+                    border-color: #fff;
+                }
+                .username {
+                    background: none;
+                    font-size: 11px;
+                }
+                .userFullName {
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+                .bodyPart {
+                    padding: 8px 10px;
+                }
+                .eachBodyInfo {
+                    display: flex;
+                    align-items: center;
+                    padding: 4px 0;
+                    .key {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 50%;
+                    }
+                    .value {
+                        margin-left: 8px;
+                    }
+                }
+                .status {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 6px 0;
+                    span {
+                        padding: 5px 0;
+                        width: 100px;
+                        text-align: center;
+                        font-weight: 500;
+                        font-size: 15px;
+                        line-height: 1;
+                    }
+                    .gold {
+                        background: gold;
+                        color: #fff;
+                    }
+                }
+                .fullDetailInnerPar::before {
+                    position: absolute;
+                    top: 3px;
+                    // background: #;
+                    box-shadow: 0px 0 8px #a1a1a198;
+                    height: 15px;
+                    width: 15px;
+                    left: 50%;
+                    top: 0;
+                    transform: translate(-50%, -50%) rotate(45deg);
+                    content: none;
+                }
+            }
+            .fullDetail.dispTop {
+                bottom: 100%;
+                top: unset;
+                padding-bottom: 16px;
+                .fullDetailInnerPar::before {
+                    bottom: 0;
+                    top: unset;
+                    background: #fff;
+                    transform: translate(-50%, 50%) rotate(45deg);
+                }
+            }
+        }
+        .moreCont {
+            position: absolute;
+            bottom: 0;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: 0.3s ease;
+        }
+        .moreCont:hover {
+            opacity: 1;
+        }
+        // position: absolute;
+        // top: 100%;
+        // left: 0;
+        [class*="Line"] {
+            position: absolute;
+            top: 0;
+        }
+        .vertLine {
+            height: 24px;
+            border-left: 2px solid #c8d5d8;
+        }
+        .horLine {
+            width: 50%;
+            border-top: 2px solid #c8d5d8;
+        }
+        .eachUserCont {
+            .vertLine:first-child {
+                transform: translate(0, -100%);
+            }
+        }
+        .eachUserCont:nth-child(odd) {
+            [class*="Line"] {
+                right: 0;
+            }
+            .vertLine:first-child {
+                transform: translate(1px, -100%);
+            }
+            .vertLine:nth-child(2) {
+                left: 50%;
+                right: unset;
+            }
+        }
+        .eachUserCont:nth-child(even) {
+            [class*="Line"] {
+                left: 0;
+            }
+            .vertLine:first-child {
+                transform: translate(-1px, -100%);
+            }
+            .vertLine:nth-child(2) {
+                left: 50%;
+            }
+        }
+        .addHere {
+            display: flex;
+            width: fit-content;
+            flex-direction: column;
+            align-items: center;
+            .addImgCont {
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                border: 1px solid #cccccc;
+                padding: 3px;
+                cursor: pointer;
+                position: relative;
+                // &::before {
+                //     position: absolute;
+                //     top: 50%;
+                //     left: 50%;
+                //     background: rgba(207, 207, 41, 0.581);
+                //     content: '';
+                //     width: 40px;
+                //     height: 40px;
+                //     transform: translate(-50%, -50%);
+                //     border-radius: 50%;
+                // }
+                ::ng-deep img {
+                    border-radius: 50%;
+                    width: 100%;
+                }
+            }
+            .addImgCont:hover {
+                img {
+                    filter: grayscale(100%);
+                }
+            }
+            span {
+                color: $primary;
+                text-align: center;
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+#noResult {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 150px;
+}

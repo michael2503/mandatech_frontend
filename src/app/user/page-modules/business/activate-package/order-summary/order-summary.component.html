@@ -1,0 +1,126 @@
+<app-user-layout>
+    <app-package-layout>
+        <div class="cartsCont">
+            <div
+                *ngFor="let cart of carts; trackBy: trackCart"
+                class="eachCart"
+            >
+                <div>
+                    <div class="prodInfo">
+                        <div class="imgCont">
+                            <div class="prodImg">
+                                <cl-image
+                                    appAltImageFormat
+                                    public-id="{{
+                                        cart?.prodInfo?.featured_img | publicId
+                                    }}"
+                                    format="avif"
+                                >
+                                    <cl-transformation
+                                        width="90"
+                                        crop="scale"
+                                    ></cl-transformation>
+                                </cl-image>
+                            </div>
+                        </div>
+                        <div class="txtPart">
+                            <div class="prodName ellipsis">
+                                {{
+                                    cart?.prodInfo?.name
+                                        | textTransform: "capitalize"
+                                }}
+                            </div>
+                            <div class="qty">Qty: {{ cart?.quantity }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div>{{ cart?.prodInfo?.point_value * cart?.quantity }}PV</div>
+                <div
+                    [innerHTML]="cart?.prodInfo?.sales_price * cart?.quantity | price | async"
+                ></div>
+            </div>
+        </div>
+        <hr />
+        <form [formGroup]="form" (ngSubmit)="firstSubmit()" class="payment">
+            <div class="choose">Choose Payment Method</div>
+            <div class="payMethods">
+                <div class="eachPayM">
+                    <input
+                        type="radio"
+                        formControlName="payMethod"
+                        hidden
+                        name="payMethod"
+                        value="wallet"
+                        id="wallet"
+                        (change)="payMChng()"
+                    />
+                    <label for="wallet">
+                        <div class="cusRadio"></div>
+                        <span>Pay With Wallet</span>
+                    </label>
+                </div>
+                <div class="eachPayM">
+                    <input
+                        type="radio"
+                        formControlName="payMethod"
+                        hidden
+                        name="payMethod"
+                        value="paystack"
+                        id="paystack"
+                        (change)="payMChng()"
+                    />
+                    <label for="paystack">
+                        <div class="cusRadio"></div>
+                        <span>Paystack</span>
+                    </label>
+                </div>
+                <div class="eachPayM">
+                    <input
+                        type="radio"
+                        formControlName="payMethod"
+                        hidden
+                        name="payMethod"
+                        value="bank"
+                        id="bank"
+                        (change)="payMChng()"
+                    />
+                    <label for="bank">
+                        <div class="cusRadio"></div>
+                        <span>Bank Transfer</span>
+                    </label>
+                </div>
+            </div>
+            <div
+                *ngIf="
+                    f('payMethod')?.valid &&
+                    f('payMethod')?.value != 'paystack'
+                "
+                class="methodResp"
+            >
+                <i *ngIf="f('payMethod')?.value == 'wallet'" class="wallet d-block" [class.primCol]="+totalAmnt <= +balance" [class.error]="+totalAmnt > +balance"
+                    >Wallet Balance:
+                    <span [innerHTML]="balance | price | async"></span
+                ></i>
+                <app-file-upload *ngIf="f('payMethod')?.value == 'bank'" [fc]="f('pop')" label="Upload Proof of Payment" folder="pop"></app-file-upload>
+            </div>
+            <button *ngIf="!submitting && f('payMethod')?.value != 'paystack'" [disabled]="!validForm" class="primBtn">ACTIVATE NOW</button>
+            <angular4-paystack
+                *ngIf="f('payMethod')?.value == 'paystack'"
+                [key]="paystackKey"
+                [email]="auth.email"
+                [amount]="paystackAmnt"
+                [ref]="paystackRef"
+                [channels]="['card', 'bank']"
+                [currency]="currCode"
+                [class]="'primBtn' + (submitting ? ' d-none' : '')"
+                (onClose)="paymentCancel()"
+                (callback)="paymentDone($event)"
+                >PAY NOW
+            </angular4-paystack>
+            <app-loading-btn
+                *ngIf="submitting"
+                clss="primBtn"
+            ></app-loading-btn>
+        </form>
+    </app-package-layout>
+</app-user-layout>

@@ -1,0 +1,103 @@
+@import '../../../../theme/colors.scss';
+.eachProd {
+    color: $txtColor;
+    text-decoration: none !important;
+    position: relative;
+    &::after {
+        position: absolute;
+        top: 0;
+        right: -41px;
+        border-right: 1px solid #DFDFDF;
+        height: 100%;
+    }
+    .prodImg {
+        margin-bottom: 20px;
+        @media (max-width: 500px) {
+            margin-bottom: 10px;
+        }
+    }
+    .txtPart {
+        @media (max-width: 500px) {
+            font-size: 14px;
+        }
+        .nameRate {
+            margin-bottom: 12px;
+            b {
+                max-width: calc(100% - 80px);
+                display: block;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+        .rateCont {
+            gap: 3.75px;
+        }
+        &>.rateCont {
+            display: none !important;
+        }
+        p {
+            margin-bottom: 12px;
+            // max-width: 255.24px;
+            height: 48px;
+            overflow: hidden;
+        }
+        .amntAddBtn {
+            button,
+             ::ng-deep button {
+                height: 37.14px;
+                font-size: 14px;
+                padding: 0 24.08px;
+                width: 120.1px;
+                @media (max-width: 500px) {
+                    font-size: 12px;
+                    padding: 0 20px;
+                    width: 100px;
+                    height: 34px;
+                }
+            }
+            .amnt {
+                font-size: 20px;
+                @media (max-width: 500px) {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    &.related {
+        &::after {
+            content: '';
+        }
+        .prodImg {
+            margin-bottom: 13.36px;
+        }
+        .txtPart {
+            .nameRate {
+                margin-bottom: 16px;
+                b {
+                    display: block;
+                    height: 42px;
+                    overflow: hidden;
+                    text-overflow: unset;
+                    white-space: normal;
+                    font-weight: 500;
+                    max-width: 189.21px;
+                }
+                .rateCont {
+                    display: none !important;
+                }
+            }
+            &>.rateCont {
+                display: flex !important;
+                margin-bottom: 11.89px;
+                svg {
+                    width: 13px;
+                    height: 13px;
+                }
+            }
+            &>p {
+                display: none;
+            }
+        }
+    }
+}

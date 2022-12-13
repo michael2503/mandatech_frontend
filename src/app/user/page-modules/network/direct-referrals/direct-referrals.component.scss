@@ -1,0 +1,9 @@
+@import '../binary-tree/binary-tree.component.scss';
+::ng-deep .titleSection.d-flex {
+    border-bottom: 1px solid #dfdfdf !important;
+}
+
+.titleSearchSect {
+    margin-top: 42px;
+    margin-bottom: 15px;
+}

@@ -1,0 +1,53 @@
+@import "../master-wallet/master-wallet.component.scss";
+.eachCol {
+    align-items: center;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    .iconCont {
+        width: 80px;
+        opacity: .5;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.categoryTab {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 30px;
+    margin-bottom: 40px;
+    &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        content: '';
+        border-bottom: 1px solid #DFDFDF;
+    }
+    .eachTab {
+        label {
+            padding-bottom: 10px;
+            position: relative;
+            margin: 0;
+            cursor: pointer;
+            &::after {
+                position: absolute;
+                bottom: 0;
+                border-bottom: 3px solid $primary;
+                width: 100%;
+                left: 0;
+            }
+            &[for=""] {
+                opacity: .5;
+                cursor: not-allowed;
+            }
+        }
+        input:checked+label {
+            &::after {
+                content: '';
+            }
+        }
+    }
+}

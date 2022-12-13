@@ -1,0 +1,241 @@
+<header class="main-header header-style-one">
+    <!-- Header Upper -->
+    <div class="header-main-box">
+
+        <div class="upper-row clearfix">
+            <!--Logo-->
+            <div class="logo-box">
+                <div class="logo">
+                    <div id="hs_cos_wrapper_site_logo" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-logo" style="width:85px">
+                        <span id="hs_cos_wrapper_site_logo_hs_logo_widget" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_logo">
+                            <a routerLink="/" id="hs-link-site_logo_hs_logo_widget" style="border-width:0px;border:0px;">
+                                <img src="{{ webSet?.logo_url }}" class="hs-image-widget " style="width:165px;border-width:0px;border:0px;" width="165" alt="Mandatech" title="Mandatech">
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="right-info clearfix">
+                <!--Info-->
+                <div class="info clearfix">
+                    <div class="info-block">
+                        <div class="icon-box">
+                            <div id="hs_cos_wrapper_phone-icon" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module"><span class="icon">
+                                <img src="/assets/images/icon-call-1-4.png" alt="icon-call-1-4" loading="lazy" style="max-width: 100%; height: auto;">
+                                </span>
+                            </div>
+                        </div>
+                        <div id="hs_cos_wrapper_contact_phone" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-rich_text"><span id="hs_cos_wrapper_contact_phone_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" data-hs-cos-type="rich_text"><strong>Phone Inquiry</strong>
+                                <div class="info-text">
+                                    <a routerLink="tel:{{ webSet?.biz_phone }}">{{ webSet?.biz_phone }}</a>
+                                </div>
+                            </span></div>
+                    </div>
+                    <div class="info-block">
+                        <div class="icon-box">
+                            <div id="hs_cos_wrapper_Home-icon" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module"><span class="icon">
+                                <img src="/assets/images/icon-message-1.png" alt="icon-message-1" loading="lazy" style="max-width: 100%; height: auto;">
+                                </span>
+                            </div>
+                        </div>
+                        <div id="hs_cos_wrapper_contact_message" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-rich_text"><span id="hs_cos_wrapper_contact_message_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" data-hs-cos-type="rich_text"><strong>Visit The Office</strong>
+                            <div class="info-text">{{ webSet?.biz_addr }}</div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="auto-container">
+            <div class="inner-container">
+
+                <div class="lower-row">
+                    <div class="nav-box clearfix">
+                        <div class="nav-outer ">
+                            <div (click)="theToggler()" class="mobile-nav-toggler"><span class="icon flaticon-menu-1"></span></div>
+
+
+
+                            <nav class="main-menu navbar-expand-md navbar-light">
+                                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                    <div id="hs_cos_wrapper_navigation-primary" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module">
+                                        <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                            <ul class="navigation clearfix submenus hs-menu-children-wrapper level-1" aria-hidden="false">
+                                                <li class="no-hs-item-has-children menu-item" [class.current]="activePage == 'home'">
+                                                    <a class="menu-link active active-item" routerLink="/" aria-current="page">Home</a>
+                                                </li>
+                                                <li class="no-hs-item-has-children menu-item" [class.current]="activePage == 'about'">
+                                                    <a class="navs-link" routerLink="/about">About</a>
+                                                </li>
+                                                <li class="hs-item-has-children menu-item" [class.current]="activePage == 'services'">
+                                                    <a class="navs-link" routerLink="/services">Services</a>
+                                                    <ul *ngIf="isShow" class="navigation clearfix submenus hs-menu-children-wrapper level-2" aria-hidden="true">
+                                                        <li *ngFor="let service of ourServices" (click)="NoShowAgain()" class="no-hs-item-has-children menu-item">
+                                                            <a class="navs-link" routerLink="/services/{{ service?.id }}/{{ service?.title | cleanUrl }}">{{ service?.title }}</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+                                                <li class="no-hs-item-has-children menu-item" [class.current]="activePage == 'projects'">
+                                                    <a class="navs-link" routerLink="/projects">Projects</a>
+                                                </li>
+
+                                                <li class="no-hs-item-has-children menu-item" [class.current]="activePage == 'products'">
+                                                    <a class="navs-link" routerLink="/products">Products</a>
+                                                </li>
+
+                                                <li class="no-hs-item-has-children menu-item" [class.current]="activePage == 'contact'">
+                                                    <a class="navs-link" routerLink="/contact-us">Contact Us</a>
+                                                </li>
+
+                                                <li class="no-hs-item-has-children menu-item">
+                                                    <a class="navs-link shoppingCart" routerLink="/shopping-carts"><i class="fa fa-shopping-cart"></i> <span>{{ cartCount }}</span></a>
+                                                </li>
+                                                <li class="no-hs-item-has-children menu-item">
+                                                    <a class="navs-link shoppingCart" routerLink="/login"><i class="fa fa-user"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+
+
+                        </div>
+
+                        <div class="float-right">
+                            <li class="">
+                                <a class="navs-link shoppingCartM ml-4" routerLink="/login"><i class="fa fa-user"></i></a>
+                                <a class="navs-link shoppingCartM" routerLink="/shopping-carts"><i class="fa fa-shopping-cart"></i> <span>{{ cartCount }}</span></a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- sticky nav -->
+    <div  [class.stickyHeader]="stickyHeader">
+        <div *ngIf="isStickBar" class="auto-container clearfix">
+            <div class="logo pull-left">
+                <div id="hs_cos_wrapper_site_logo_2" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-logo" style="width: 85px">
+                    <span id="hs_cos_wrapper_site_logo_2_hs_logo_widget" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_logo">
+                        <a routerLink="/" id="hs-link-site_logo_2_hs_logo_widget" style="border-width:0px;border:0px;">
+                            <img src="{{ webSet?.logo_url }}" class="hs-image-widget " style="width:165px;border-width:0px;border:0px;" width="165" alt="Mandatech" title="Mandatech">
+                        </a>
+                    </span>
+                </div>
+            </div>
+            <div class="pull-right">
+                <nav class="main-menu clearfix">
+                    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                        <div id="hs_cos_wrapper_navigation-primary" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module">
+                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix submenus hs-menu-children-wrapper level-1" aria-hidden="false">
+                                    <li class="no-hs-item-has-children menu-item" [class.current]="activePage == 'home'">
+                                        <a class="menu-link active active-item" routerLink="/" aria-current="page">Home</a>
+                                    </li>
+                                    <li class="no-hs-item-has-children menu-item" [class.current]="activePage == 'about'">
+                                        <a class="navs-link" routerLink="/about">About</a>
+                                    </li>
+                                    <li class="hs-item-has-children menu-item" [class.current]="activePage == 'services'">
+                                        <a class="navs-link" routerLink="/services">Services</a>
+                                        <ul class="navigation clearfix submenus hs-menu-children-wrapper level-2" aria-hidden="true">
+                                            <li *ngFor="let service of ourServices" class="no-hs-item-has-children menu-item">
+                                                <a class="navs-link" routerLink="/services/{{ service?.id }}/{{ service?.title | cleanUrl }}">{{ service?.title }}</a>
+                                            </li>
+                                        </ul>
+                                    <div class="dropdown-btn"><span class="fa fa-angle-right" aria-hidden="true"></span></div></li>
+
+                                    <li class="no-hs-item-has-children menu-item" [class.current]="activePage == 'projects'">
+                                        <a class="navs-link" routerLink="/projects">Projects</a>
+                                    </li>
+
+                                    <li class="no-hs-item-has-children menu-item" [class.current]="activePage == 'product'">
+                                        <a class="navs-link" routerLink="/products">Products</a>
+                                    </li>
+
+                                    <li class="no-hs-item-has-children menu-item" [class.current]="activePage == 'contact'">
+                                        <a class="navs-link" routerLink="/contact-us">Contact Us</a>
+                                    </li>
+
+                                    <li class="no-hs-item-has-children menu-item">
+                                        <a class="navs-link shoppingCart" routerLink="/shopping-carts"><i class="fa fa-shopping-cart"></i> <span>{{ cartCount }}</span></a>
+                                    </li>
+                                    <li class="no-hs-item-has-children menu-item">
+                                        <a class="navs-link shoppingCart" routerLink="/login"><i class="fa fa-user"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div [class.mobile-menu-visible]="isMobile">
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="menu-backdrop" (click)="closeMobile()"></div>
+            <div class="close-btn" (click)="closeMobile()"><span class="icon flaticon-cancel"></span></div>
+            <nav class="menu-box" id="menuBox">
+                <div class="nav-logo">
+                    <div id="hs_cos_wrapper_site_logo_3" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-logo">
+                        <span id="hs_cos_wrapper_site_logo_3_hs_logo_widget" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_logo">
+                            <a routerLink="/" id="hs-link-site_logo_3_hs_logo_widget" style="border-width:0px;border:0px;">
+                                <img src="{{ webSet?.logo_url }}" class="hs-image-widget " style="width:165px;border-width:0px;border:0px;" width="165" alt="Mandatech" title="Mandatech">
+                            </a></span>
+                    </div>
+                </div>
+                <div class="menu-outer">
+
+                    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                        <ul class="navigation clearfix">
+                            <li [class.current]="activePage == 'home'"><a routerLink="/">Home</a></li>
+
+                            <li [class.current]="activePage == 'about'"><a routerLink="/about">About Us</a></li>
+
+                            <li class="dropdown" [class.current]="activePage == 'services'"><a routerLink="/services">Service</a>
+                                <ul style="display: block;">
+                                    <li *ngFor="let service of ourServices"><a routerLink="/services/{{ service?.id }}/{{ service?.title | cleanUrl }}">{{ service?.title }}</a></li>
+                                </ul>
+                                <div class="dropdown-btn open"><span class="fa fa-angle-right"></span></div>
+                            </li>
+
+                            <li [class.current]="activePage == 'projects'"><a routerLink="/projects">Projects</a></li>
+
+                            <li [class.current]="activePage == 'product'"><a routerLink="/products">Products</a></li>
+                            <li [class.current]="activePage == 'contact'"><a routerLink="/contact-us">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="social-links">
+                    <div id="hs_cos_wrapper_mobile_social_media" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module">
+                        <ul class="clearfix">
+                            <li>
+                                <a routerLink="?hsLang=en"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li>
+                                <a routerLink="?hsLang=en"><i class="fab fa-google-plus-g"></i></a>
+                            </li>
+                            <li>
+                                <a routerLink="?hsLang=en"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a routerLink="?hsLang=en"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li>
+                                <a routerLink="?hsLang=en"><i class="fab fa-youtube"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

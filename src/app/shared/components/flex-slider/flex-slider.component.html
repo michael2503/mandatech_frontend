@@ -1,0 +1,4 @@
+<div #carouselParent (mouseenter)="stopAutoSlide()" (mouseleave)="draggable && autoSlide && infiniteSlide ? startAutoSlide() : null" (mousedown)="enableDrag ? (draggable ? dragStart($event) : null) : null" (touchstart)="enableDrag ? (draggable ? dragStart($event) : null) : null"
+    class="carouselParent">
+    <ng-content></ng-content>
+</div>

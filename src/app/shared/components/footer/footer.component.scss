@@ -1,0 +1,82 @@
+@import '../../../../theme/colors.scss';
+footer {
+    background: #252C30;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% auto;
+    a {
+        color: #fff;
+        text-decoration: none !important;
+    }
+}
+
+.topSect {
+    padding: 24.94px 0;
+    border-bottom: 1px solid #343E43;
+    .socialCont {
+        gap: 20px;
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 46.68px;
+            height: 46.68px;
+            min-width: 46.68px;
+            color: #fff;
+            background: $primary;
+            border-radius: 50%;
+        }
+    }
+}
+
+.middleSect {
+    padding: 71.5px 0 82.07px;
+    .row {
+        row-gap: 30px;
+    }
+    h4 {
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 26.59px;
+        color: $primary;
+    }
+    .contactCont {
+        p {
+            max-width: 268.51px;
+            margin-bottom: 13.01px;
+        }
+        .contactInfo {
+            display: flex;
+            flex-direction: column;
+            gap: 19.2px;
+            a {
+                display: flex;
+                align-items: center;
+                gap: 17.26px;
+                i {
+                    color: $primary;
+                }
+            }
+        }
+    }
+    .linksCont {
+        a {
+            display: flex;
+            margin-bottom: 10.25px;
+            gap: 11.66px;
+            i {
+                color: $primary;
+            }
+        }
+    }
+    img {
+        width: 100%;
+    }
+}
+
+.bottomSect {
+    background: #1C2124;
+    padding: 17px 0;
+    color: #C7C7C7;
+}
